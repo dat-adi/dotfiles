@@ -1,5 +1,6 @@
 syntax on
 
+set encoding=utf-8
 set ts=4
 set noerrorbells
 set shiftwidth=4
@@ -10,13 +11,14 @@ set nowrap
 set smartcase
 set noswapfile
 set incsearch
+set foldmethod=indent
+set foldlevel=99
 
 set colorcolumn=80
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 call plug#begin()
 
-Plug 'neoclide/coc.nvim', { 'branch' : 'release' }
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'junegunn/fzf.vim', { 'do': { -> fzf#install() } }
@@ -41,3 +43,6 @@ noremap <RIGHT> <NOP>
 nmap <leader>gs :G<CR>
 nmap <leader>gj :diffget //3<CR>
 nmap <leader>gf :diffget //2<CR>
+nmap <leader>gc :Gcommit<CR>
+nmap <leader>gp :Gpush<CR>
+nnoremap <space> za
