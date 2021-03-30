@@ -110,10 +110,21 @@ screens = [
                     },
                     name_transform=lambda name: name.upper(),
                 ),
-                widget.TextBox("default config", name="default"),
-                widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
+                widget.TextBox(
+                    "Dat Adi",
+                    name="name",
+                    foreground="#d75f5f"
+                    ),
                 widget.Systray(),
-                widget.Clock(format='%Y-%m-%d %a %I:%M %p'),
+                widget.Clock(
+                    format='%d-%m-%Y %a %I:%M %p',
+                    padding=10
+                    ),
+                widget.Battery(
+                    background="#14501A",
+                    format="{char}{percent:2.0%}",
+                    padding=10
+                    ),
                 widget.QuickExit(),
             ],
             24,
