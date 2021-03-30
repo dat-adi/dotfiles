@@ -2,3 +2,6 @@
 .config/discord
 .config/teams
 .config/pulse
+.config/QtProject.conf
+.config/autostart
+.config/vlc
