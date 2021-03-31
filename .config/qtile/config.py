@@ -130,6 +130,39 @@ screens = [
             24,
         ),
     ),
+    Screen(
+        bottom=bar.Bar(
+            [
+                widget.CurrentLayout(),
+                widget.GroupBox(),
+                widget.Prompt(),
+                widget.WindowName(),
+                widget.Chord(
+                    chords_colors={
+                        'launch': ("#ff0000", "#ffffff"),
+                    },
+                    name_transform=lambda name: name.upper(),
+                ),
+                widget.TextBox(
+                    "Dat Adi",
+                    name="name",
+                    foreground="#d75f5f"
+                    ),
+                widget.Systray(),
+                widget.Clock(
+                    format='%d-%m-%Y %a %I:%M %p',
+                    padding=10
+                    ),
+                widget.Battery(
+                    background="#14501A",
+                    format="{char}{percent:2.0%}",
+                    padding=10
+                    ),
+                widget.QuickExit(),
+            ],
+            24,
+        ),
+    ),
 ]
 
 # Drag floating layouts.

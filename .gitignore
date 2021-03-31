@@ -5,3 +5,5 @@
 .config/QtProject.conf
 .config/autostart
 .config/vlc
+.config/nvim/.netrwhist
+.config/qtile/__pycache__/*
