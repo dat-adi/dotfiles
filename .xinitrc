@@ -51,4 +51,4 @@ fi
 nitrogen --restore &
 picom &
 pulseaudio &
-exec qtile
+exec qtile start

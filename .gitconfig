@@ -1,0 +1,6 @@
+[user]
+	email = dat.adithya@gmail.com
+	name = dat-adi
+
+[alias]
+    cim = commit -m
