@@ -14,7 +14,11 @@ alias stat='git status'  # 'status' is protected name so using 'stat' instead
 alias tag='git tag'
 alias newtag='git tag -a'
 
-# bat
+# files
 alias cat='bat'
-
 alias sl='ls'
+
+# appimages
+alias obsidian='/usr/local/bin/Obsidian-0.11.9.AppImage'
+
+# node
