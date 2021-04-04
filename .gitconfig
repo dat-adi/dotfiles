@@ -4,3 +4,5 @@
 
 [alias]
     cim = commit -m
+[credential]
+	helper = /usr/lib/git-core/git-credential-libsecret

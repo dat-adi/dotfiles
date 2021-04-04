@@ -18,4 +18,3 @@ alias newtag='git tag -a'
 alias cat='bat'
 
 alias sl='ls'
-alias ls='ls -la'

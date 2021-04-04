@@ -100,13 +100,12 @@ screens = [
     Screen(
         bottom=bar.Bar(
             [
-                widget.CurrentLayout(),
                 widget.GroupBox(),
                 widget.Prompt(),
                 widget.WindowName(),
                 widget.Chord(
                     chords_colors={
-                        'launch': ("#ff0000", "#ffffff"),
+                        'launch': ("#0000ff", "#ffffff"),
                     },
                     name_transform=lambda name: name.upper(),
                 ),
@@ -130,6 +129,7 @@ screens = [
             24,
         ),
     ),
+    '''
     Screen(
         bottom=bar.Bar(
             [
@@ -153,16 +153,11 @@ screens = [
                     format='%d-%m-%Y %a %I:%M %p',
                     padding=10
                     ),
-                widget.Battery(
-                    background="#14501A",
-                    format="{char}{percent:2.0%}",
-                    padding=10
-                    ),
-                widget.QuickExit(),
             ],
             24,
         ),
     ),
+    '''
 ]
 
 # Drag floating layouts.
