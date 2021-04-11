@@ -21,4 +21,7 @@ alias sl='ls'
 # appimages
 alias obsidian='/usr/local/bin/Obsidian-0.11.9.AppImage'
 
+# browser
+alias viv='vivaldi-stable'
+
 # node

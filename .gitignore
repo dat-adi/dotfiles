@@ -11,3 +11,5 @@
 .config/cmus/
 .config/dconf/
 .config/obsidian/
+.config/vivaldi
+.config/mimeapps.list
