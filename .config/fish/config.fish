@@ -16,12 +16,17 @@ alias newtag='git tag -a'
 
 # files
 alias cat='bat'
-alias sl='ls'
+alias sl='ls -la'
 
 # appimages
 alias obsidian='/usr/local/bin/Obsidian-0.11.9.AppImage'
 
 # browser
 alias viv='vivaldi-stable'
+
+# editors 
+alias emacs='edoom'
+alias n='nvim'
+alias vi='nvim'
 
 # node
