@@ -25,8 +25,10 @@ alias obsidian='/usr/local/bin/Obsidian-0.11.9.AppImage'
 alias viv='vivaldi-stable'
 
 # editors 
-alias emacs='edoom'
 alias n='nvim'
 alias vi='nvim'
 
-# node
+# xampp
+alias xampp-start='sudo /opt/lampp/lampp start'
+alias xampp-stop='sudo /opt/lampp/lampp stop'
+

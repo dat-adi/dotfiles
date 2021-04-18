@@ -6,6 +6,7 @@
 .config/autostart
 .config/vlc
 .config/nvim/.netrwhist
+.config/nvim/plugged
 .config/qtile/__pycache__/*
 .config/Code - OSS
 .config/cmus/
