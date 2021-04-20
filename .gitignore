@@ -14,3 +14,5 @@
 .config/obsidian/
 .config/vivaldi
 .config/mimeapps.list
+
+.doom.d/custom.el

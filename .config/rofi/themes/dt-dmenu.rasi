@@ -6,16 +6,16 @@
  */
 
 * {
-    background-color:           #282c34;
+    background-color:           #2a2a2a;
     border-color:               #282c34;
     text-color:                 #bbc2cf;
     height:                     23px;
     font:                       "SauceCodePro Nerd Font Mono 10";
-    prompt-font:                "Ubuntu Bold 10";
-    prompt-background:          #51afef;
-    prompt-foreground:          #282c34;
-    prompt-padding:             2px;
-    selected-normal-background: #ae3f3e;
+    prompt-font:                "Ubuntu Bold 9";
+    prompt-background:          #74438f;
+    prompt-foreground:          #ffffff;
+    prompt-padding:             4px;
+    selected-normal-background: #4f76c7;
     selected-normal-foreground: #ffffff;
 }
 #window {

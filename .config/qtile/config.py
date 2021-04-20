@@ -47,7 +47,7 @@ keys = [
     # Split = all windows displayed
     # Unsplit = 1 window displayed, like Max layout, but still with
     # multiple stack panes
-    Key([mod, "shift"], "Return", lazy.spawn("rofi -show drun"),
+    Key([mod, "shift"], "Return", lazy.spawn("rofi -show combi"),
         desc="Toggle between split and unsplit sides of stack"),
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
 
@@ -57,7 +57,7 @@ keys = [
 
     Key([mod, "control"], "r", lazy.restart(), desc="Restart Qtile"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
-    Key([mod], "r", lazy.spawncmd(),
+    Key([mod], "r", lazy.spawn("rofi -show drun"),
         desc="Spawn a command using a prompt widget"),
 
     # Window switches
@@ -131,7 +131,6 @@ layouts = [
          vspace = 3,
          panel_width = 200
         ),
-    layout.Floating(**layout_theme)
 ]
 
 colors = [["#2a2a2a", "#2a2a2a"], # panel background
