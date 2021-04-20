@@ -1,12 +1,12 @@
 # -*- utf-8 -*-
+import os
+import socket
 from typing import List  # noqa: F401
 
 from libqtile import bar, layout, widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
-import socket
-import os
 
 mod = "mod4"
 terminal = guess_terminal()
@@ -129,17 +129,10 @@ layouts = [
          section_bottom = 20,
          level_shift = 8,
          vspace = 3,
+         panel_width = 200
         ),
+    layout.Floating(**layout_theme)
 ]
-
-CustomPrompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
-
-widget_defaults = dict(
-    font='Ubuntu Mono',
-    fontsize=9,
-    padding=3,
-)
-extension_defaults = widget_defaults.copy()
 
 colors = [["#2a2a2a", "#2a2a2a"], # panel background
           ["#3d3f4b", "#434758"], # background for current screen tab
@@ -150,6 +143,14 @@ colors = [["#2a2a2a", "#2a2a2a"], # panel background
           ["#e1acff", "#e1acff"], # window name
           ["#ecbbfb", "#ecbbfb"]] # backbround for inactive screens
 
+CustomPrompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
+
+widget_defaults = dict(
+    font='Ubuntu Mono',
+    fontsize=9,
+    padding=3,
+)
+extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
