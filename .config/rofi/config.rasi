@@ -1,11 +1,12 @@
 /** Basic config file **/
 
 configuration {
-  show-icons:         true;
-  icon-theme:         "Papirus";
-  matching: "fuzzy";
-  sorting-method: "fzf";
-  sort: true;
+    modi:               "drun,windowcd,combi,file-browser";
+    show-icons:         true;
+    icon-theme:         "Papirus";
+    matching:           "fuzzy";
+    sorting-method:     "fzf";
+    sort:               true;
 }
 
-@import "~/.config/rofi/themes/dt-center.rasi"
+@import "~/.config/rofi/themes/dt-dmenu.rasi"
