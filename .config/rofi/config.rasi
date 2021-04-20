@@ -1,0 +1,11 @@
+/** Basic config file **/
+
+configuration {
+  show-icons:         true;
+  icon-theme:         "Papirus";
+  matching: "fuzzy";
+  sorting-method: "fzf";
+  sort: true;
+}
+
+@import "~/.config/rofi/themes/dt-center.rasi"

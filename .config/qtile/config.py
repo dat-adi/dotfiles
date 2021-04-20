@@ -5,6 +5,8 @@ from libqtile import bar, layout, widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
+import socket
+import os
 
 mod = "mod4"
 terminal = guess_terminal()
@@ -27,6 +29,8 @@ keys = [
     Key([mod, "shift"], "j", lazy.layout.shuffle_down(),
         desc="Move window down"),
     Key([mod, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
+    Key([mod, "shift"], "f", lazy.window.toggle_floating(), desc='toggle floating'),
+    Key([mod], "f", lazy.window.toggle_fullscreen(), desc='toggle fullscreen'),
 
     # Grow windows. If current window is on the edge of screen and direction
     # will be to screen edge - window would shrink.
@@ -43,7 +47,7 @@ keys = [
     # Split = all windows displayed
     # Unsplit = 1 window displayed, like Max layout, but still with
     # multiple stack panes
-    Key([mod, "shift"], "Return", lazy.layout.toggle_split(),
+    Key([mod, "shift"], "Return", lazy.spawn("rofi -show drun"),
         desc="Toggle between split and unsplit sides of stack"),
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
 
@@ -55,6 +59,22 @@ keys = [
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "r", lazy.spawncmd(),
         desc="Spawn a command using a prompt widget"),
+
+    # Window switches
+    # Key(["alt"], "Tab", lazy.spawn('rofi -show window'), desc="Window Switcher"),
+
+    # Monitor Switches
+    Key([mod], "period", lazy.next_screen(),
+             desc='Move focus to next monitor'),
+    Key([mod], "comma", lazy.prev_screen(),
+        desc='Move focus to prev monitor'),
+
+    ## Treetab controls
+    Key([mod, "shift"], "h", lazy.layout.move_left(),
+            desc='Move up a section in treetab'),
+    Key([mod, "shift"], "l", lazy.layout.move_right(),
+            desc='Move down a section in treetab'),
+
 ]
 
 group_names = [("SYS", {'layout': 'columns'}),
@@ -85,13 +105,14 @@ layouts = [
     # layout.Tile(),
     # layout.VerticalTile(),
     # layout.Zoomy(),
+    # layout.Max(**layout_theme),
     layout.Columns(**layout_theme),
-    layout.Max(**layout_theme),
     layout.Stack(num_stacks=2, **layout_theme),
     layout.Matrix(**layout_theme),
     layout.RatioTile(**layout_theme),
     layout.MonadTall(**layout_theme),
     layout.TreeTab(
+         font = "Source Code Pro",
          fontsize = 10,
          sections = ["FIRST", "SECOND", "THIRD", "FOURTH"],
          section_fontsize = 10,
@@ -111,20 +132,86 @@ layouts = [
         ),
 ]
 
+CustomPrompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
+
 widget_defaults = dict(
-    font='sans',
-    fontsize=12,
+    font='Ubuntu Mono',
+    fontsize=9,
     padding=3,
 )
 extension_defaults = widget_defaults.copy()
+
+colors = [["#2a2a2a", "#2a2a2a"], # panel background
+          ["#3d3f4b", "#434758"], # background for current screen tab
+          ["#ffffff", "#ffffff"], # font color for group names
+          ["#ff5555", "#ff5555"], # border line color for current tab
+          ["#74438f", "#74438f"], # border line color for 'other tabs' and color for 'odd widgets'
+          ["#4f76c7", "#4f76c7"], # color for the 'even widgets'
+          ["#e1acff", "#e1acff"], # window name
+          ["#ecbbfb", "#ecbbfb"]] # backbround for inactive screens
+
 
 screens = [
     Screen(
         bottom=bar.Bar(
             [
-                widget.GroupBox(),
-                widget.Prompt(),
-                widget.WindowName(),
+                widget.CurrentLayoutIcon(
+                    custom_icon_paths = [os.path.expanduser("~/.config/qtile/icons")],
+                    foreground = colors[0],
+                    background = colors[1],
+                    padding = 0,
+                    scale = 0.7
+                    ),
+                widget.Sep(
+                    linewidth = 0,
+                    padding = 6,
+                    foreground = colors[2],
+                    background = colors[0]
+                    ),
+                widget.GroupBox(
+                    font = "Ubuntu Bold",
+                    fontsize = 9,
+                    margin_y = 3,
+                    margin_x = 0,
+                    padding_y = 5,
+                    padding_x = 3,
+                    borderwidth = 3,
+                    active = colors[2],
+                    inactive = colors[7],
+                    rounded = False,
+                    highlight_color = colors[1],
+                    highlight_method = "line",
+                    this_current_screen_border = colors[6],
+                    this_screen_border = colors [4],
+                    other_current_screen_border = colors[6],
+                    other_screen_border = colors[4],
+                    foreground = colors[2],
+                    background = colors[0]
+                    ),
+                widget.Sep(
+                    linewidth = 0,
+                    padding = 6,
+                    foreground = colors[2],
+                    background = colors[0]
+                    ),
+                widget.Prompt(
+                    prompt = CustomPrompt,
+                    font = "Ubuntu Mono",
+                    padding = 10,
+                    foreground = colors[3],
+                    background = colors[1]
+                    ),
+                widget.Sep(
+                    linewidth = 0,
+                    padding = 40,
+                    foreground = colors[2],
+                    background = colors[0]
+                    ),
+                widget.WindowName(
+                    foreground = colors[6],
+                    background = colors[0],
+                    padding = 0
+                    ),
                 widget.Chord(
                     chords_colors={
                         'launch': ("#0000ff", "#ffffff"),
@@ -134,19 +221,31 @@ screens = [
                 widget.TextBox(
                     "Dat Adi",
                     name="name",
+                    background = colors[0],
                     foreground="#d75f5f"
                     ),
-                widget.Systray(),
+                widget.Systray(
+                    background = colors[0],
+                    padding = 5
+                    ),
+                widget.CheckUpdates(
+                    update_interval = 1800,
+                    distro = "Arch_checkupdates",
+                    display_format = "{updates} Updates",
+                    foreground = colors[2],
+                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' -e sudo pacman -Syu')},
+                    background = colors[4]
+                    ),
                 widget.Clock(
-                    format='%d-%m-%Y %a %I:%M %p',
+                    format='%d-%m-%Y | %a %I:%M %p',
+                    background = colors[0],
                     padding=10
                     ),
                 widget.Battery(
-                    background="#14501A",
-                    format="{char}{percent:2.0%}",
+                    background = colors[4],
+                    format="{char} | {percent:2.0%}",
                     padding=10
                     ),
-                widget.QuickExit(),
             ],
             24,
         ),
