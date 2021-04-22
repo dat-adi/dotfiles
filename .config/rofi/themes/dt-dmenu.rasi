@@ -6,17 +6,17 @@
  */
 
 * {
-    background-color:           #2a2a2a;
+    background-color:           #06090A;
     border-color:               #282c34;
     text-color:                 #bbc2cf;
     height:                     23px;
-    font:                       "SauceCodePro Nerd Font Mono 10";
+    font:                       "Sauce Code Pro Nerd Font Bold 9";
     prompt-font:                "Ubuntu Bold 9";
-    prompt-background:          #74438f;
+    prompt-background:          #111b1f;
     prompt-foreground:          #ffffff;
     prompt-padding:             4px;
-    selected-normal-background: #4f76c7;
-    selected-normal-foreground: #ffffff;
+    selected-normal-background: #5CA0A4;
+    selected-normal-foreground: #111b1f;
 }
 #window {
     anchor: south;

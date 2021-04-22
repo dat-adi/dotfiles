@@ -14,5 +14,7 @@
 .config/obsidian/
 .config/vivaldi
 .config/mimeapps.list
+.config/VirtualBox/
+.config/calligrageminirc
 
 .doom.d/custom.el

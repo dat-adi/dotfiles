@@ -82,10 +82,10 @@ group_names = [("SYS", {'layout': 'columns'}),
                ("WWW", {'layout': 'columns'}),
                ("DIS", {'layout': 'columns'}),
                ("TEAMS", {'layout': 'columns'}),
-               ("CHAT", {'layout': 'columns'}),
+               ("DOC", {'layout': 'columns'}),
                ("MUS", {'layout': 'columns'}),
                ("VID", {'layout': 'columns'}),
-               ("DOC", {'layout': 'columns'})]
+               ("VBOX", {'layout': 'columns'})]
 
 groups = [Group(name, **kwargs) for name, kwargs in group_names]
 
