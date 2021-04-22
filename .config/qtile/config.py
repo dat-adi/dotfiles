@@ -95,7 +95,7 @@ for i, (name, kwargs) in enumerate(group_names, 1):
 
 layout_theme = {"border_width": 2,
                 "margin": 2,
-                "border_focus": "e1acff",
+                "border_focus": "2E7588",
                 "border_normal": "1D2330"
                 }
 
@@ -133,6 +133,9 @@ layouts = [
         ),
 ]
 
+
+'''
+# DT Colors
 colors = [["#2a2a2a", "#2a2a2a"], # panel background
           ["#3d3f4b", "#434758"], # background for current screen tab
           ["#ffffff", "#ffffff"], # font color for group names
@@ -141,6 +144,23 @@ colors = [["#2a2a2a", "#2a2a2a"], # panel background
           ["#4f76c7", "#4f76c7"], # color for the 'even widgets'
           ["#e1acff", "#e1acff"], # window name
           ["#ecbbfb", "#ecbbfb"]] # backbround for inactive screens
+'''
+
+# Hollow Knight Theme
+# Black :  #06090A
+# Blue  :  #5CA0A4
+# Green :  #9BC3BC
+# DBlue :  #2E7588
+# Blue-Black : #111b1f
+
+colors = [["#06090A", "#06090A"], # panel background
+          ["#06090A", "#111b1f"], # background for current screen tab
+          ["#ffffff", "#ffffff"], # font color for group names
+          ["#9BC3BC", "#9BC3BC"], # border line color for current tab
+          ["#2E7588", "#2E7588"], # border line color for 'other tabs' and color for 'odd widgets'
+          ["#2E7588", "#2E7588"], # color for the 'even widgets'
+          ["#9BC3BC", "#9BC3BC"], # window name
+          ["#5CA0A4", "#5CA0A4"]] # backbround for inactive screens
 
 CustomPrompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
 
@@ -182,7 +202,7 @@ screens = [
                     highlight_color = colors[1],
                     highlight_method = "line",
                     this_current_screen_border = colors[6],
-                    this_screen_border = colors [4],
+                    this_screen_border = colors[4],
                     other_current_screen_border = colors[6],
                     other_screen_border = colors[4],
                     foreground = colors[2],
@@ -221,8 +241,9 @@ screens = [
                 widget.TextBox(
                     "Dat Adi",
                     name="name",
+                    font = "Sauce Code Pro Bold",
                     background = colors[0],
-                    foreground="#d75f5f"
+                    foreground = colors[3]
                     ),
                 widget.Systray(
                     background = colors[0],
@@ -242,7 +263,10 @@ screens = [
                     padding=10
                     ),
                 widget.Battery(
+                    font="Source Code Pro Bold",
                     background = colors[4],
+                    notify_below = 20,
+                    low_percentage = 0.2,
                     format="{char} | {percent:2.0%}",
                     padding=10
                     ),
