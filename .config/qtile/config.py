@@ -1,4 +1,20 @@
-# -*- utf-8 -*-
+# -*- UTF-8 -*-
+
+# -----------------------------------------
+#        _       _                   _ _
+#       | |     | |                 | (_)
+#     __| | __ _| |_ ______ __ _  __| |_
+#    / _` |/ _` | __|______/ _` |/ _` | |
+#   | (_| | (_| | |_      | (_| | (_| | |
+#    \__,_|\__,_|\__|      \__,_|\__,_|_|
+#
+# -----------------------------------------
+#
+#         Instagram : dat.adithya
+#            GitHub : @dat-adi
+#
+# -----------------------------------------
+
 import os
 import socket
 from typing import List  # noqa: F401
@@ -150,8 +166,8 @@ colors = [["#2a2a2a", "#2a2a2a"], # panel background
 # Black :  #06090A
 # Blue  :  #5CA0A4
 # Green :  #9BC3BC
-# DBlue :  #2E7588
-# Blue-Black : #111b1f
+# Dark Blue :  #2E7588
+# Blue-Black : #111B1F
 
 colors = [["#06090A", "#06090A"], # panel background
           ["#06090A", "#111b1f"], # background for current screen tab
@@ -160,7 +176,7 @@ colors = [["#06090A", "#06090A"], # panel background
           ["#2E7588", "#2E7588"], # border line color for 'other tabs' and color for 'odd widgets'
           ["#2E7588", "#2E7588"], # color for the 'even widgets'
           ["#9BC3BC", "#9BC3BC"], # window name
-          ["#5CA0A4", "#5CA0A4"]] # backbround for inactive screens
+          ["#5CA0A4", "#5CA0A4"]] # background for inactive screens
 
 CustomPrompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
 

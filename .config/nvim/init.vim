@@ -47,6 +47,7 @@ Plug 'ap/vim-css-color'
 Plug 'gruvbox-community/gruvbox'
 Plug 'sainnhe/gruvbox-material'
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
@@ -74,7 +75,7 @@ augroup END
 map <leader>h :noh<CR>
 
 " --- Resize Remaps --- "
-nnoremap <Up> :resize +2<CR> 
+nnoremap <Up> :resize +2<CR>
 nnoremap <Down> :resize -2<CR>
 nnoremap <Left> :vertical resize +2<CR>
 nnoremap <Right> :vertical resize -2<CR>
