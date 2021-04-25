@@ -19,3 +19,5 @@
 
 .doom.d/custom.el
 .config/nomacs/
+.config/filemanager-actions/filemanager-actions.conf
+.config/filemanager-actions/
