@@ -1,11 +1,11 @@
 " -----------------------------------------
-"        _       _                   _ _ 
+"        _       _                   _ _
 "       | |     | |                 | (_)
-"     __| | __ _| |_ ______ __ _  __| |_ 
+"     __| | __ _| |_ ______ __ _  __| |_
 "    / _` |/ _` | __|______/ _` |/ _` | |
 "   | (_| | (_| | |_      | (_| | (_| | |
 "    \__,_|\__,_|\__|      \__,_|\__,_|_|
-" 
+"
 " -----------------------------------------
 "
 "         Instagram : dat.adithya
@@ -24,6 +24,7 @@ set shiftwidth=4
 set expandtab
 set smartindent
 set rnu
+set spell
 set nowrap
 set smartcase
 set noswapfile
@@ -41,7 +42,7 @@ Plug 'pangloss/vim-javascript'
 
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf.vim', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+Plug 'ap/vim-css-color'
 
 Plug 'gruvbox-community/gruvbox'
 Plug 'sainnhe/gruvbox-material'
@@ -72,11 +73,11 @@ augroup END
 " --- General Mappings --- "
 map <leader>h :noh<CR>
 
-" --- Restriction Remaps --- "
-noremap <UP> <NOP>
-noremap <DOWN> <NOP>
-noremap <LEFT> <NOP>
-noremap <RIGHT> <NOP>
+" --- Resize Remaps --- "
+nnoremap <Up> :resize +2<CR> 
+nnoremap <Down> :resize -2<CR>
+nnoremap <Left> :vertical resize +2<CR>
+nnoremap <Right> :vertical resize -2<CR>
 
 " --- Plugin Mappings --- "
 nmap <leader>gs :G<CR>
@@ -84,6 +85,8 @@ nmap <leader>gj :diffget //3<CR>
 nmap <leader>gf :diffget //2<CR>
 nmap <leader>gc :Gcommit<CR>
 nmap <leader>gp :Gpush<CR>
+
+nmap <leader>f :Files<CR>
 
 nnoremap <space> za
 
