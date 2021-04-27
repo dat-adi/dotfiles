@@ -1,6 +1,6 @@
 function init() {
     input.value = '';
-    output.innerHTML = '';
+    input.innerHTML = '';
     input.focus();
 }
   

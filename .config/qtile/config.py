@@ -178,8 +178,6 @@ colors = [["#06090A", "#06090A"], # panel background
           ["#9BC3BC", "#9BC3BC"], # window name
           ["#5CA0A4", "#5CA0A4"]] # background for inactive screens
 
-CustomPrompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
-
 widget_defaults = dict(
     font='Ubuntu Mono',
     fontsize=9,
@@ -230,13 +228,6 @@ screens = [
                     foreground = colors[2],
                     background = colors[0]
                     ),
-                widget.Prompt(
-                    prompt = CustomPrompt,
-                    font = "Ubuntu Mono",
-                    padding = 10,
-                    foreground = colors[3],
-                    background = colors[1]
-                    ),
                 widget.Sep(
                     linewidth = 0,
                     padding = 40,
@@ -264,14 +255,6 @@ screens = [
                 widget.Systray(
                     background = colors[0],
                     padding = 5
-                    ),
-                widget.CheckUpdates(
-                    update_interval = 1800,
-                    distro = "Arch_checkupdates",
-                    display_format = "{updates} Updates",
-                    foreground = colors[2],
-                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal + ' -e sudo pacman -Syu')},
-                    background = colors[4]
                     ),
                 widget.Clock(
                     format='%d-%m-%Y | %a %I:%M %p',

@@ -96,7 +96,7 @@ body {
     grid-template-columns: repeat(5, 15%);
     grid-template-rows: repeat(3, 1fr);
     grid-template-areas:
-      "gmail book 4chan reddit"
+      "gmail book linkedin reddit"
       "ctftime crackmes solo github";
     transition: opacity .5s;
 }
@@ -114,7 +114,7 @@ div.grid-container > *:hover {
 
 .gmail          { grid-area: gmail;         }
 .book           { grid-area: book;          }
-.4chan          { grid-area: 4chan;         }
+.linkedin       { grid-area: linkedin;         }
 .github         { grid-area: github;        }
 .reddit         { grid-area: reddit;        }
 .ctftime        { grid-area: ctftime;       }

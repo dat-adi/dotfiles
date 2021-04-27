@@ -1,7 +1,7 @@
 // You can change this variable to modify to the output of whoami
-let username = "grtcdr";
+let username = "dat-adi";
 // You can change this variable to modify the prompt's PS1
-let PS1 = "$";
+let PS1 = ">";
 
 let commandTable = ["whoami", "date", "browser", "locale", "cores", "uname", "exit", "startpage", "clear", "help", "creator", "title", "echo", "d", "g"];
 let diceCommands = ["whoami", "date", "browser", "locale", "cores", "uname", "startpage -v", "startpage -l", "startpage -c", "startpage -n", "help"];
@@ -45,15 +45,6 @@ document.querySelectorAll('grid-container').forEach(item => {
   item.addEventListener('click', event => {
     item.style.backgroundColor = "#51CB20";
   })
-});
-
-// Dice functionality: shuffles through certain commands
-document.getElementById("dice").addEventListener("click", function (event) {
-  let diceValue = Math.floor(Math.random() * diceCommands.length);
-  input.value = diceCommands[diceValue];
-  throwDice = true;
-  evalInput(event);
-  throwDice = false;
 });
 
 input.addEventListener("keypress", function (event) {

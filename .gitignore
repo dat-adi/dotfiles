@@ -21,3 +21,5 @@
 .config/nomacs/
 .config/filemanager-actions/filemanager-actions.conf
 .config/filemanager-actions/
+.config/RStudio/
+.config/rstudio/
