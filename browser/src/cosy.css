@@ -97,7 +97,7 @@ body {
     grid-template-rows: repeat(3, 1fr);
     grid-template-areas:
       "gmail book linkedin reddit"
-      "ctftime crackmes solo github";
+      "youtube vtop solo github";
     transition: opacity .5s;
 }
 
@@ -114,11 +114,11 @@ div.grid-container > *:hover {
 
 .gmail          { grid-area: gmail;         }
 .book           { grid-area: book;          }
-.linkedin       { grid-area: linkedin;         }
+.linkedin       { grid-area: linkedin;      }
 .github         { grid-area: github;        }
 .reddit         { grid-area: reddit;        }
-.ctftime        { grid-area: ctftime;       }
-.crackmes       { grid-area: crackmes;      }
+.youtube        { grid-area: youtube;       }
+.vtop           { grid-area: vtop;          }
 .solo           { grid-area: solo;          }
 
 a, #dice{
