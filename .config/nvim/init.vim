@@ -13,6 +13,28 @@
 "
 " -----------------------------------------
 
+" --- Plugins --- "
+call plug#begin()
+
+    Plug 'pangloss/vim-javascript'
+
+    Plug 'tpope/vim-fugitive'
+    Plug 'junegunn/fzf.vim', { 'do': { -> fzf#install() } }
+    Plug 'ap/vim-css-color'
+
+    Plug 'sainnhe/gruvbox-material'
+    Plug 'vim-airline/vim-airline'
+    Plug 'ryanoasis/vim-devicons'
+    Plug 'vim-python/python-syntax'
+
+    Plug 'gruvbox-community/gruvbox'
+    Plug 'romgrk/doom-one.vim'
+    Plug 'junegunn/goyo.vim'
+    Plug 'junegunn/limelight.vim'
+    Plug 'junegunn/vim-emoji'
+
+call plug#end()
+
 " --- Syntax Highlighting --- "
 syntax on
 
@@ -31,32 +53,15 @@ set noswapfile
 set incsearch
 set foldmethod=indent
 set foldlevel=99
-
 set colorcolumn=80
-highlight ColorColumn ctermbg=0 guibg=lightgrey
-
-" --- Plugins --- "
-call plug#begin()
-
-Plug 'pangloss/vim-javascript'
-
-Plug 'tpope/vim-fugitive'
-Plug 'junegunn/fzf.vim', { 'do': { -> fzf#install() } }
-Plug 'ap/vim-css-color'
-
-Plug 'gruvbox-community/gruvbox'
-Plug 'sainnhe/gruvbox-material'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-
-call plug#end()
+highlight ColorColumn ctermfg=none ctermbg=236 cterm=none
 
 " --- General Settings --- "
 let mapleader = ","
 
 " --- Gruvbox Settings --- "
-let g:gruvbox_contrast_dark = 'hard'
-let g:gruvbox_invert_selection = '0'
+let g:gruvbox_contrast_dark='hard'
+let g:gruvbox_invert_selection='0'
 
 colorscheme gruvbox
 set background=dark
