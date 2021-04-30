@@ -32,6 +32,7 @@ call plug#begin()
     Plug 'junegunn/goyo.vim'
     Plug 'junegunn/limelight.vim'
     Plug 'junegunn/vim-emoji'
+    Plug 'arcticicestudio/nord-vim'
 
 call plug#end()
 
@@ -53,8 +54,8 @@ set noswapfile
 set incsearch
 set foldmethod=indent
 set foldlevel=99
-set colorcolumn=80
-highlight ColorColumn ctermfg=none ctermbg=236 cterm=none
+"set colorcolumn=80
+"highlight ColorColumn ctermfg=none ctermbg=236 cterm=none
 
 " --- General Settings --- "
 let mapleader = ","
