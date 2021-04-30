@@ -17,6 +17,7 @@ alias push='git push origin'
 alias stat='git status'  # 'status' is protected name so using 'stat' instead
 alias tag='git tag'
 alias newtag='git tag -a'
+alias setssh='git remote set-url origin'
 
 # files
 alias cat='bat'
