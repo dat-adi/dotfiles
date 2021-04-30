@@ -1,8 +1,11 @@
 [user]
-	email = dat.adithya@gmail.com
-	name = dat-adi
+    email = dat.adithya@gmail.com
+    name = dat-adi
 
 [alias]
     cim = commit -m
+
 [credential]
-	helper = /usr/lib/git-core/git-credential-libsecret
+    helper = /usr/lib/git-core/git-credential-libsecret
+[pull]
+	rebase = false
