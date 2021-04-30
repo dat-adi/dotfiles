@@ -14,7 +14,7 @@ I can probably say that it wouldn't be too much of a hassle to get my setup back
 
 ## 30/04/2021
 Discovered [dotbot](https://github.com/anishathalye/dotbot#getting-started).
-My setups only continue to be easier to set up.
+My setup only continues to be easier to set up.
 
 At this point, all I need to do in order to set myself back up, would be a simple few lines.
 
