@@ -19,8 +19,8 @@ My setup only continues to be easier to set up.
 At this point, all I need to do in order to set myself back up, would be a simple few lines.
 
 ```shell
-git clone git@github.com:dat-adi/Dotfiles.git
-cd Dotfiles
+git clone git@github.com:dat-adi/dotfiles.git
+cd dotfiles
 ./install
 ```
 
