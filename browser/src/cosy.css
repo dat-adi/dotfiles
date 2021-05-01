@@ -97,7 +97,7 @@ body {
     grid-template-rows: repeat(3, 1fr);
     grid-template-areas:
       "gmail book linkedin reddit"
-      "youtube vtop solo github";
+      "youtube vtop archwiki github";
     transition: opacity .5s;
 }
 
@@ -119,7 +119,7 @@ div.grid-container > *:hover {
 .reddit         { grid-area: reddit;        }
 .youtube        { grid-area: youtube;       }
 .vtop           { grid-area: vtop;          }
-.solo           { grid-area: solo;          }
+.archwiki       { grid-area: archwiki;      }
 
 a, #dice{
     display: inline-block;
