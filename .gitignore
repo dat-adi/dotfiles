@@ -29,3 +29,5 @@ config/yarn/
 config/spicetify/
 config/zoomus.conf
 config/Unknown Organization/
+config/vifm/vifminfo.json
+config/coc/
