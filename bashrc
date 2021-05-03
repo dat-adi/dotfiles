@@ -10,3 +10,5 @@ PS1='[\u@\h \W]\$ '
 
 export NVM_DIR="/home/dat-adi/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+./fm6000 -dog

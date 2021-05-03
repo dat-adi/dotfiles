@@ -81,3 +81,5 @@ else
         start_agent
     end  
 end
+
+~/.config/fish/startup_scripts/fm6000 -dog
