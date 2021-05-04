@@ -24,6 +24,7 @@ from libqtile import bar, layout, widget, hook
 from libqtile.config import Click, Drag, Group, Key, KeyChord, Match, Screen
 from libqtile.lazy import lazy
 from Managers import ColorManager, KeyManager, LayoutManager, ScreenManager
+from Managers.GroupManager import get_groups
 
 mod = "mod4"
 
@@ -54,8 +55,9 @@ for i, (name, kwargs) in enumerate(group_names, 1):
     )  # Send current window to another group
 
 layouts = LayoutManager.get_layouts()
-
 colors = ColorManager.hollowknight()
+
+# TODO: Dynamically check on startup as to whether HDMI port is connected to a display and use one/two screens
 screens = ScreenManager.get_two_screens(colors)
 
 widget_defaults = dict(

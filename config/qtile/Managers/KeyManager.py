@@ -1,5 +1,5 @@
 # -*- coding:utf-8 -*-
-from libqtile.config import Key, KeyChord
+from libqtile.config import Group, Key, KeyChord
 from libqtile.utils import guess_terminal
 from libqtile import bar, layout, widget, hook
 from libqtile.lazy import lazy
@@ -114,3 +114,6 @@ def get_keys():
     ]
 
     return keys
+
+if __name__ == "__main__":
+    get_keys()

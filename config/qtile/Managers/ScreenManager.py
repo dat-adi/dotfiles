@@ -260,7 +260,7 @@ def get_two_screens(colors):
 
     return screens
 
-def get_one_screens():
+def get_one_screens(colors):
     groupbox_defaults = dict(
         margin_y=3,
         margin_x=0,
