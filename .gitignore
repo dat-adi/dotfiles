@@ -31,3 +31,4 @@ config/zoomus.conf
 config/Unknown Organization/
 config/vifm/vifminfo.json
 config/coc/
+config/qtile/Managers/__pycache__/

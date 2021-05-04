@@ -23,41 +23,14 @@ from typing import List  # noqa: F401
 from libqtile import bar, layout, widget, hook
 from libqtile.config import Click, Drag, Group, Key, KeyChord, Match, Screen
 from libqtile.lazy import lazy
-from Managers import ColorManager, KeyManager, LayoutManager, ScreenManager
-from Managers.GroupManager import get_groups
+from Managers import ColorManager, KeybindManager, LayoutManager, ScreenManager
 
 mod = "mod4"
 
-keys = KeyManager.get_keys()
-
-group_names = [
-    ("SYS", {"label": "ﬦ", "layout": "columns"}),
-    ("DEV", {"label": "", "layout": "columns"}),
-    ("WWW", {"label": "", "layout": "columns"}),
-    ("DIS", {"label": "ﭮ", "layout": "columns"}),
-    ("TEAMS", {"label": "", "layout": "columns"}),
-    ("DOC", {"label": "", "layout": "columns"}),
-    ("MUS", {"label": "", "layout": "columns"}),
-    ("VID", {"label": "嗢", "layout": "columns"}),
-    ("VBOX", {"label": "", "layout": "columns"}),
-]
-
-groups = [
-    Group(name, init=True, persist=True, **kwargs) for name, kwargs in group_names
-]
-
-for i, (name, kwargs) in enumerate(group_names, 1):
-    keys.append(
-        Key([mod], str(i), lazy.group[name].toscreen())
-    )  # Switch to another group
-    keys.append(
-        Key([mod, "shift"], str(i), lazy.window.togroup(name))
-    )  # Send current window to another group
-
+# TODO: Dynamically check on startup as to whether HDMI port is connected to a display and use one/two screens
+keys, groups = KeybindManager.get_asdf()
 layouts = LayoutManager.get_layouts()
 colors = ColorManager.hollowknight()
-
-# TODO: Dynamically check on startup as to whether HDMI port is connected to a display and use one/two screens
 screens = ScreenManager.get_two_screens(colors)
 
 widget_defaults = dict(

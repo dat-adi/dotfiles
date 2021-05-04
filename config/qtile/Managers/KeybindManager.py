@@ -7,7 +7,7 @@ from libqtile.lazy import lazy
 mod = "mod4"
 terminal = guess_terminal()
 
-def get_keys():
+def get_asdf():
     keys = [
         # Switch between windows
         Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
@@ -113,7 +113,31 @@ def get_keys():
         ),
     ]
 
-    return keys
+    group_names = [
+        ("SYS", {"label": "ﬦ", "layout": "columns"}),
+        ("DEV", {"label": "", "layout": "columns"}),
+        ("WWW", {"label": "", "layout": "columns"}),
+        ("DIS", {"label": "ﭮ", "layout": "columns"}),
+        ("TEAMS", {"label": "", "layout": "columns"}),
+        ("DOC", {"label": "", "layout": "columns"}),
+        ("MUS", {"label": "", "layout": "columns"}),
+        ("VID", {"label": "嗢", "layout": "columns"}),
+        ("VBOX", {"label": "", "layout": "columns"}),
+    ]
+
+    groups = [
+        Group(name, init=True, persist=True, **kwargs) for name, kwargs in group_names
+    ]
+
+    for i, (name, kwargs) in enumerate(group_names, 1):
+        keys.append(
+            Key([mod], str(i), lazy.group[name].toscreen())
+        )  # Switch to another group
+        keys.append(
+            Key([mod, "shift"], str(i), lazy.window.togroup(name))
+        )  # Send current window to another group
+
+    return keys, groups
 
 if __name__ == "__main__":
-    get_keys()
+    print(get_keys())
