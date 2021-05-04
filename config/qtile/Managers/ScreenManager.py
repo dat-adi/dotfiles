@@ -35,7 +35,10 @@ def get_two_screens(colors):
                         scale=0.7,
                     ),
                     widget.Sep(
-                        linewidth=0, padding=6, foreground=colors[2], background=colors[0]
+                        linewidth=0,
+                        padding=6,
+                        foreground=colors[2],
+                        background=colors[0],
                     ),
                     widget.GroupBox(
                         visible_groups=["SYS"],
@@ -108,7 +111,9 @@ def get_two_screens(colors):
                     widget.Systray(icon_size=16, background=colors[0], padding=5),
                     widget.Spacer(10),
                     # Backlight
-                    widget.TextBox(text="", padding=8, foreground=colors[3], fontsize=25),
+                    widget.TextBox(
+                        text="", padding=8, foreground=colors[3], fontsize=25
+                    ),
                     widget.Backlight(
                         foreground=colors[3],
                         change_command="light -S {0}",
@@ -116,15 +121,21 @@ def get_two_screens(colors):
                     ),
                     widget.Spacer(10),
                     # Volume
-                    widget.TextBox(text="墳", foreground=colors[3], padding=6, fontsize=23),
+                    widget.TextBox(
+                        text="墳", foreground=colors[3], padding=6, fontsize=23
+                    ),
                     widget.Volume(foreground=colors[3]),
                     widget.Spacer(10),
                     # Time
-                    widget.TextBox(text="", fontsize=21, padding=6, foreground=colors[3]),
+                    widget.TextBox(
+                        text="", fontsize=21, padding=6, foreground=colors[3]
+                    ),
                     widget.Clock(foreground=colors[3], format="%d-%m-%Y | %a %I:%M %p"),
                     widget.Spacer(10),
                     # CPU
-                    widget.TextBox(text="", fontsize=23, padding=8, foreground=colors[3]),
+                    widget.TextBox(
+                        text="", fontsize=23, padding=8, foreground=colors[3]
+                    ),
                     widget.CPU(format="{load_percent}%", foreground=colors[3]),
                     widget.Spacer(10),
                     # Battery
@@ -151,7 +162,10 @@ def get_two_screens(colors):
                         scale=0.7,
                     ),
                     widget.Sep(
-                        linewidth=0, padding=6, foreground=colors[2], background=colors[0]
+                        linewidth=0,
+                        padding=6,
+                        foreground=colors[2],
+                        background=colors[0],
                     ),
                     widget.GroupBox(
                         visible_groups=["SYS"],
@@ -224,7 +238,9 @@ def get_two_screens(colors):
                     widget.Systray(icon_size=16, background=colors[0], padding=5),
                     widget.Spacer(10),
                     # Backlight
-                    widget.TextBox(text="", padding=8, foreground=colors[3], fontsize=25),
+                    widget.TextBox(
+                        text="", padding=8, foreground=colors[3], fontsize=25
+                    ),
                     widget.Backlight(
                         foreground=colors[3],
                         change_command="light -S {0}",
@@ -232,15 +248,21 @@ def get_two_screens(colors):
                     ),
                     widget.Spacer(10),
                     # Volume
-                    widget.TextBox(text="墳", foreground=colors[3], padding=6, fontsize=23),
+                    widget.TextBox(
+                        text="墳", foreground=colors[3], padding=6, fontsize=23
+                    ),
                     widget.Volume(foreground=colors[3]),
                     widget.Spacer(10),
                     # Time
-                    widget.TextBox(text="", fontsize=21, padding=6, foreground=colors[3]),
+                    widget.TextBox(
+                        text="", fontsize=21, padding=6, foreground=colors[3]
+                    ),
                     widget.Clock(foreground=colors[3], format="%d-%m-%Y | %a %I:%M %p"),
                     widget.Spacer(10),
                     # CPU
-                    widget.TextBox(text="", fontsize=23, padding=8, foreground=colors[3]),
+                    widget.TextBox(
+                        text="", fontsize=23, padding=8, foreground=colors[3]
+                    ),
                     widget.CPU(format="{load_percent}%", foreground=colors[3]),
                     widget.Spacer(10),
                     # Battery
@@ -259,6 +281,7 @@ def get_two_screens(colors):
     ]
 
     return screens
+
 
 def get_one_screens(colors):
     groupbox_defaults = dict(
@@ -292,7 +315,10 @@ def get_one_screens(colors):
                         scale=0.7,
                     ),
                     widget.Sep(
-                        linewidth=0, padding=6, foreground=colors[2], background=colors[0]
+                        linewidth=0,
+                        padding=6,
+                        foreground=colors[2],
+                        background=colors[0],
                     ),
                     widget.GroupBox(
                         visible_groups=["SYS"],
@@ -365,7 +391,9 @@ def get_one_screens(colors):
                     widget.Systray(icon_size=16, background=colors[0], padding=5),
                     widget.Spacer(10),
                     # Backlight
-                    widget.TextBox(text="", padding=8, foreground=colors[3], fontsize=25),
+                    widget.TextBox(
+                        text="", padding=8, foreground=colors[3], fontsize=25
+                    ),
                     widget.Backlight(
                         foreground=colors[3],
                         change_command="light -S {0}",
@@ -373,15 +401,21 @@ def get_one_screens(colors):
                     ),
                     widget.Spacer(10),
                     # Volume
-                    widget.TextBox(text="墳", foreground=colors[3], padding=6, fontsize=23),
+                    widget.TextBox(
+                        text="墳", foreground=colors[3], padding=6, fontsize=23
+                    ),
                     widget.Volume(foreground=colors[3]),
                     widget.Spacer(10),
                     # Time
-                    widget.TextBox(text="", fontsize=21, padding=6, foreground=colors[3]),
+                    widget.TextBox(
+                        text="", fontsize=21, padding=6, foreground=colors[3]
+                    ),
                     widget.Clock(foreground=colors[3], format="%d-%m-%Y | %a %I:%M %p"),
                     widget.Spacer(10),
                     # CPU
-                    widget.TextBox(text="", fontsize=23, padding=8, foreground=colors[3]),
+                    widget.TextBox(
+                        text="", fontsize=23, padding=8, foreground=colors[3]
+                    ),
                     widget.CPU(format="{load_percent}%", foreground=colors[3]),
                     widget.Spacer(10),
                     # Battery

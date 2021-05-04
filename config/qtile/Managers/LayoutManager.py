@@ -1,6 +1,7 @@
 # -*- coding:utf-8 -*-
 from libqtile import layout
 
+
 def get_layouts():
     layout_theme = {
         "border_width": 2,

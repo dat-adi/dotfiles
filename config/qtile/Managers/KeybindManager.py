@@ -7,6 +7,7 @@ from libqtile.lazy import lazy
 mod = "mod4"
 terminal = guess_terminal()
 
+
 def get_asdf():
     keys = [
         # Switch between windows
@@ -14,11 +15,16 @@ def get_asdf():
         Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
         Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
         Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
-        Key([mod], "space", lazy.layout.next(), desc="Move window focus to other window"),
+        Key(
+            [mod], "space", lazy.layout.next(), desc="Move window focus to other window"
+        ),
         # Move windows between left/right columns or move up/down in current stack.
         # Moving out of range in Columns layout will create new column.
         Key(
-            [mod, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"
+            [mod, "shift"],
+            "h",
+            lazy.layout.shuffle_left(),
+            desc="Move window to the left",
         ),
         Key(
             [mod, "shift"],
@@ -32,9 +38,17 @@ def get_asdf():
         Key([mod], "f", lazy.window.toggle_fullscreen(), desc="toggle fullscreen"),
         # Grow windows. If current window is on the edge of screen and direction
         # will be to screen edge - window would shrink.
-        Key([mod, "control"], "h", lazy.layout.grow_left(), desc="Grow window to the left"),
         Key(
-            [mod, "control"], "l", lazy.layout.grow_right(), desc="Grow window to the right"
+            [mod, "control"],
+            "h",
+            lazy.layout.grow_left(),
+            desc="Grow window to the left",
+        ),
+        Key(
+            [mod, "control"],
+            "l",
+            lazy.layout.grow_right(),
+            desc="Grow window to the right",
         ),
         Key([mod, "control"], "j", lazy.layout.grow_down(), desc="Grow window down"),
         Key([mod, "control"], "k", lazy.layout.grow_up(), desc="Grow window up"),
@@ -61,40 +75,60 @@ def get_asdf():
             lazy.spawn("rofi -show drun"),
             desc="Spawn a command using a prompt widget",
         ),
-        KeyChord(["control"],"e", [
-             Key([], "e",
-                 lazy.spawn("emacsclient -c -a 'emacs'"),
-                 desc='Launch Emacs'
-                 ),
-             Key([], "b",
-                 lazy.spawn("emacsclient -c -a 'emacs' --eval '(ibuffer)'"),
-                 desc='Launch ibuffer inside Emacs'
-                 ),
-             Key([], "d",
-                 lazy.spawn("emacsclient -c -a 'emacs' --eval '(dired nil)'"),
-                 desc='Launch dired inside Emacs'
-                 ),
-             Key([], "i",
-                 lazy.spawn("emacsclient -c -a 'emacs' --eval '(erc)'"),
-                 desc='Launch erc inside Emacs'
-                 ),
-             Key([], "m",
-                 lazy.spawn("emacsclient -c -a 'emacs' --eval '(mu4e)'"),
-                 desc='Launch mu4e inside Emacs'
-                 ),
-             Key([], "n",
-                 lazy.spawn("emacsclient -c -a 'emacs' --eval '(elfeed)'"),
-                 desc='Launch elfeed inside Emacs'
-                 ),
-             Key([], "s",
-                 lazy.spawn("emacsclient -c -a 'emacs' --eval '(eshell)'"),
-                 desc='Launch the eshell inside Emacs'
-                 ),
-             Key([], "v",
-                 lazy.spawn("emacsclient -c -a 'emacs' --eval '(+vterm/here nil)'"),
-                 desc='Launch vterm inside Emacs'
-                 )
-         ]),
+        KeyChord(
+            ["control"],
+            "e",
+            [
+                Key(
+                    [],
+                    "e",
+                    lazy.spawn("emacsclient -c -a 'emacs'"),
+                    desc="Launch Emacs",
+                ),
+                Key(
+                    [],
+                    "b",
+                    lazy.spawn("emacsclient -c -a 'emacs' --eval '(ibuffer)'"),
+                    desc="Launch ibuffer inside Emacs",
+                ),
+                Key(
+                    [],
+                    "d",
+                    lazy.spawn("emacsclient -c -a 'emacs' --eval '(dired nil)'"),
+                    desc="Launch dired inside Emacs",
+                ),
+                Key(
+                    [],
+                    "i",
+                    lazy.spawn("emacsclient -c -a 'emacs' --eval '(erc)'"),
+                    desc="Launch erc inside Emacs",
+                ),
+                Key(
+                    [],
+                    "m",
+                    lazy.spawn("emacsclient -c -a 'emacs' --eval '(mu4e)'"),
+                    desc="Launch mu4e inside Emacs",
+                ),
+                Key(
+                    [],
+                    "n",
+                    lazy.spawn("emacsclient -c -a 'emacs' --eval '(elfeed)'"),
+                    desc="Launch elfeed inside Emacs",
+                ),
+                Key(
+                    [],
+                    "s",
+                    lazy.spawn("emacsclient -c -a 'emacs' --eval '(eshell)'"),
+                    desc="Launch the eshell inside Emacs",
+                ),
+                Key(
+                    [],
+                    "v",
+                    lazy.spawn("emacsclient -c -a 'emacs' --eval '(+vterm/here nil)'"),
+                    desc="Launch vterm inside Emacs",
+                ),
+            ],
+        ),
         # Monitor Switches
         Key([mod], "period", lazy.next_screen(), desc="Move focus to next monitor"),
         Key([mod], "comma", lazy.prev_screen(), desc="Move focus to prev monitor"),
@@ -138,6 +172,7 @@ def get_asdf():
         )  # Send current window to another group
 
     return keys, groups
+
 
 if __name__ == "__main__":
     print(get_keys())
