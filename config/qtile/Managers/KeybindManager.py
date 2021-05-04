@@ -146,7 +146,8 @@ def get_asdf():
             desc="Move down a section in treetab",
         ),
     ]
-
+    
+    # Idea taken from Augusto Nicola's Dotfiles => https://github.com/AugustoNicola/dotfiles
     group_names = [
         ("SYS", {"label": "ﬦ", "layout": "columns"}),
         ("DEV", {"label": "", "layout": "columns"}),
