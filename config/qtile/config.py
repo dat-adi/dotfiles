@@ -23,10 +23,7 @@ from typing import List  # noqa: F401
 from libqtile import bar, layout, widget, hook
 from libqtile.config import Click, Drag, Group, Key, KeyChord, Match, Screen
 from libqtile.lazy import lazy
-import ColorManager
-import KeyManager
-import LayoutManager
-import ScreenManager
+from Managers import ColorManager, KeyManager, LayoutManager, ScreenManager
 
 mod = "mod4"
 
