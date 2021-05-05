@@ -12,6 +12,8 @@
     ~/.xprofile: xprofile
     ~/.gitconfig: gitconfig
     ~/.bash_profile: bash_profile
+    ~/.aliases: .bash_aliases
+    ~/.functions: .functions
     ~/.doom.d: doom.d
 
 - shell:

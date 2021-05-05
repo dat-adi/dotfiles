@@ -24,9 +24,6 @@ alias cat='bat'
 alias ls='exa'
 alias sl='exa -la'
 
-# appimages
-alias obsidian='/usr/local/bin/Obsidian-0.11.9.AppImage'
-
 # browser
 alias viv='vivaldi-stable'
 
@@ -47,16 +44,16 @@ alias reload "source ~/.config/fish/config.fish"
 
 setenv SSH_ENV $HOME/.ssh/environment
 
-function start_agent                                                                                                                                                                    
+function start_agent
     echo "Initializing new SSH agent ..."
     ssh-agent -c | sed 's/^echo/#echo/' > $SSH_ENV
     echo "succeeded"
-    chmod 600 $SSH_ENV 
+    chmod 600 $SSH_ENV
     . $SSH_ENV > /dev/null
     ssh-add
 end
 
-function test_identities                                                                                                                                                                
+function test_identities
     ssh-add -l | grep "The agent has no identities" > /dev/null
     if [ $status -eq 0 ]
         ssh-add
@@ -66,21 +63,22 @@ function test_identities
     end
 end
 
-if [ -n "$SSH_AGENT_PID" ] 
+if [ -n "$SSH_AGENT_PID" ]
     ps -ef | grep $SSH_AGENT_PID | grep ssh-agent > /dev/null
     if [ $status -eq 0 ]
         test_identities
-    end  
+    end
 else
     if [ -f $SSH_ENV ]
         . $SSH_ENV > /dev/null
-    end  
+    end
     ps -ef | grep $SSH_AGENT_PID | grep -v grep | grep ssh-agent > /dev/null
     if [ $status -eq 0 ]
         test_identities
-    else 
+    else
         start_agent
-    end  
+    end
 end
 
-~/.config/fish/startup_scripts/fm6000 -dog
+~/.config/startup-scripts/fm6000 -f ~/.config/startup-scripts/hollow_knight_shadow.txt -o "Arch Linux" -c bright_black
+starship init fish | source
