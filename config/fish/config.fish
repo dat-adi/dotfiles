@@ -21,7 +21,8 @@ alias setssh='git remote set-url origin'
 
 # files
 alias cat='bat'
-alias sl='ls -la'
+alias ls='exa'
+alias sl='exa -la'
 
 # appimages
 alias obsidian='/usr/local/bin/Obsidian-0.11.9.AppImage'
