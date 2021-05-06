@@ -5,9 +5,9 @@ from libqtile import layout
 def get_layouts():
     layout_theme = {
         "border_width": 2,
-        "margin": 2,
-        "border_focus": "2E7588",
-        "border_normal": "1D2330",
+        "margin": 4,
+        "border_focus": "#F0F0F0",
+        "border_normal": "#1D233F",
     }
 
     layouts = [
