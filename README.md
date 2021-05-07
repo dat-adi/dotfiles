@@ -26,3 +26,21 @@ cd dotfiles
 
 That's it!
 Just three lines to get back a setup worth of config files, efficiency!
+
+## 07/05/2021
+Managed to modularize the qtile config files, splitting up the code into separate Managers for each section.\
+Added [starship](https://starship.rs) as my cross-shell prompt, for uniformity in the different shells.\
+Installed [colorscripts](https://aur.archlinux.org/packages/shell-color-scripts/), enabled them on startup for fun, and added Hollow Knight ASCII art to startup_scripts for [fm6000](https://github.com/anhsirk0/fetch-master-6000) as well. Might work on it later.
+
+Added Rust replacements for various features related to command line.
+- [Alacritty](https://github.com/alacritty/alacritty) : Terminal.
+- [Starship](https://starship.rs) : Cross-shell Prompt.
+- [Bat](https://github.com/sharkdp/bat) : Replacement for the `cat` command.
+- [Exa](https://github.com/ogham/exa) : Replacement for the `ls` command.
+- [Ripgrep](https://github.com/BurntSushi/ripgrep) : Replacement for the `grep` command.
+- [Procs](https://github.com/dalance/procs) : Replacement for the `ps` command.
+
+Finally, used the [.bash_profile](https://github.com/dat-adi/dotfiles/blob/master/bash_profile) file in order to split up the [.bashrc](https://github.com/dat-adi/dotfiles/blob/master/bashrc) into separate files.\
+Helps in keeping it clean with a separate file for [functions](https://github.com/dat-adi/dotfiles/blob/master/.functions) and [aliases](https://github.com/dat-adi/dotfiles/blob/master/.bash_aliases).
+
+I suppose this update arc could be considered to be focused on Modularization and Rust replacements.
