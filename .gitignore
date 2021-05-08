@@ -33,3 +33,5 @@ config/vifm/vifminfo.json
 config/coc/
 config/qtile/Managers/__pycache__/
 config/pavucontrol.ini
+config/transmission/
+config/Electron/

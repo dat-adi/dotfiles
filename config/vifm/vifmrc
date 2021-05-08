@@ -204,7 +204,7 @@ filextype {*.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
           \*.as[fx]},
          \<video/*>
         \ {View using ffplay}
-        \ ffplay -fs -autoexit %f,
+        \ vlc -f %f,
         \ {View using Dragon}
         \ dragon %f:p,
         \ {View using mplayer}

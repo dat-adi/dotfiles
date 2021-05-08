@@ -23,6 +23,7 @@ alias setssh='git remote set-url origin'
 alias cat='bat'
 alias ls='exa'
 alias sl='exa -la'
+alias grep='rg'
 
 # browser
 alias viv='vivaldi-stable'
@@ -80,5 +81,5 @@ else
     end
 end
 
-~/.config/startup-scripts/fm6000 -f ~/.config/startup-scripts/hollow_knight_shadow.txt -o "Arch Linux" -c bright_black
+colorscript random
 starship init fish | source

@@ -13,7 +13,7 @@ def get_layouts():
     layouts = [
         # layout.Bsp(),
         # layout.MonadWide(),
-        # layout.Tile(),
+        # layout.Tile(**layout_theme),
         # layout.VerticalTile(),
         # layout.Zoomy(),
         # layout.Max(**layout_theme),
