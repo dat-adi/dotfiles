@@ -9,6 +9,8 @@
     ~/.config: config
     ~/.tmux.conf: tmux.conf
     ~/.xinitrc: xinitrc
+    ~/.Xauthority: .Xauthority
+    ~/.Xresources: .Xresources
     ~/.xprofile: xprofile
     ~/.gitconfig: gitconfig
     ~/.bash_profile: bash_profile
