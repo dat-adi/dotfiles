@@ -41,6 +41,6 @@ Added Rust replacements for various features related to command line.
 - [Procs](https://github.com/dalance/procs) : Replacement for the `ps` command.
 
 Finally, used the [.bash_profile](https://github.com/dat-adi/dotfiles/blob/master/bash_profile) file in order to split up the [.bashrc](https://github.com/dat-adi/dotfiles/blob/master/bashrc) into separate files.\
-Helps in keeping it clean with a separate file for [functions](https://github.com/dat-adi/dotfiles/blob/master/.functions) and [aliases](https://github.com/dat-adi/dotfiles/blob/master/.bash_aliases).
+Helps in keeping it clean with a separate files for [functions](https://github.com/dat-adi/dotfiles/blob/master/.functions) and [aliases](https://github.com/dat-adi/dotfiles/blob/master/.bash_aliases).
 
 I suppose this update arc could be considered to be focused on Modularization and Rust replacements.
