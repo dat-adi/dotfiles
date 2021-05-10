@@ -36,3 +36,4 @@ config/pavucontrol.ini
 config/transmission/
 config/Electron/
 .Xauthority
+config/Code
