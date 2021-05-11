@@ -23,7 +23,7 @@ c.tabs.show = 'switching'
 
 # Setting default page for when opening new tabs or new windows with
 # commands like :open -t and :open -w .
-c.url.default_page = 'file://~/dotfiles/browser/src/startpage.html'
+c.url.default_page = "file:///home/dat-adi/dotfiles/browser/src/startpage.html"
 
 # Search engines which can be used via the address bar.  Maps a search
 # engine name (such as `DEFAULT`, or `ddg`) to a URL with a `{}`
@@ -179,7 +179,6 @@ c.colors.tabs.pinned.selected.even.bg = '#282c34'
 # empty value, a system-specific monospace default is used.
 # Type: List of Font, or Font
 c.fonts.default_family = '"SauceCodePro Nerd Font"'
-c.fonts.monospace = '"Hack Nerd Font"'
 
 # Default font size to use. Whenever "default_size" is used in a font
 # setting, it's replaced with the size listed here. Valid values are

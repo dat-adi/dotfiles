@@ -67,6 +67,7 @@ def get_asdf():
         # Toggle between different layouts as defined below
         Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
         Key([mod], "w", lazy.window.kill(), desc="Kill focused window"),
+        Key([mod], "b", lazy.spawn("qutebrowser"), desc="Launch Qutebrowser"),
         Key([mod, "control"], "r", lazy.restart(), desc="Restart Qtile"),
         Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
         Key(

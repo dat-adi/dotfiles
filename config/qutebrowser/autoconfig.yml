@@ -6,11 +6,5 @@
 
 config_version: 2
 settings:
-  fonts.default_family:
-    global: JetBrains Mono
-  fonts.web.family.sans_serif:
-    global: JetBrains Mono
-  fonts.web.family.serif:
-    global: Hack Nerd Font
-  fonts.web.family.standard:
-    global: Fira Code Retina
+  content.notifications.enabled:
+    https://www.youtube.com: false
