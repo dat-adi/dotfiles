@@ -42,9 +42,9 @@ export SSH_AUTH_SOCK
 
 xrandr --output eDP-1 --primary --mode 1920x1080 --rate 60.00 --output HDMI-1 --mode 3440x1440 --rate 60.00 --right-of eDP-1
 
-setroot --restore &
 picom &
 pulseaudio &
 flameshot &
 alsactl --file ~/.config/asound.state restore
+setroot --restore &
 exec qtile start

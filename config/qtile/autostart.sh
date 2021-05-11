@@ -41,7 +41,7 @@ eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 export SSH_AUTH_SOCK
 
 xrandr --output eDP-1 --primary --mode 1920x1080 --rate 60.00 --output HDMI-1 --mode 3440x1440 --rate 60.00 --right-of eDP-1
-nitrogen --restore &
+setroot --restore &
 picom &
 alsactl --file ~/.config/asound.state restore
 pulseaudio &
