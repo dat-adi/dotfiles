@@ -7,4 +7,14 @@
 config_version: 2
 settings:
   content.notifications.enabled:
-    https://www.youtube.com: false
+    https://calendar.google.com: true
+  content.register_protocol_handler:
+    https://calendar.google.com?cid=%25s: true
+  fonts.web.family.fixed:
+    global: JetBrains Mono
+  fonts.web.family.sans_serif:
+    global: JetBrains Mono
+  fonts.web.family.serif:
+    global: JetBrains Mono
+  fonts.web.family.standard:
+    global: SauceCodePro Nerd Font
