@@ -179,6 +179,10 @@ c.colors.tabs.pinned.selected.even.bg = '#282c34'
 # empty value, a system-specific monospace default is used.
 # Type: List of Font, or Font
 c.fonts.default_family = '"SauceCodePro Nerd Font"'
+c.fonts.web.family.standard = '"SauceCodePro Nerd Font"'
+c.fonts.web.family.serif = '"SauceCodePro Nerd Font"'
+c.fonts.web.family.sans_serif = '"SauceCodePro Nerd Font"'
+c.fonts.web.family.fixed = '"SauceCodePro Nerd Font"'
 
 # Default font size to use. Whenever "default_size" is used in a font
 # setting, it's replaced with the size listed here. Valid values are
@@ -205,7 +209,7 @@ c.fonts.statusbar = '11pt "SauceCodePro Nerd Font"'
 
 # Bindings for normal mode
 config.bind('M', 'hint links spawn mpv {hint-url}')
-config.bind('Z', 'hint links spawn st -e youtube-dl {hint-url}')
+config.bind('Z', 'hint links spawn alacritty -e youtube-dl {hint-url}')
 config.bind('t', 'set-cmd-text -s :open -t')
 config.bind('xb', 'config-cycle statusbar.show always never')
 config.bind('xt', 'config-cycle tabs.show always never')
