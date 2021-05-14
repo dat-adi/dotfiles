@@ -37,3 +37,4 @@ config/transmission/
 config/Electron/
 .Xauthority
 config/Code
+.config/qutebrowser/autoconfig.yml
