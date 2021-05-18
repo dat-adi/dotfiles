@@ -53,7 +53,7 @@ body {
 
 #links {
     left: 100px;
-    width: calc(100% - 450px);
+    width: calc(100% - 250px);
     height: 100%;
 }
 
@@ -64,7 +64,7 @@ body {
 #panels {
     overflow: hidden;
     border-radius: 5px 0 0 5px;
-    width: 90%;
+    width: 100%;
     height: 450px;
     right: 0;
     left: 0;
@@ -77,11 +77,10 @@ body {
 
 #panels ul {
     --panelbg: transparent;
-    --flavour: var(--accent);
     width: 100%;
     height: 100%;
     right: 100%;
-    background: #fff url("../img/bg-2.gif") repeat center left fixed;
+    background: #fff url("../img/bg-4.gif") repeat center left fixed;
     transition: all 3s;
 }
 
@@ -106,22 +105,21 @@ body {
 #panels > ul:first-child .links a {
     color: #bfbfbf;
     text-decoration: none;
-    font: 700 18px 'Roboto', sans-serif;
+    font: 700 18px 'Fira Code Retina', sans-serif;
     transition: all .2s;
     display: inline-block;
     padding: .4em .7em;
     background: rgba(0, 0, 0, .35);
     box-shadow: 0 3px rgba(0, 0, 0, 0.25), 0 5px 10px rgba(0, 0, 0, .5);
-    border-radius: 2px;
-    margin-bottom: .7em;
+    margin-bottom: .5em;
 }
 
-#panels > ul:first-child .links a:not(:last-child) { margin-right: .3em }
+#panels > ul:first-child .links a:not(:last-child) { margin-right: .5em }
 
 #panels > ul:first-child .links a:hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
     box-shadow: 0 0 rgba(0, 0, 0, 0.25), 0 0 0 rgba(0, 0, 0, .5), 0 -4px 5px rgba(0, 0, 0, .1);
-    color: #fff;
+    color: #ecbbfb;
 }
 
 #panels ul::after {
@@ -146,7 +144,7 @@ body {
     flex-wrap: wrap;
     word-break: break-all;
     align-items: center;
-    mix-blend-mode: overlay;
+    mix-blend-mode: hard-light;
 }
 
 #panels > ul:first-child .links li:not(:last-child) {
