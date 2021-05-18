@@ -55,7 +55,7 @@ c.url.searchengines = {
 }
 
 # Putting up the start page
-c.url.start_pages = ["file:///home/dat-adi/dotfiles/browser/src/startpage.html"]
+c.url.start_pages = ["file:///home/dat-adi/dotfiles/browser/src/dawnpage.html"]
 
 # Setting Dark Mode on
 # config.set("colors.webpage.darkmode.enabled", True)
