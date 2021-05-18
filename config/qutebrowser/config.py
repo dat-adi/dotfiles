@@ -23,7 +23,7 @@ c.tabs.show = "switching"
 
 # Setting default page for when opening new tabs or new windows with
 # commands like :open -t and :open -w .
-c.url.default_page = "file:///home/dat-adi/dotfiles/browser/src/startpage.html"
+c.url.default_page = "file:///home/dat-adi/dotfiles/browser/src/dawnpage.html"
 
 # Search engines which can be used via the address bar.  Maps a search
 # engine name (such as `DEFAULT`, or `ddg`) to a URL with a `{}`
