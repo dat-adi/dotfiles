@@ -114,6 +114,7 @@ body {
     margin-bottom: .5em;
 }
 
+
 #panels > ul:first-child .links a:not(:last-child) { margin-right: .5em }
 
 #panels > ul:first-child .links a:hover {
@@ -154,9 +155,9 @@ body {
 }
 
 #panels > ul:first-child .links li h1 {
-    color: #383838;
+    color: #3f3f3f;
     font-size: 22px;
     margin-bottom: .5em;
-    font-weight: 700;
+    font-weight: 100;
     letter-spacing: 1px;
 }
