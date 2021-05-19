@@ -39,3 +39,4 @@ config/Electron/
 config/Code
 config/qutebrowser/autoconfig.yml
 config/flameshot/flameshot.ini
+config/qutebrowser/qsettings/QtProject.conf

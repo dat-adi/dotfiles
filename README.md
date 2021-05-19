@@ -44,3 +44,28 @@ Finally, used the [.bash_profile](https://github.com/dat-adi/dotfiles/blob/maste
 Helps in keeping it clean with a separate files for [functions](https://github.com/dat-adi/dotfiles/blob/master/.functions) and [aliases](https://github.com/dat-adi/dotfiles/blob/master/.bash_aliases).
 
 I suppose this update arc could be considered to be focused on Modularization and Rust replacements.
+
+## 19/05/2021
+I've set up a new homepage for my browser, which is, [qutebrowser](https://qutebrowser.org/).\
+It has been inspired from, and is a condensed down version of the [dawn](https://github.com/b-coimbra/dawn) homepage by b-coimbra.\
+While I did set out making one for myself, I really did like the dawn version, so, it's just a simpler version of it.
+
+The required assets for the homepage are present in the `browser` directory, in the case that you wish to implement them in your browser as well.\
+Along with that, I've also placed all the packages that I use in the `packages.txt`, still need to sort it out into Pacman specific and AUR specific packages.
+
+**Keep in mind that these commands are DANGEROUS**
+Setting up all the required dependencies for my Arch Linux configuration can now be done with a simple shell script, that takes care of the pacman packages.\
+This record will be updated in the case that I manage to make a version for the `yay` packages as well.
+
+Here's the recovery configuration,
+
+```shell
+git clone git@github.com:dat-adi/dotfiles.git
+cd dotfiles
+./pac-packages
+./install
+```
+
+That should get you to a working system setup without an issue.\
+If the scripts do not execute, check if you've given it permissions to act as an executable in the first place.\
+Use `chmod 755 filename` in this case.

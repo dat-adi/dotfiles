@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+PAC_PACKAGE_LIST="packages.txt"
+AUR_PACKAGE_LIST="yay-packages.txt"
+
+BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+awk '{print $1}' "${BASEDIR}/${PAC_PACKAGE_LIST}" | xargs sudo pacman -S --noconfirm

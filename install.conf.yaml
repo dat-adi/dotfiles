@@ -17,6 +17,7 @@
     ~/.aliases: .bash_aliases
     ~/.functions: .functions
     ~/.doom.d: doom.d
+    ~/.conkyrc: conkyrc
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
