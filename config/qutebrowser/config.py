@@ -226,7 +226,7 @@ c.fonts.statusbar = '11pt "SauceCodePro Nerd Font"'
 
 # Bindings for normal mode
 config.bind("M", "hint links spawn mpv {hint-url}")
-config.bind("Z", "hint links spawn alacritty -e youtube-dl {hint-url}")
+config.bind("Zv", "hint links spawn alacritty -e youtube-dl {hint-url}")
 config.bind("t", "set-cmd-text -s :open -t")
 config.bind("xb", "config-cycle statusbar.show always never")
 config.bind("xt", "config-cycle tabs.show always never")
@@ -234,3 +234,4 @@ config.bind(
     "xx",
     "config-cycle statusbar.show always never;; config-cycle tabs.show always never",
 )
+config.bind("Za", "hint links spawn alacritty -e youtube-dl --ignore-errors -f bestaudio --extract-audio --audio-format mp3 --audio-quality 0 -o \'~/Music/youtube/%(title)s.%(ext)s\' {hint-url}")
