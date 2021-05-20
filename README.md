@@ -50,6 +50,8 @@ I've set up a new homepage for my browser, which is, [qutebrowser](https://quteb
 It has been inspired from, and is a condensed down version of the [dawn](https://github.com/b-coimbra/dawn) homepage by b-coimbra.\
 While I did set out making one for myself, I really did like the dawn version, so, it's just a simpler version of it.
 
+[![Custom Dawn Desktop](./assets/dawn_desktop.png "Custom Dawn Desktop")]("https://github.com/dat-adi/dotfiles/blob/master/browser/src/")
+
 The required assets for the homepage are present in the `browser` directory, in the case that you wish to implement them in your browser as well.\
 Along with that, I've also placed all the packages that I use in the `packages.txt`, still need to sort it out into Pacman specific and AUR specific packages.
 
