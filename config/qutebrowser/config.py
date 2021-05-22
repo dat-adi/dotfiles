@@ -195,6 +195,7 @@ c.colors.tabs.pinned.selected.even.bg = "#282c34"
 # font setting, it's replaced with the fonts listed here. If set to an
 # empty value, a system-specific monospace default is used.
 # Type: List of Font, or Font
+c.content.user_stylesheets = ["~/dotfiles/config/qutebrowser/qute.css"]
 c.fonts.default_family = '"SauceCodePro Nerd Font"'
 c.fonts.web.family.standard = '"SauceCodePro Nerd Font"'
 c.fonts.web.family.serif = '"SauceCodePro Nerd Font"'

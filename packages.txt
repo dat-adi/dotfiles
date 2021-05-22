@@ -7,6 +7,7 @@ asoundconf
 audacity
 autoconf
 automake
+amfora
 base
 bat
 bison
