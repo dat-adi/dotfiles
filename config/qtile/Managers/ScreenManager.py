@@ -1,6 +1,6 @@
 # -*- coding:utf-8 -*-
 import os
-from libqtile import bar, layout, widget, hook
+from libqtile import bar, layout, widget, hook, qtile
 from libqtile.config import Click, Drag, Group, Key, KeyChord, Match, Screen
 
 
@@ -118,6 +118,18 @@ def get_two_screens(colors):
                         foreground=colors[3],
                         change_command="light -S {0}",
                         backlight_name="intel_backlight",
+                    ),
+                    widget.Spacer(10),
+                    widget.CheckUpdates(
+                        update_interval=1800,
+                        distro="Arch_checkupdates",
+                        display_format="{updates} Updates",
+                        mouse_callbacks={
+                            "Button1": lambda: qtile.cmd_spawn(
+                                "alacritty -e sudo pacman -Syu"
+                            )
+                        },
+                        foreground=colors[3],
                     ),
                     widget.Spacer(10),
                     # Volume
@@ -398,6 +410,18 @@ def get_one_screens(colors):
                         foreground=colors[3],
                         change_command="light -S {0}",
                         backlight_name="intel_backlight",
+                    ),
+                    widget.Spacer(10),
+                    widget.CheckUpdates(
+                        update_interval=1800,
+                        distro="Arch_checkupdates",
+                        display_format="{updates} Updates",
+                        mouse_callbacks={
+                            "Button1": lambda: qtile.cmd_spawn(
+                                "alacritty -e sudo pacman -Syu"
+                            )
+                        },
+                        foreground=colors[3],
                     ),
                     widget.Spacer(10),
                     # Volume
