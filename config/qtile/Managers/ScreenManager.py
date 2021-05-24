@@ -122,7 +122,7 @@ def get_two_screens(colors):
                     widget.Spacer(10),
                     widget.CheckUpdates(
                         update_interval=1800,
-                        distro="Arch_checkupdates",
+                        distro="Arch",
                         display_format="{updates} Updates",
                         mouse_callbacks={
                             "Button1": lambda: qtile.cmd_spawn(
@@ -414,7 +414,7 @@ def get_one_screens(colors):
                     widget.Spacer(10),
                     widget.CheckUpdates(
                         update_interval=1800,
-                        distro="Arch_checkupdates",
+                        distro="Arch",
                         display_format="{updates} Updates",
                         mouse_callbacks={
                             "Button1": lambda: qtile.cmd_spawn(
