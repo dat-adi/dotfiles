@@ -71,3 +71,6 @@ cd dotfiles
 That should get you to a working system setup without an issue.\
 If the scripts do not execute, check if you've given it permissions to act as an executable in the first place.\
 Use `chmod 755 filename` in this case.
+
+---
+<p align="right"><i>dat-adi</i></p>
