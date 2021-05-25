@@ -9,7 +9,6 @@
     ~/.config: config
     ~/.tmux.conf: tmux.conf
     ~/.xinitrc: xinitrc
-    ~/.Xauthority: .Xauthority
     ~/.Xresources: .Xresources
     ~/.xprofile: xprofile
     ~/.gitconfig: gitconfig
@@ -18,6 +17,8 @@
     ~/.functions: .functions
     ~/.doom.d: doom.d
     ~/.conkyrc: conkyrc
+    ~/.emacs.d: .emacs.d
+    ~/.emacs.default: .emacs.default
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
