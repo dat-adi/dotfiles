@@ -12,5 +12,3 @@ export NVM_DIR="/home/dat-adi/.nvm"
 
 ~/.config/startup-scripts/fm6000 -r
 eval "$(starship init bash)"
-
-source ~/Code/shell-scripts/youtube-dl-audio
