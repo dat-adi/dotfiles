@@ -36,7 +36,7 @@ from Managers import (
 keys, groups = KeybindManager.get_asdf()
 layouts = LayoutManager.get_layouts()
 colors = ColorManager.hollowknight()
-screens = ScreenManager.get_one_screens(colors)
+screens = ScreenManager.get_two_screens(colors)
 widget_defaults = WidgetManager.get_widget_defaults()
 extension_defaults = widget_defaults.copy()
 
