@@ -15,10 +15,10 @@
     ~/.bash_profile: bash_profile
     ~/.aliases: .bash_aliases
     ~/.functions: .functions
-    ~/.doom.d: doom.d
     ~/.conkyrc: conkyrc
-    ~/.emacs.d: .emacs.d
+    ~/.emacs.d: chemacs2
     ~/.emacs.default: .emacs.default
+    ~/.rtorrent.rc: .rtorrent.rc
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
