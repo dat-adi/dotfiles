@@ -20,6 +20,7 @@
     ~/.emacs.default: .emacs.default
     ~/.emacs-profiles.el: .emacs-profiles.el
     ~/.rtorrent.rc: .rtorrent.rc
+    ~/.vimrc: .vimrc
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
