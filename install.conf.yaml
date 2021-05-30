@@ -18,6 +18,7 @@
     ~/.conkyrc: conkyrc
     ~/.emacs.d: chemacs2
     ~/.emacs.default: .emacs.default
+    ~/.emacs-profiles.el: .emacs-profiles.el
     ~/.rtorrent.rc: .rtorrent.rc
 
 - shell:
