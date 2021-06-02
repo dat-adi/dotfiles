@@ -2,7 +2,6 @@ set TERM "xterm-256color"
 set XDG_USER_CONFIG_DIR "$HOME/.config"
 set XDG_CONFIG_HOME "$HOME/.config"
 set XDG_DATA_HOME "$HOME/.local/share"
-set XDG_DATA_DIRS "$HOME/.config"
 
 # git
 alias addup='git add -u'

@@ -5,7 +5,7 @@ from libqtile import layout
 def get_layouts():
     layout_theme = {
         "border_width": 2,
-        "margin": 4,
+        "margin": 8,
         "border_focus": "#F0F0F0",
         "border_normal": "#1D233F",
     }
