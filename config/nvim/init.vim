@@ -33,6 +33,7 @@ call plug#begin()
     Plug 'junegunn/limelight.vim'
     Plug 'junegunn/vim-emoji'
     Plug 'arcticicestudio/nord-vim'
+    Plug 'lervag/vimtex'
 
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'dsznajder/vscode-es7-javascript-react-snippets', { 'do': 'yarn install --frozen-lockfile && yarn compile' }
