@@ -1,0 +1,148 @@
+/*******************
+ * check and radio *
+ *******************/
+/* draw regular check and radio items using our assets */
+.check {
+    -gtk-icon-source: url("assets/checkbox-unchecked.svg");
+}
+
+.check:disabled {
+    -gtk-icon-source: url("assets/checkbox-unchecked-disabled.svg");
+}
+
+.check:checked {
+    -gtk-icon-source: url("assets/checkbox-checked.svg");
+}
+
+.check:checked:disabled {
+    -gtk-icon-source: url("assets/checkbox-checked-disabled.svg");
+}
+
+.check:indeterminate {
+    -gtk-icon-source: url("assets/checkbox-mixed.svg");
+}
+
+.check:indeterminate:disabled {
+    -gtk-icon-source: url("assets/checkbox-mixed-disabled.svg");
+}
+
+.radio {
+    -gtk-icon-source: url("assets/radio-unselected.svg");
+}
+
+.radio:disabled {
+    -gtk-icon-source: url("assets/radio-unselected-disabled.svg");
+}
+
+.radio:checked {
+    -gtk-icon-source: url("assets/radio-selected.svg");
+}
+
+.radio:checked:disabled {
+    -gtk-icon-source: url("assets/radio-selected-disabled.svg");
+}
+
+.radio:indeterminate {
+    -gtk-icon-source: url("assets/radio-mixed.svg");
+}
+
+.radio:indeterminate:disabled {
+    -gtk-icon-source: url("assets/radio-mixed-disabled.svg");
+}
+
+.menuitem.check {
+    -gtk-icon-source: none;
+}
+
+.menuitem.check:active {
+    -gtk-icon-source: url("assets/menuitem-checkbox-checked.svg");
+}
+
+.menuitem.check:active:hover {
+    -gtk-icon-source: url("assets/menuitem-checkbox-checked-hover.svg");
+}
+
+.menuitem.check:active:disabled {
+    -gtk-icon-source: url("assets/menuitem-checkbox-checked-disabled.svg");
+}
+
+.menuitem.check:indeterminate:hover,
+.menuitem.radio:indeterminate:hover {
+    -gtk-icon-source: url("assets/menuitem-checkbox-mixed-hover.svg");
+}
+
+.menuitem.check:indeterminate,
+.menuitem.radio:indeterminate {
+    -gtk-icon-source: url("assets/menuitem-checkbox-mixed.svg");
+}
+
+.menuitem.check:indeterminate:disabled,
+.menuitem.radio:indeterminate:disabled {
+    -gtk-icon-source: url("assets/menuitem-checkbox-mixed-disabled.svg");
+}
+
+.menuitem.radio {
+    -gtk-icon-source: none;
+}
+
+.menuitem.radio:active {
+    -gtk-icon-source: url("assets/menuitem-radio-checked.svg");
+}
+
+.menuitem.radio:active:hover {
+    -gtk-icon-source: url("assets/menuitem-radio-checked-hover.svg");
+}
+
+.menuitem.radio:active:disabled {
+    -gtk-icon-source: url("assets/menuitem-radio-checked-disabled.svg");
+}
+
+GtkIconView.content-view.cell.check {
+    -gtk-icon-source: url("assets/grid-selection-unchecked.svg");
+}
+
+GtkIconView.content-view.cell.check:active {
+    -gtk-icon-source: url("assets/grid-selection-checked.svg");
+}
+
+/******************
+ * pane separator *
+ ******************/
+.pane-separator,
+.pane-separator.horizontal {
+    background-image: linear-gradient(to bottom,
+                                      shade(@theme_bg_color, 0.8) 0%,
+                                      shade(@theme_bg_color, 0.8) 20%,
+                                      transparent 20%,
+                                      transparent 45%,
+                                      shade(@theme_bg_color, 0.8) 45%,
+                                      shade(@theme_bg_color, 0.8) 55%,
+                                      transparent 55%,
+                                      transparent 80%,
+                                      shade(@theme_bg_color, 0.8) 80%,
+                                      shade(@theme_bg_color, 0.8)
+                                      );
+
+    background-size: 4px 10px;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.pane-separator.vertical {
+    background-image: linear-gradient(to right,
+                                      shade(@theme_bg_color, 0.8) 0%,
+                                      shade(@theme_bg_color, 0.8) 20%,
+                                      transparent 20%,
+                                      transparent 45%,
+                                      shade(@theme_bg_color, 0.8) 45%,
+                                      shade(@theme_bg_color, 0.8) 55%,
+                                      transparent 55%,
+                                      transparent 80%,
+                                      shade(@theme_bg_color, 0.8) 80%,
+                                      shade(@theme_bg_color, 0.8)
+                                      );
+
+    background-size: 10px 4px;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
