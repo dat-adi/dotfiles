@@ -62,8 +62,9 @@ def get_asdf():
             [mod, "shift"],
             "Return",
             lazy.spawn("rofi -show combi"),
-            desc="Toggle between split and unsplit sides of stack",
+            desc="Combination of all methods",
         ),
+        Key([mod, "shift"], "p", lazy.spawn("~/Downloads/rofi-pass/rofi-pass"), desc="Passwords",),
         Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
         # Toggle between different layouts as defined below
         Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),

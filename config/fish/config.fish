@@ -35,9 +35,12 @@ alias vi='nvim'
 alias xampp-start='sudo /opt/lampp/lampp start'
 alias xampp-stop='sudo /opt/lampp/lampp stop'
 
-# fish shortcuts
+# AUR helper
+alias p "paru"
+
+# configuration shortcuts
 alias fishconf "nvim ~/.config/fish/config.fish"
-alias qtileconf "nvim ~/.config/qtile/config.py"
+alias qtileconf "nvim ~/.config/qtile/"
 alias roficonf "nvim ~/.config/rofi/config.rasi"
 alias nvimconf "nvim ~/.config/nvim/init.vim"
 alias reload "source ~/.config/fish/config.fish"
