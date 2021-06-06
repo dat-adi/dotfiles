@@ -205,7 +205,7 @@ GtkGrid:disabled {
  * assistant *
  *************/
 GtkAssistant .sidebar .highlight {
-    font: bold;
+    font-weight: bold;
 }
 
 GtkAssistant .sidebar {
@@ -376,7 +376,7 @@ column-header:last-child .button {
  * content view *
  ****************/
 .content-view.subtitle {
-    font: smaller;
+    font-size: small;
     padding: 0 12px;
 }
 
@@ -999,7 +999,7 @@ GtkComboBox .menu {
 }
 
 .context-menu {
-    font: initial;
+    font-size: initial;
 }
 
 /* ubuntu software center menu */
@@ -1505,7 +1505,7 @@ GtkProgressBar {
     padding: 0;
     border-width: 1px;
     border-radius: 2px;
-    font-size: smaller;
+    font-size: small;
     color: alpha(@theme_fg_color, 0.6);
 }
 
@@ -2076,7 +2076,7 @@ GtkStatusbar {
 GtkSwitch {
     padding: 0;
     border-radius: 2px;
-    font: bold condensed;
+    font-weight: bold;
     outline-offset: -4px;
 }
 
@@ -2247,12 +2247,12 @@ GtkColorButton.button {
 }
 
 .header-bar .title {
-    font: bold;
+    font-weight: bold;
     padding: 0 12px;
 }
 
 .header-bar .subtitle {
-    font: smaller;
+    font-size: small;
     padding: 0 12px;
 }
 
@@ -3277,12 +3277,12 @@ GtkViewport.frame {
 }
 
 .action-bar .title {
-    font: bold;
+    font-weight: bold;
     padding: 0 12px;
 }
 
 .action-bar .subtitle {
-    font: smaller;
+    font-size: small;
     padding: 0 12px;
 }
 
@@ -3884,7 +3884,7 @@ GtkBubbleWindow .toolbar {
 }
 
 .titlebar .title {
-    font: bold;
+    font-weight: bold;
 }
 
 .titlebar:backdrop {
