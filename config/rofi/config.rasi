@@ -9,4 +9,4 @@ configuration {
     sort:               true;
 }
 
-@import "~/.config/rofi/themes/dt-dmenu.rasi"
+@import "~/.config/rofi/themes/dt-center.rasi"
