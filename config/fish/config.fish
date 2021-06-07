@@ -23,6 +23,7 @@ alias cat='bat'
 alias ls='exa'
 alias sl='exa -la'
 alias grep='rg'
+alias dvsw='cd ~/Documents/VIT/Sophomore/WinterSemester/'
 
 # browser
 alias viv='vivaldi-stable'
