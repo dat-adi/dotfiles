@@ -1,0 +1,115 @@
+#+TITLE: Qtile Config
+#+PROPERTY: header-args :tangle config.py
+#+STARTUP: showeverything
+
+* About This Config
+Qtile is a tiling window manager that is written in Python.
+[[https://www.qtile.org]]
+
+This README configuration file was an idea that was brought to my view through Distrotube.
+He's configured his XMonad configuration through a README file using the =:tangle= header and I thought that that was pretty cool.
+
+So, here's my README org file explaining my configuration, while simultaneously building it once this file is compiled.
+
+~dat-adi~
+
+* Branding
+This really doesn't matter, but, I love to just add in my details at the start of the configuration file.
+I think it looks cool.
+
+#+BEGIN_SRC python
+# -*- UTF-8 -*-
+
+# -----------------------------------------
+#        _       _                   _ _
+#       | |     | |                 | (_)
+#     __| | __ _| |_ ______ __ _  __| |_
+#    / _` |/ _` | __|______/ _` |/ _` | |
+#   | (_| | (_| | |_      | (_| | (_| | |
+#    \__,_|\__,_|\__|      \__,_|\__,_|_|
+#
+# -----------------------------------------
+#
+#         Instagram : dat.adithya
+#            GitHub : @dat-adi
+#
+# -----------------------------------------
+
+#+END_SRC
+
+* Imports
+These are the imports that are required in order to utilize the configuration file, and technically just imports the functions that we use from the =libqtile= library in Python.
+
+The os, socket, subprocess modules are ones that are innately present in the default Python library.
+
+The Managers are files that I've created in order to separate the different components of the Qtile configuration into their respective files.
+These files quite literally _manage_ their features.
+
+#+BEGIN_SRC python
+import os
+import socket
+import subprocess
+from typing import List  # noqa: F401
+
+from libqtile import bar, layout, widget, hook
+from libqtile.config import Click, Drag, Group, Key, KeyChord, Match, Screen
+from libqtile.lazy import lazy
+from Managers import (
+    ColorManager,
+    KeybindManager,
+    LayoutManager,
+    ScreenManager,
+    WidgetManager,
+)
+#+END_SRC
+
+* Configuration Variables
+** Manager Configuration Variables
+These are the variables that are assigned a list of values from the Managers.
+We use these particular variables as a means to configure Qtile.
+
+The Managers provide the variables with the necessary values produced by the functions.
+
+# Utilization of the Managers
+#+BEGIN_SRC python
+keys, groups = KeybindManager.get_asdf()
+layouts = LayoutManager.get_layouts()
+colors = ColorManager.hollowknight()
+screens = ScreenManager.get_one_screens(colors)
+widget_defaults = WidgetManager.get_widget_defaults()
+extension_defaults = widget_defaults.copy()
+#+END_SRC
+
+** Miscellaneous Configuration Variables
+These are settings that are basic, and mostly are used to set up minor properties in the configuration, whilst not hindering the actual functionality of the Window Manager.
+
+#+BEGIN_SRC python
+# Miscellaneous settings
+bring_front_click = False
+cursor_warp = False
+auto_fullscreen = True
+focus_on_window_activation = "smart"
+reconfigure_screens = True
+#+END_SRC
+
+* Startup Scripts
+This is the section where we start up the scripts that need to run the scripts which need to be run on Window Manager Boot Up time.
+
+#+BEGIN_SRC python
+# startup script
+@hook.subscribe.startup
+def start_once():
+    home = os.path.expanduser("~/.config/qtile/autostart.sh")
+    subprocess.call([home])
+#+END_SRC
+
+* Default Properties
+Stuff we don't need to edit since it has nothing to do with configuration and mostly to do with Qtile settings.
+
+#+BEGIN_SRC python
+# XXX: Don't change this property. Has to do with Java UI kits.
+wmname = "LG3D"
+#+END_SRC
+
+* Extension Ideas
+** IDEA Dynamically check Number of Monitors on startup.

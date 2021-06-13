@@ -31,8 +31,6 @@ from Managers import (
     WidgetManager,
 )
 
-# TODO: Dynamically check on startup as to whether HDMI port is connected to a display and use one/two screens
-# Utilization of the Managers
 keys, groups = KeybindManager.get_asdf()
 layouts = LayoutManager.get_layouts()
 colors = ColorManager.hollowknight()
@@ -52,7 +50,6 @@ reconfigure_screens = True
 def start_once():
     home = os.path.expanduser("~/.config/qtile/autostart.sh")
     subprocess.call([home])
-
 
 # XXX: Don't change this property. Has to do with Java UI kits.
 wmname = "LG3D"
