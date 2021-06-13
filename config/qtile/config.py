@@ -15,14 +15,18 @@
 #
 # -----------------------------------------
 
+# Importing system modules
 import os
 import socket
 import subprocess
 from typing import List  # noqa: F401
 
+# Importing Qtile library modules
 from libqtile import bar, layout, widget, hook
 from libqtile.config import Click, Drag, Group, Key, KeyChord, Match, Screen
 from libqtile.lazy import lazy
+
+# Importing the various managers
 from Managers import (
     ColorManager,
     KeybindManager,
@@ -31,6 +35,7 @@ from Managers import (
     WidgetManager,
 )
 
+# Defining the manager configuration variables
 keys, groups = KeybindManager.get_asdf()
 layouts = LayoutManager.get_layouts()
 colors = ColorManager.hollowknight()
