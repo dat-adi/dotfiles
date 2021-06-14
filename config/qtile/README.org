@@ -7,11 +7,9 @@ Qtile is a tiling window manager that is written in Python.
 [[https://www.qtile.org]]
 
 This README configuration file was an idea that was brought to my view through Distrotube.
-He's configured his XMonad configuration through a README file using the =:tangle= header and I thought that that was pretty cool.
+He's configured his XMonad configuration through a README file using the =:tangle= property header and I thought that that was pretty cool.
 
 So, here's my README org file explaining my configuration, while simultaneously building it once this file is compiled.
-
-~dat-adi~
 
 * Branding
 This really doesn't matter, but, I love to just add in my details at the start of the configuration file.

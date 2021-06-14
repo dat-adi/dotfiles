@@ -1,13 +1,54 @@
+#+TITLE: QuteBrowser Configuration
+#+DESCRIPTION: A Literate Programming Configuration for QuteBrowser
+#+PROPERTY: header-args :tangle config.py
+
+* About This Configuration
+This is a literate programming configuration for the QuteBrowser that I've set up on my system.
+https://qutebrowser.org/
+
+Here, you will find the configuration for my version of the QuteBrowser with plugins, and browser integrations.
+
+* Auto Configuration
+Change the argument to True to still load settings configured via autoconfig.yml
+
+#+BEGIN_SRC python
 config.load_autoconfig(False)
+#+END_SRC
 
+** Configuration Pages for QuteBrowser
+[[qute://help/configuring.html]]
+[[qute://help/settings.html]]
+
+* Tab Bar Configuration
+This is where you define how the tab bar behaves in qutebrowser.
+There are a few options that you can use,
+- always: Always show the tab bar.
+- never: Always hide the tab bar.
+- multiple: Hide the tab bar if only one tab is open.
+- switching: Show the tab bar when switching tabs.
+
+#+BEGIN_SRC python
 c.tabs.show = "switching"
+#+END_SRC
 
+* Default Pages
+This is where you can set up the default pages that you trigger when you open the browser or create a new tab.
+Generally, you receive a blank screen, but, once set up, you can greet yourself with a custom homepage.
+
+I've configured it with my home page I've derived from the [[github:b-coimbra/dawn][Dawn]] webpages.
+
+#+BEGIN_SRC python
 # Setting the default page
 c.url.default_page = "file:///home/dat-adi/dotfiles/browser/src/dawnpage.html"
 
 # Putting up the start page
 c.url.start_pages = ["file:///home/dat-adi/dotfiles/browser/src/dawnpage.html"]
+#+END_SRC
 
+* Search Engines
+Here lie the various search engines that I use for navigating through the internet.
+
+#+BEGIN_SRC python
 c.url.searchengines = {
     "DEFAULT": "https://duckduckgo.com/?q={}",
     "am": "https://www.amazon.in/s?k={}",
@@ -18,7 +59,12 @@ c.url.searchengines = {
     "wiki": "https://en.wikipedia.org/wiki/{}",
     "yt": "https://www.youtube.com/results?search_query={}",
 }
+#+END_SRC
 
+* Theming
+Here is the theming for the colors of the web browser.
+
+#+BEGIN_SRC python
 # Setting Dark Mode on
 # config.set("colors.webpage.darkmode.enabled", True)
 
@@ -152,14 +198,23 @@ c.colors.tabs.pinned.selected.odd.bg = "#282c34"
 # Background color of pinned selected even tabs.
 # Type: QtColor
 c.colors.tabs.pinned.selected.even.bg = "#282c34"
+#+END_SRC
 
+* Font Configuration
+I've had quite a few issues with the fonts for monospace, and so I've come up with a style sheet to utilize the various fonts and colors for elements in GitHub.
+
+#+BEGIN_SRC python
 c.content.user_stylesheets = ["~/dotfiles/config/qutebrowser/qute.css"]
 c.fonts.default_family = '"SauceCodePro Nerd Font"'
 c.fonts.web.family.standard = '"SauceCodePro Nerd Font"'
 c.fonts.web.family.serif = '"SauceCodePro Nerd Font"'
 c.fonts.web.family.sans_serif = '"SauceCodePro Nerd Font"'
 c.fonts.web.family.fixed = '"SauceCodePro Nerd Font"'
+#+END_SRC
 
+** Font Utilization
+Here is where we define the fonts to use for specific instances.
+#+BEGIN_SRC python
 c.fonts.default_size = "11pt"
 
 # Font used in the completion widget.
@@ -177,7 +232,17 @@ c.fonts.prompts = "default_size sans-serif"
 # Font used in the statusbar.
 # Type: Font
 c.fonts.statusbar = '11pt "SauceCodePro Nerd Font"'
+#+END_SRC
 
+* Configuration Bindings
+Here is where we alter the commands we have in qutebrowser, quite like an =alias= command.
+
+I've added a few extensions to the bindings as listed below,
+- MPV integration to watch YouTube Videos on the MPV player.
+- YouTube DL integration for Audio and Video.
+- Minor aliases.
+
+#+BEGIN_SRC python
 config.bind("M", "hint links spawn mpv {hint-url}")
 config.bind("Zv", "hint links spawn alacritty -e youtube-dl {hint-url}")
 config.bind("t", "set-cmd-text -s :open -t")
@@ -188,3 +253,4 @@ config.bind(
     "config-cycle statusbar.show always never;; config-cycle tabs.show always never",
 )
 config.bind("Za", "hint links spawn alacritty -e youtube-dl --ignore-errors -f bestaudio --extract-audio --audio-format mp3 --audio-quality 0 -o \'~/Music/youtube/%(title)s.%(ext)s\' {hint-url}")
+#+END_SRC
