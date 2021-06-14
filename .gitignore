@@ -43,3 +43,4 @@ config/qutebrowser/qsettings/QtProject.conf
 .emacs.default/auto-save-list/
 .emacs.default/
 config/texstudio
+.local
