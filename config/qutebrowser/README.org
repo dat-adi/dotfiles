@@ -4,20 +4,24 @@
 
 * About This Configuration
 This is a literate programming configuration for the QuteBrowser that I've set up on my system.
-https://qutebrowser.org/
+- https://qutebrowser.org/
 
 Here, you will find the configuration for my version of the QuteBrowser with plugins, and browser integrations.
 
 * Auto Configuration
-Change the argument to True to still load settings configured via autoconfig.yml
+Change the argument to True to still load settings configured via autoconfig.yml.
+We generally need this to be at =False=, if we wish to configure QuteBrowser through the configuration file rather than the autoconfig file.
 
 #+BEGIN_SRC python
 config.load_autoconfig(False)
 #+END_SRC
 
 ** Configuration Pages for QuteBrowser
-[[qute://help/configuring.html]]
-[[qute://help/settings.html]]
+These are the official links to the QuteBrowser pages for configuration.
+It's a bit more interactive than the general =config.py= file.
+
+- [[qute://help/configuring.html]]
+- [[qute://help/settings.html]]
 
 * Tab Bar Configuration
 This is where you define how the tab bar behaves in qutebrowser.
@@ -47,6 +51,10 @@ c.url.start_pages = ["file:///home/dat-adi/dotfiles/browser/src/dawnpage.html"]
 
 * Search Engines
 Here lie the various search engines that I use for navigating through the internet.
+I generally use duckduckgo, simply because I kinda got tired of Google, so, here's mine.
+
+I've also added =aw= and =gh= to the search engine list, as, I do use them pretty frequently.
+It's a good idea to make one for yourself, in the case that you search a website regularly.
 
 #+BEGIN_SRC python
 c.url.searchengines = {
@@ -63,6 +71,10 @@ c.url.searchengines = {
 
 * Theming
 Here is the theming for the colors of the web browser.
+
+The theme that I currently use follows the one created by [[https://gitlab.com/dwt1][DistroTube]].
+It's pretty good, and I do recommend that people try it out and modify it to your liking.
+I'm pretty satisfied with the look for now.
 
 #+BEGIN_SRC python
 # Setting Dark Mode on
@@ -202,6 +214,7 @@ c.colors.tabs.pinned.selected.even.bg = "#282c34"
 
 * Font Configuration
 I've had quite a few issues with the fonts for monospace, and so I've come up with a style sheet to utilize the various fonts and colors for elements in GitHub.
+This can definitely be altered and you're free to use whichever font is your pick!
 
 #+BEGIN_SRC python
 c.content.user_stylesheets = ["~/dotfiles/config/qutebrowser/qute.css"]
@@ -214,6 +227,8 @@ c.fonts.web.family.fixed = '"SauceCodePro Nerd Font"'
 
 ** Font Utilization
 Here is where we define the fonts to use for specific instances.
+We mostly set up the variables that use the fonts to do certain functions such as set the default size and determine which font is to be used where.
+
 #+BEGIN_SRC python
 c.fonts.default_size = "11pt"
 
