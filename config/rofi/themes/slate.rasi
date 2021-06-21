@@ -1,9 +1,13 @@
 * {
-  background-color: #282C33;
-  border-color: #2e343f;
+  background-color:            #282c34;
+  border-color:                #282c34;
+  font:                        "Source Code Pro 9";
+  prompt-font:                 "Ubuntu Bold 10";
+  border-radius: 10px;
   text-color: #8ca0aa;
   spacing: 0;
-  width: 512px;
+  width: 712px;
+  font-family: "SauceCodePro Nerd Font";
 }
 
 inputbar {
@@ -20,7 +24,7 @@ textbox {
   background-color: #2e343f;
   border: 0 0 1px 0;
   border-color: #282C33;
-  padding: 8px 16px;
+  padding: 8px 10px;
 }
 
 entry {
