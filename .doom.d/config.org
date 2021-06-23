@@ -1,0 +1,48 @@
+#+TITLE: DOOM Literate Configuration
+#+AUTHOR: Dat Adithya
+
+* MU4E
+This configuration for MU4E was taken from DistroTube's tutorial on setting up MU4E on Doom Emacs.
+Here's the link to that video => [[https://www.youtube.com/watch?v=LKp3hQP2VxQ&t=581s][MU4E + DOOM Emacs]].
+
+I've put up my default email address as my university email address, as that is which receives the most frequent amount of mailings.
+
+#+BEGIN_SRC emacs-lisp
+(add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu4e")
+;;(require 'smtpmail)
+(setq user-full-name "Datta Adithya"
+      user-mail-address "adithya.19bce7119@vitap.ac.in"
+     mu4e-get-mail-command "mbsync -c ~/.config/mu4e/mbsyncrc -a"
+      mu4e-update-interval  300
+      mu4e-main-buffer-hide-personal-addresses t
+      message-send-mail-function 'smtpmail-send-it
+      starttls-use-gnutls t
+      smtpmail-starttls-credentials '(("smtp.gmail.com" 587 nil nil))
+      mu4e-sent-folder "/Maildir/adithya-university/Sent"
+      mu4e-drafts-folder "/Maildir/adithya-university/Drafts"
+      mu4e-trash-folder "/Maildir/adithya-university/Trash"
+      mu4e-maildir-shortcuts
+      '(("/Maildir/adithya-university/Inbox"      . ?i)
+        ("/Maildir/adithya-university/Sent Items" . ?s)
+        ("/Maildir/adithya-university/Drafts"     . ?d)
+        ("/Maildir/adithya-university/Trash"      . ?t)))
+#+END_SRC
+
+* THEME
+I particularly like the default DOOM One theme that has been set up by hlissner, and as such, I'll leave the doom-theme, as is.
+
+#+BEGIN_SRC emacs-lisp
+(setq doom-theme 'doom-one)
+#+END_SRC
+
+* ORG MODE
+A few settings to initialize and configure =org-mode= for Emacs.
+Such as setting up the directory to look into, and the deadline warning days and the such.
+
+#+BEGIN_SRC emacs-lisp
+(setq
+ org-agenda-files (quote("~/Documents/org/tasks.org"
+                         "~/Documents/org/meetings.org"))
+ org-deadline-warning-days 7
+ org-directory "~/Documents/org/")
+#+END_SRC
