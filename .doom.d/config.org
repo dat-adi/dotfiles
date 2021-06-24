@@ -1,5 +1,16 @@
 #+TITLE: DOOM Literate Configuration
 #+AUTHOR: Dat Adithya
+#+PROPERTY: :tangle config.el
+
+* DIRED
+Here is the section where I mess around with my Dired variables and follow a [[https://www.youtube.com/watch?v=ing9Y53RICs][YouTube Tutorial]] on working with DIRED.
+
+#+BEGIN_SRC emacs-lisp
+'(dired-clean-confirm-killing-deleted-buffers nil) ;; don't ask whether to kill buffers containing deleted files.
+#+END_SRC
+
+#+RESULTS:
+| dired-clean-confirm-killing-deleted-buffers | nil |
 
 * MU4E
 This configuration for MU4E was taken from DistroTube's tutorial on setting up MU4E on Doom Emacs.

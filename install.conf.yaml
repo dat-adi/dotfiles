@@ -22,6 +22,7 @@
     ~/.emacs-profiles.el: .emacs-profiles.el
     ~/.rtorrent.rc: .rtorrent.rc
     ~/.vimrc: .vimrc
+    ~/.mbsyncrc: config/mu4e/mbsyncrc
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
