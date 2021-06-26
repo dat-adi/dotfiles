@@ -84,5 +84,4 @@ else
     end
 end
 
-colorscript random
 starship init fish | source
