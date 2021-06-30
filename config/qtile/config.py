@@ -35,6 +35,8 @@ from Managers import (
     WidgetManager,
 )
 
+mod = "mod4"
+
 # Defining the manager configuration variables
 keys, groups = KeybindManager.get_asdf()
 layouts = LayoutManager.get_layouts()
@@ -42,13 +44,33 @@ colors = ColorManager.hollowknight()
 screens = ScreenManager.get_one_screens(colors)
 widget_defaults = WidgetManager.get_widget_defaults()
 extension_defaults = widget_defaults.copy()
-
+mouse = [
+    Drag([mod], "Button1", lazy.window.set_position_floating(),
+         start=lazy.window.get_position()),
+    Drag(["shift"], "Button1", lazy.window.set_size_floating(),
+         start=lazy.window.get_size()),
+    Click([mod], "Button2", lazy.window.bring_to_front())
+]
 # Miscellaneous settings
 bring_front_click = False
 cursor_warp = False
 auto_fullscreen = True
 focus_on_window_activation = "smart"
 reconfigure_screens = True
+
+floating_layout = layout.Floating(float_rules=[
+    # Run the utility of `xprop` to see the wm class and name of an X client.
+    *layout.Floating.default_float_rules,
+    Match(wm_class='confirmreset'),  # gitk
+    Match(wm_class='makebranch'),  # gitk
+    Match(wm_class='maketag'),  # gitk
+    Match(wm_class='ssh-askpass'),  # ssh-askpass
+    Match(wm_class='nm-connection-editor'),
+    Match(wm_class='pcmanfm'),
+    Match(title='branchdialog'),  # gitk
+    Match(title='pinentry'),  # GPG key password entry
+    ],
+)
 
 # startup script
 @hook.subscribe.startup

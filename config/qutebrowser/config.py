@@ -187,4 +187,4 @@ config.bind(
     "xx",
     "config-cycle statusbar.show always never;; config-cycle tabs.show always never",
 )
-config.bind("Za", "hint links spawn alacritty -e youtube-dl --ignore-errors -f bestaudio --extract-audio --audio-format mp3 --audio-quality 0 -o \'~/Music/youtube/%(title)s.%(ext)s\' {hint-url}")
+config.bind("Za", "hint links spawn alacritty -e ytdla {hint-url}")

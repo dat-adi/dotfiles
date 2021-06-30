@@ -8,7 +8,7 @@ def get_two_screens(colors):
     groupbox_defaults = dict(
         margin_y=3,
         margin_x=0,
-        padding_y=5,
+        padding_y=7,
         padding_x=7,
         borderwidth=3,
         active=colors[2],
