@@ -1,6 +1,7 @@
 config.load_autoconfig(False)
 
 c.tabs.show = "switching"
+c.statusbar.show = "in-mode"
 
 # Setting the default page
 c.url.default_page = "file:///home/dat-adi/dotfiles/browser/src/dawnpage.html"
