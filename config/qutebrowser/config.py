@@ -14,6 +14,7 @@ c.url.searchengines = {
     "am": "https://www.amazon.in/s?k={}",
     "aw": "https://wiki.archlinux.org/?search={}",
     "goog": "https://www.google.com/search?q={}",
+    "gogo": "https://gogoanime.pe/search.html?keyword={}",
     "re": "https://www.reddit.com/r/{}",
     "gh": "https://www.github.com/search?q={}",
     "wiki": "https://en.wikipedia.org/wiki/{}",

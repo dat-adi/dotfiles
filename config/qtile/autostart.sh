@@ -42,6 +42,7 @@ export SSH_AUTH_SOCK
 
 xrandr --output eDP-1 --primary --mode 1920x1080 --rate 60.00
 setroot --restore &
+
 picom --config ~/.config/picom/picom.conf --experimental-backends -b &
 alsactl --file ~/.config/asound.state restore
 pulseaudio &
