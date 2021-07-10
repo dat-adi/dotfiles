@@ -317,7 +317,7 @@ def get_one_screens(colors):
 
     screens = [
         Screen(
-            bottom=bar.Bar(
+            top=bar.Bar(
                 [
                     widget.CurrentLayoutIcon(
                         custom_icon_paths=[os.path.expanduser("~/.config/qtile/icons")],
@@ -386,10 +386,12 @@ def get_one_screens(colors):
                         fontsize=20,
                         **groupbox_defaults
                     ),
-                    widget.Spacer(10),
+                    widget.Spacer(500),
                     # WindowName
                     widget.WindowName(
-                        format="﫳 {name}",
+                        format="{name}",
+                        font="Ubuntu Mono Bold",
+                        fontsize=10,
                         max_chars=80,
                         background=colors[0],
                         foreground=colors[6],

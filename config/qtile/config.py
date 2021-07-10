@@ -40,7 +40,7 @@ mod = "mod4"
 # Defining the manager configuration variables
 keys, groups = KeybindManager.get_asdf()
 layouts = LayoutManager.get_layouts()
-colors = ColorManager.hollowknight()
+colors = ColorManager.darkMode()
 screens = ScreenManager.get_one_screens(colors)
 widget_defaults = WidgetManager.get_widget_defaults()
 extension_defaults = widget_defaults.copy()
