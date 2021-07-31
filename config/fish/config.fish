@@ -24,6 +24,7 @@ alias ls='exa'
 alias sl='exa -la'
 alias grep='rg'
 alias dvsw='cd ~/Documents/VIT/Sophomore/WinterSemester/'
+alias rm='trash-put'
 
 # browser
 alias viv='vivaldi-stable'
