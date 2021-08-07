@@ -48,3 +48,7 @@
 ;(unpin! pinned-package another-pinned-package)
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
+
+(require 'company-dict)
+(setq company-dict-dir (concat user-emacs-directory "dict/"))
+(add-to-list 'company-backends 'company-dict)

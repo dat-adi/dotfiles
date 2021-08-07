@@ -1,7 +1,7 @@
-set TERM "xterm-256color"
-set XDG_USER_CONFIG_DIR "$HOME/.config"
-set XDG_CONFIG_HOME "$HOME/.config"
-set XDG_DATA_HOME "$HOME/.local/share"
+set TERM="xterm-256color"
+set XDG_USER_CONFIG_DIR="$HOME/.config"
+set XDG_CONFIG_HOME="$HOME/.config"
+set XDG_DATA_HOME="$HOME/.local/share"
 
 # git
 alias addup='git add -u'
@@ -38,54 +38,52 @@ alias xampp-start='sudo /opt/lampp/lampp start'
 alias xampp-stop='sudo /opt/lampp/lampp stop'
 
 # AUR helper
-alias p "paru"
+alias p="paru"
 
 # configuration shortcuts
-alias fishconf "nvim ~/.config/fish/config.fish"
-alias qtileconf "nvim ~/.config/qtile/"
-alias roficonf "nvim ~/.config/rofi/config.rasi"
-alias nvimconf "nvim ~/.config/nvim/init.vim"
-alias reload "source ~/.config/fish/config.fish"
+alias fishconf="nvim ~/.config/fish/config.fish"
+alias qtileconf="nvim ~/.config/qtile/"
+alias roficonf="nvim ~/.config/rofi/config.rasi"
+alias nvimconf="nvim ~/.config/nvim/init.vim"
+alias reload="source ~/.config/fish/config.fish"
 
-setenv SSH_ENV $HOME/.ssh/environment
+export SSH_ENV="$HOME/.ssh/environment"
 
-function start_agent
+function start_agent {
     echo "Initializing new SSH agent ..."
-    ssh-agent -c | sed 's/^echo/#echo/' > $SSH_ENV
+    ssh-agent | sed 's/^echo/#echo/' > $SSH_ENV
     echo "succeeded"
     chmod 600 $SSH_ENV
     . $SSH_ENV > /dev/null
     ssh-add
-end
+}
 
-function test_identities
+function test_identities {
     ssh-add -l | grep "The agent has no identities" > /dev/null
-    if [ $status -eq 0 ]
+    if [ $status -eq 0 ]; then
         ssh-add
-        if [ $status -eq 2 ]
+        if [ $status -eq 2 ]; then
             start_agent
-        end
-    end
-end
+        fi
+    fi
+}
 
-if [ -n "$SSH_AGENT_PID" ]
+if [ -n "$SSH_AGENT_PID" ]; then
     ps -ef | grep $SSH_AGENT_PID | grep ssh-agent > /dev/null
-    if [ $status -eq 0 ]
+    if [ $status -eq 0 ]; then
         test_identities
-    end
+    fi
 else
-    if [ -f $SSH_ENV ]
+    if [ -f $SSH_ENV ]; then
         . $SSH_ENV > /dev/null
-    end
+    fi
     ps -ef | grep $SSH_AGENT_PID | grep -v grep | grep ssh-agent > /dev/null
-    if [ $status -eq 0 ]
+
+    if [ $status -eq 0 ]; then
         test_identities
     else
         start_agent
-    end
-end
+    fi
+fi
 
-starship init fish | source
-if test -f /home/dat-adi/.autojump/share/autojump/autojump.fish;
-    . /home/dat-adi/.autojump/share/autojump/autojump.fish; 
-end
+eval "$(starship init zsh)"
