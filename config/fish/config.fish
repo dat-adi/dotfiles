@@ -47,16 +47,16 @@ alias roficonf "nvim ~/.config/rofi/config.rasi"
 alias nvimconf "nvim ~/.config/nvim/init.vim"
 alias reload "source ~/.config/fish/config.fish"
 
-setenv SSH_ENV $HOME/.ssh/environment
+# setenv SSH_ENV $HOME/.ssh/environment
 
-function start_agent
-    echo "Initializing new SSH agent ..."
-    ssh-agent -c | sed 's/^echo/#echo/' > $SSH_ENV
-    echo "succeeded"
-    chmod 600 $SSH_ENV
-    . $SSH_ENV > /dev/null
-    ssh-add
-end
+#function start_agent
+#   echo "Initializing new SSH agent ..."
+#   ssh-agent -c | sed 's/^echo/#echo/' > $SSH_ENV
+#   echo "succeeded"
+#   chmod 600 $SSH_ENV
+#   . $SSH_ENV > /dev/null
+#   ssh-add
+#end
 
 function test_identities
     ssh-add -l | grep "The agent has no identities" > /dev/null
@@ -87,5 +87,5 @@ end
 
 starship init fish | source
 if test -f /home/dat-adi/.autojump/share/autojump/autojump.fish;
-    . /home/dat-adi/.autojump/share/autojump/autojump.fish; 
+    . /home/dat-adi/.autojump/share/autojump/autojump.fish;
 end
