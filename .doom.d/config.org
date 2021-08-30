@@ -57,3 +57,11 @@ Such as setting up the directory to look into, and the deadline warning days and
  org-deadline-warning-days 7
  org-directory "~/Documents/org/")
 #+END_SRC
+
+* ELFEED
+I need to set up an RSS reader for feeds that I wish to follow, so, here's some configuration that I need to go through in order to do so.
+
+#+begin_src emacs-lisp
+(setq elfeed-feeds
+      '("https://feeds.feedburner.com/TheHackersNews"))
+#+end_src

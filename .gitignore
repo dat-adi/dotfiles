@@ -80,3 +80,5 @@ kfileitem#owner=false
 kfileitem#permissions=false
 config/obs-studio/
 config/kmetainformationrc
+config/Postman/
+config/configstore/
