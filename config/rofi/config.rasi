@@ -1,7 +1,7 @@
 /** Basic config file **/
 
 configuration {
-    modi:               "drun,windowcd,combi,file-browser";
+    modi:               "drun,windowcd,combi,filebrowser";
     show-icons:         true;
     matching:           "fuzzy";
     sorting-method:     "fzf";

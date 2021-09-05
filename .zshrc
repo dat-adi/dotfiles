@@ -23,7 +23,6 @@ alias cat='bat'
 alias ls='exa'
 alias sl='exa -la'
 alias grep='rg'
-alias dvsw='cd ~/Documents/VIT/Sophomore/WinterSemester/'
 alias rm='trash-put'
 
 # browser
@@ -42,6 +41,7 @@ alias p="paru"
 
 # configuration shortcuts
 alias fishconf="nvim ~/.config/fish/config.fish"
+alias zshconf="nvim ~/dotfiles/.zshrc"
 alias qtileconf="nvim ~/.config/qtile/"
 alias roficonf="nvim ~/.config/rofi/config.rasi"
 alias nvimconf="nvim ~/.config/nvim/init.vim"
