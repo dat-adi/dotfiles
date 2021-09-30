@@ -16,6 +16,7 @@ config/vivaldi
 config/mimeapps.list
 config/VirtualBox/
 config/calligrageminirc
+config/Element/
 
 doom.d/custom.el
 config/nomacs/

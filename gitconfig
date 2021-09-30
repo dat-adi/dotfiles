@@ -4,8 +4,11 @@
 
 [alias]
     cim = commit -m
+    sw = switch
 
 [credential]
     helper = /usr/lib/git-core/git-credential-libsecret
 [pull]
 	rebase = false
+[filter "indent"]
+	clean = black
