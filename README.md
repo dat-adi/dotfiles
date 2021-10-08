@@ -50,7 +50,7 @@ I've set up a new homepage for my browser, which is, [qutebrowser](https://quteb
 It has been inspired from, and is a condensed down version of the [dawn](https://github.com/b-coimbra/dawn) homepage by b-coimbra.\
 While I did set out making one for myself, I really did like the dawn version, so, it's just a simpler version of it.
 
-[![Custom Dawn Desktop](./assets/dawn_desktop.png "Custom Dawn Desktop")]("https://github.com/dat-adi/dotfiles/blob/master/browser/src/")
+![Custom Dawn Desktop](./assets/dawn_desktop.png "Custom Dawn Desktop")
 
 The required assets for the homepage are present in the `browser` directory, in the case that you wish to implement them in your browser as well.\
 Along with that, I've also placed all the packages that I use in the `packages.txt`, still need to sort it out into Pacman specific and AUR specific packages.
@@ -78,7 +78,7 @@ chances are that I've logged some of the progress in there. \
 Either that, or I'm just really lazy and I haven't done anything great to update the logbook at all.
 
 As of today, I've progressed a bit farther down the glory of the neovim text editor. \
-What have I gotten myself into? \
+What have I gotten myself into?
 
 Neovim + Lua + LSP. \
 I've heard about lua support and the lsp integration in neovim set ups a while back, like all the back when it first came out. \
@@ -89,13 +89,14 @@ I've installed the [Telescope](https://github.com/nvim-telescope/telescope.nvim)
 I'm proceeding towards checking out an LSP as well, and most likely, will be going forward with [pyright](https://github.com/microsoft/pyright).
 
 However, this is but a simple discovery of profound technology. \
-The updates to my neovim configuration, should include these changes in the form of documentation (most likely). \
+The updates to my neovim configuration, should include these changes in the form of documentation (most likely).
 
 **update**: Yup, I ended up changing my theme, and utilizing LSP. \
-I did find LSP integration really annoying due to the way it displayed the errors. \
+I did find LSP integration really annoying due to the way it displayed the errors.
 
 Switching over to the `palenightfall` theme did wonders to resolving that issue, however. \
 It still feels a tad bit off, but, I suppose that's just because I'm not used to the way it looks now.
 
+![Pale Night Fall](./assets/palenight.png "Pale Night Fall")
 ---
 <p align="right"><i>dat-adi</i></p>
