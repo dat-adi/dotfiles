@@ -83,3 +83,5 @@ config/obs-studio/
 config/kmetainformationrc
 config/Postman/
 config/configstore/
+config/QtProject/*
+config/QtProject.conf
