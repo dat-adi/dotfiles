@@ -59,28 +59,13 @@ set noswapfile
 set incsearch
 set foldmethod=indent
 set foldlevel=99
-"set colorcolumn=80
-"highlight ColorColumn ctermfg=none ctermbg=236 cterm=none
 
 " --- General Settings --- "
 let mapleader = ","
 
-" --- Gruvbox Settings --- "
-let g:gruvbox_contrast_dark='hard'
-let g:gruvbox_invert_selection='0'
-
-colorscheme gruvbox
-set background=dark
-
-" --- JavaScript Settings --- "
-let g:javascript_plugin_jsdoc = 1
-let g:javascript_plugin_ngdoc = 1
-let g:javascript_plugin_flow = 1
-
-augroup javascript_folding
-    au!
-    au FileType javascript setlocal foldmethod=syntax
-augroup END
+" --- Color Settings --- "
+" While I had gruvbox set in here a while ago,
+" I'm using the palenightfall in lua now.
 
 " --- General Mappings --- "
 map <leader>h :noh<CR>
