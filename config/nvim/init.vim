@@ -16,27 +16,28 @@
 " --- Plugins --- "
 call plug#begin()
 
-    Plug 'pangloss/vim-javascript'
-
-    Plug 'tpope/vim-fugitive'
-    Plug 'junegunn/fzf.vim', { 'do': { -> fzf#install() } }
     Plug 'ap/vim-css-color'
+    Plug 'neovim/nvim-lspconfig'
+    Plug 'kabouzeid/nvim-lspinstall'
+    Plug 'glepnir/lspsaga.nvim'
 
-    Plug 'sainnhe/gruvbox-material'
-    Plug 'vim-airline/vim-airline'
+    Plug 'JoosepAlviste/palenightfall.nvim'
     Plug 'ryanoasis/vim-devicons'
-    Plug 'vim-python/python-syntax'
 
-    Plug 'gruvbox-community/gruvbox'
-    Plug 'romgrk/doom-one.vim'
     Plug 'junegunn/goyo.vim'
     Plug 'junegunn/limelight.vim'
     Plug 'junegunn/vim-emoji'
-    Plug 'arcticicestudio/nord-vim'
-    Plug 'lervag/vimtex'
 
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    Plug 'dsznajder/vscode-es7-javascript-react-snippets', { 'do': 'yarn install --frozen-lockfile && yarn compile' }
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'nvim-lua/popup.nvim'
+    Plug 'nvim-telescope/telescope.nvim'
+    Plug 'glepnir/galaxyline.nvim'
+
+    Plug 'tpope/vim-fugitive'
+    Plug 'hrsh7th/nvim-compe'
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+    Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+
 
 call plug#end()
 
@@ -95,8 +96,31 @@ nmap <leader>gf :diffget //2<CR>
 nmap <leader>gc :Gcommit<CR>
 nmap <leader>gp :Gpush<CR>
 
-nmap <leader>f :Files<CR>
-
 nnoremap <space> za
+
+" --- Lua Remaps --- "
+" >> Checks buffers
+nnoremap ; :lua require'telescope.builtin'.buffers{}<CR>
+
+" >> Fzf the current buffer
+nnoremap <leader>/ :lua require'telescope.builtin'.current_buffer_fuzzy_find{}<CR>
+
+" >> Access any file inside the git repo
+nnoremap <leader>f :lua require'telescope.builtin'.git_files{}<CR>
+
+" -- LSP Key bindings -- "
+nnoremap <silent> <C-]> <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> gr    <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> K     <cmd>Lspsaga hover_doc<CR>
+nnoremap <silent> =G    <cmd>lua vim.lsp.buf.formatting()<CR>
+nnoremap <silent> gn    <cmd>lua vim.lsp.buf.rename()<CR>
+
+lua << EOF
+require("treesitter")
+require("statusbar")
+require("completion")
+require('palenightfall').setup()
+require("lsp")
+EOF
 
 " --- THE END --- "

@@ -72,5 +72,30 @@ That should get you to a working system setup without an issue.\
 If the scripts do not execute, check if you've given it permissions to act as an executable in the first place.\
 Use `chmod 755 filename` in this case.
 
+## 08/10/2021
+I generally note down things in `doom emacs` nowadays however, so, if there's not much of an update with respect to the progress I've made in life,
+chances are that I've logged some of the progress in there. \
+Either that, or I'm just really lazy and I haven't done anything great to update the logbook at all.
+
+As of today, I've progressed a bit farther down the glory of the neovim text editor. \
+What have I gotten myself into? \
+
+Neovim + Lua + LSP. \
+I've heard about lua support and the lsp integration in neovim set ups a while back, like all the back when it first came out. \
+But, for whatever reason, I wasn't quite able to make the time to check it out.
+
+Now, I have, and it's really cool. \
+I've installed the [Telescope](https://github.com/nvim-telescope/telescope.nvim) plugin, and damn, is it good. \
+I'm proceeding towards checking out an LSP as well, and most likely, will be going forward with [pyright](https://github.com/microsoft/pyright).
+
+However, this is but a simple discovery of profound technology. \
+The updates to my neovim configuration, should include these changes in the form of documentation (most likely). \
+
+**update**: Yup, I ended up changing my theme, and utilizing LSP. \
+I did find LSP integration really annoying due to the way it displayed the errors. \
+
+Switching over to the `palenightfall` theme did wonders to resolving that issue, however. \
+It still feels a tad bit off, but, I suppose that's just because I'm not used to the way it looks now.
+
 ---
 <p align="right"><i>dat-adi</i></p>
