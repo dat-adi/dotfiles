@@ -85,18 +85,20 @@ nnoremap <space> za
 
 " --- Lua Remaps --- "
 " >> Checks buffers
-nnoremap ; :lua require'telescope.builtin'.buffers{}<CR>
+nnoremap <leader>;      :lua require'telescope.builtin'.buffers{}<CR>
 
 " >> Fzf the current buffer
-nnoremap <leader>/ :lua require'telescope.builtin'.current_buffer_fuzzy_find{}<CR>
+nnoremap <leader>/      :lua require'telescope.builtin'.current_buffer_fuzzy_find{}<CR>
 
 " >> Access any file inside the git repo
-nnoremap <leader>f :lua require'telescope.builtin'.git_files{}<CR>
+nnoremap <leader>f      :lua require'telescope.builtin'.git_files{}<CR>
+
+nnoremap <silent> gd    :Lspsaga preview_definition()<CR>
+nnoremap <silent> K     :Lspsaga hover_doc()<CR>
 
 " -- LSP Key bindings -- "
 nnoremap <silent> <C-]> <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> gr    <cmd>lua vim.lsp.buf.definition()<CR>
-nnoremap <silent> K     <cmd>Lspsaga hover_doc<CR>
 nnoremap <silent> =G    <cmd>lua vim.lsp.buf.formatting()<CR>
 nnoremap <silent> gn    <cmd>lua vim.lsp.buf.rename()<CR>
 
