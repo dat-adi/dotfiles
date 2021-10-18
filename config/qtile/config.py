@@ -17,13 +17,11 @@
 
 # Importing system modules
 import os
-import socket
 import subprocess
-from typing import List  # noqa: F401
 
 # Importing Qtile library modules
-from libqtile import bar, layout, widget, hook
-from libqtile.config import Click, Drag, Group, Key, KeyChord, Match, Screen
+from libqtile import layout, hook
+from libqtile.config import Click, Drag, Match
 from libqtile.lazy import lazy
 
 # Importing the various managers
