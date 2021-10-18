@@ -85,3 +85,4 @@ config/Postman/
 config/configstore/
 config/QtProject/*
 config/QtProject.conf
+config/Google/*
