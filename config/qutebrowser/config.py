@@ -19,6 +19,7 @@ c.url.searchengines = {
     "gh": "https://www.github.com/search?q={}",
     "wiki": "https://en.wikipedia.org/wiki/{}",
     "yt": "https://www.youtube.com/results?search_query={}",
+    "co": "https://crates.io/search?q={}",
 }
 
 # Setting Dark Mode on
