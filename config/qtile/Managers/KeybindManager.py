@@ -65,6 +65,7 @@ def get_asdf():
             desc="Combination of all methods"
         ),
         Key([mod, "shift"], "p", lazy.spawn("rofi-pass"), desc="Passwords"),
+        Key([mod, "shift"], "a", lazy.spawn("aniwrapper"), desc="Anime watcher"),
         Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
         # Toggle between different layouts as defined below
         Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),

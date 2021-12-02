@@ -47,7 +47,7 @@ element-icon {
     padding: 0 10;
 }
 
-#window {
+window {
     background-color: @background;
     padding: 30;
     border-color: @javacafe0;
@@ -55,28 +55,28 @@ element-icon {
     border-radius: 10px;
 }
 
-#mainbox {
+mainbox {
     padding: 15;
     border-radius: 6px;
 }
 
-#message {
+message {
     border:       4px 4px 4px ;
     border-color: @separatorcolor;
     padding:      20 ;
 }
 
-#textbox {
+textbox {
     text-color: @foreground;
 }
 
-#listview {
+listview {
     fixed-height: 0;
     padding:	  5 2 2;
     spacing:      5px ;
 }
 
-#element {
+element {
     border:  0;
     padding: 10px ;
 }
@@ -132,7 +132,7 @@ element-icon {
     text-color:       @selected-normal-foreground;
 }
 
-#inputbar {
+inputbar {
     spacing:    5;
     text-color: @normal-foreground;
     padding:    5px ;
@@ -145,12 +145,12 @@ element-icon {
     text-color: @normal-foreground;
 }
 
-#entry {
+entry {
     spacing:    0;
     text-color: @normal-foreground;
 }
 
-#prompt {
+prompt {
     spacing:    3;
     text-color: @javacafe6;
 }
