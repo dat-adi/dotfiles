@@ -23,6 +23,7 @@ call plug#begin()
 
     Plug 'JoosepAlviste/palenightfall.nvim'
     Plug 'ryanoasis/vim-devicons'
+    Plug 'akinsho/toggleterm.nvim'
 
     Plug 'junegunn/goyo.vim'
     Plug 'junegunn/limelight.vim'
@@ -31,6 +32,7 @@ call plug#begin()
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-lua/popup.nvim'
     Plug 'nvim-telescope/telescope.nvim'
+    Plug 'nvim-telescope/telescope-ui-select.nvim'
     Plug 'glepnir/galaxyline.nvim'
     Plug 'simrat39/rust-tools.nvim'
 
@@ -70,6 +72,7 @@ let mapleader = ","
 
 " --- General Mappings --- "
 map <leader>h :noh<CR>
+tnoremap <Esc> <C-\><C-n>
 
 " --- Resize Remaps --- "
 nnoremap <Left> :vertical resize +2<CR>
@@ -94,23 +97,39 @@ nnoremap <leader>/      :lua require'telescope.builtin'.current_buffer_fuzzy_fin
 " >> Access any file inside the git repo
 nnoremap <leader>f      :lua require'telescope.builtin'.git_files(require('telescope.themes').get_ivy({}))<CR>
 
-nnoremap <silent> gd    :Lspsaga preview_definition()<CR>
-nnoremap <silent> K     :Lspsaga hover_doc()<CR>
+nnoremap <silent> gd    :Lspsaga preview_definition<CR>
+nnoremap <silent> K     :Lspsaga hover_doc<CR>
+nnoremap <silent> gn    :Lspsaga rename<CR>
 
 " >> Go to the definition of the word
 nnoremap <silent> <C-d>  :lua require'telescope.builtin'.lsp_definitions{}<CR>
-
-" -- LSP Key bindings -- "
-nnoremap <silent> =G    <cmd>lua vim.lsp.buf.formatting()<CR>
-nnoremap <silent> gn    <cmd>lua vim.lsp.buf.rename()<CR>
 
 lua << EOF
 require("treesitter")
 require("statusbar")
 require("completion")
 require("palenightfall").setup()
-require("rust-tools.inlay_hints").set_inlay_hints()
+require("toggleterm").setup{
+  -- size can be a number or function which is passed the current terminal
+  size = 80,
+  open_mapping = [[<c-\>]],
+  hide_numbers = true, -- hide the number column in toggleterm buffers
+  shade_filetypes = {},
+  shade_terminals = true,
+  shading_factor = 1, -- the degree by which to darken to terminal colour, default: 1 for dark backgrounds, 3 for light
+  start_in_insert = true,
+  insert_mappings = true, -- whether or not the open mapping applies in insert mode
+  persist_size = true,
+  direction = 'vertical',
+  close_on_exit = true, -- close the terminal window when the process exits
+  shell = vim.o.shell, -- change the default shell
+}
+
+local saga = require 'lspsaga'
+saga.init_lsp_saga()
+
 local lsp_installer = require("nvim-lsp-installer")
+
 lsp_installer.on_server_ready(function(server)
     local opts = {
         tools = { -- rust-tools options
@@ -238,6 +257,17 @@ lsp_installer.on_server_ready(function(server)
         server:setup(opts)
     end
 end)
+
+require("telescope").setup {
+  extensions = {
+    ["ui-select"] = {
+      require("telescope.themes").get_dropdown {
+        -- even more opts
+      }
+    }
+  }
+}
+require("telescope").load_extension("ui-select")
 EOF
 
 " --- THE END --- "

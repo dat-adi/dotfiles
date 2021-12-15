@@ -12,3 +12,4 @@ export NVM_DIR="/home/dat-adi/.nvm"
 
 ~/.config/startup-scripts/fm6000 -r
 eval "$(starship init bash)"
+. "$HOME/.cargo/env"

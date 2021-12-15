@@ -33,6 +33,12 @@ def get_asdf():
             lazy.layout.shuffle_right(),
             desc="Move window to the right",
         ),
+        Key(
+            [mod, "shift"],
+            "s",
+            lazy.spawn("flameshot gui"),
+            desc="Opens up flameshot",
+        ),
         Key([mod, "shift"], "j", lazy.layout.shuffle_down(), desc="Move window down"),
         Key([mod, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
         Key([mod, "shift"], "f", lazy.window.toggle_floating(), desc="toggle floating"),

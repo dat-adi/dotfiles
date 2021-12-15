@@ -45,4 +45,3 @@ local check_back_space = function()
         return false
     end
 end
-

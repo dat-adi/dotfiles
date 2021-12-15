@@ -86,3 +86,8 @@ config/configstore/
 config/QtProject/*
 config/QtProject.conf
 config/Google/*
+*.sqlite3
+config/klavaro/preferences.ini
+config/nextjs-nodejs/
+config/ubports-installer/
+config/variety/

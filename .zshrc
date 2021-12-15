@@ -45,7 +45,7 @@ alias zshconf="nvim ~/dotfiles/.zshrc"
 alias qtileconf="nvim ~/.config/qtile/"
 alias roficonf="nvim ~/.config/rofi/config.rasi"
 alias nvimconf="nvim ~/.config/nvim/init.vim"
-alias reload="source ~/.config/fish/config.fish"
+alias reload="source ~/dotfiles/.zshrc"
 
 export SSH_ENV="$HOME/.ssh/environment"
 
