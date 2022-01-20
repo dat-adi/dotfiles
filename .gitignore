@@ -91,3 +91,9 @@ config/klavaro/preferences.ini
 config/nextjs-nodejs/
 config/ubports-installer/
 config/variety/
+config/pcmanfm
+config/clerk
+config/tetrio-desktop/
+config/mpd/mpd.db
+config/mpd/mpd.log
+config/mpd/state

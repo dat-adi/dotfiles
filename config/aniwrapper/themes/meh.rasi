@@ -1,0 +1,22 @@
+/** Basic config file **/
+
+configuration {
+    modi:               "drun,windowcd,combi,filebrowser";
+    show-icons:         true;
+    matching:           "fuzzy";
+    sorting-method:     "fzf";
+    sort:               true;
+    cycle:              true;
+    display-drun:       "";
+    display-window:     "";
+    lines:              8;
+    columns:            1;
+    width:              560;
+    location:           0;
+    padding:            50;
+    font:               "FiraCode Nerd Font Mono 14";
+    hide-scrollbar:     true;
+    display-combi:      "rofi";
+}
+
+@import "~/.config/rofi/themes/javacafe.rasi"
