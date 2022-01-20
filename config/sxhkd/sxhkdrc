@@ -19,7 +19,7 @@ super + w
 	bspc node -{c,k}
 
 # alternate between the tiled and monocle layout
-super + m
+super + f
 	bspc desktop -l next
 
 # send the newest marked node to the newest preselected node
@@ -35,8 +35,8 @@ super + g
 #
 
 # set the window state
-super + {t,shift + t,s,f}
-	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+super + {t,shift + t,s}
+	bspc node -t {tiled,pseudo_tiled,floating}
 
 # set the node flags
 super + ctrl + {m,x,y,z}
@@ -124,8 +124,24 @@ super + r
 
 # browser
 super + b
-    qutebrowser
+    firefox &
 
 # passwords
 super + shift + p
     rofi-pass
+
+# music player
+super + shift + m
+    clerk
+
+super + e
+    ranger
+
+# screen shot
+super + shift + s
+    flameshot gui
+
+# Emacs Bindings
+# Normal Emacs
+ctrl + e
+    emacsclient -c -a 'emacs'
