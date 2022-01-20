@@ -117,7 +117,7 @@ The amount of stuff I fixed towards, blows my mind.\
 Referencing saimoo's rice, I managed to fix a few issues that was really bugging me from the initial days of working with Arch Linux.
 
 -   MPD :: I finally managed to fix mpd, simply by getting rid of the template configuration and actually going through the file, discarding what was not required.
--   Polybar :: Managed to rip off Saimoo's rice, and get it to work! However, I think I'll strip most of the rice at a later point and only include the time, and battery percent.
+-   Polybar :: Took in Saimoo's rice, and got it to work! Considering that I don't play too much attention to the windows, I've removed them entirely though.
 
 A few forum answers that helped me out here a bit were, \
 [Failed to bind the mpd service](https://bbs.archlinux.org/viewtopic.php?id=120371) \
