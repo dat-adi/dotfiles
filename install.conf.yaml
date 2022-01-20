@@ -24,6 +24,7 @@
     ~/.vimrc: .vimrc
     ~/.mbsyncrc: config/mu4e/mbsyncrc
     ~/.zshrc: .zshrc
+    ~/.scripts: .scripts
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]

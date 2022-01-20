@@ -1,3 +1,26 @@
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+# Path to your oh-my-zsh installation.
+export ZSH="/home/dat-adi/.oh-my-zsh"
+
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+plugins=(git fzf zsh-autosuggestions fasd)
+
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+
 set TERM="xterm-256color"
 set XDG_USER_CONFIG_DIR="$HOME/.config"
 set XDG_CONFIG_HOME="$HOME/.config"
@@ -23,6 +46,7 @@ alias cat='bat'
 alias ls='exa'
 alias sl='exa -la'
 alias grep='rg'
+alias dvsw='cd ~/Documents/VIT/Sophomore/WinterSemester/'
 alias rm='trash-put'
 
 # browser
@@ -41,11 +65,10 @@ alias p="paru"
 
 # configuration shortcuts
 alias fishconf="nvim ~/.config/fish/config.fish"
-alias zshconf="nvim ~/dotfiles/.zshrc"
 alias qtileconf="nvim ~/.config/qtile/"
 alias roficonf="nvim ~/.config/rofi/config.rasi"
 alias nvimconf="nvim ~/.config/nvim/init.vim"
-alias reload="source ~/dotfiles/.zshrc"
+alias reload="source ~/.config/fish/config.fish"
 
 export SSH_ENV="$HOME/.ssh/environment"
 
@@ -86,4 +109,13 @@ else
     fi
 fi
 
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='nvim'
+fi
+
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 eval "$(starship init zsh)"
+eval "$(fasd --init auto)"
+source /usr/share/nvm/init-nvm.sh
