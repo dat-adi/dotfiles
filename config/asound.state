@@ -1,722 +1,2702 @@
-state.HDMI {
-	control.1 {
-		iface CARD
-		name 'HDMI/DP,pcm=3 Jack'
-		value false
-		comment {
-			access read
-			type BOOLEAN
-			count 1
+cards.YMF724 'cards.YMF744'
+cards.YMF724F 'cards.YMF744'
+cards.YMF740 'cards.YMF744'
+cards.YMF740C 'cards.YMF744'
+cards.YMF754 'cards.YMF744'
+cards.CMIPCI 'cards.CMI8338'
+cards.CMI8738 'cards.CMI8338'
+cards.CMI8738-SWIEC 'cards.CMI8338-SWIEC'
+cards.CMI8738-MC4 'cards.CMI8738-MC6'
+cards.'E-mu APS' 'cards.EMU10K1'
+cards.'GUS MAX' 'cards.GUS'
+cards.'GUS ACE' 'cards.GUS'
+cards.'GUS Extreme' 'cards.GUS'
+cards.'AMD InterWave' 'cards.GUS'
+cards.'Dynasonic 3-D' 'cards.GUS'
+cards.'InterWave STB' 'cards.GUS'
+cards.au8810 'cards.AU8810'
+cards.au8820 'cards.AU8820'
+cards.au8830 'cards.AU8830'
+cards.Prodigy71 'cards.Aureon71'
+cards.Prodigy71LT 'cards.Aureon71'
+cards.Prodigy71HIFI 'cards.Aureon71'
+cards.Aureon71Univ 'cards.Aureon71'
+cards.VIA82XX-MODEM 'cards.ICH-MODEM'
+cards.'MPU-401 UART' 'cards.MPU-401'
+cards.VX222/Old 'cards.VX222'
+cards.VX222/v2 'cards.VX222'
+cards.VX222/Mic 'cards.VX222'
+cards.CMI8330/C3D 'cards.CMI8330'
+cards.'SB AWE' 'cards.SBAWE'
+cards.'SB Pro' 'cards.SBPro'
+cards.'PMac Burgundy' 'cards.PMac'
+cards.'PMac DACA' 'cards.PMac'
+cards.'PMac Tumbler' 'cards.PMac'
+cards.'PMac Snapper' 'cards.PMac'
+cards.'PMac Screamer' 'cards.PMac'
+cards.'PMac AWACS' 'cards.PMac'
+cards.'PMac Toonie' 'cards.PMacToonie'
+cards.AppleOnbdAudio 'cards.PMacToonie'
+cards.'USB US-X2Y' 'cards.US-X2Y'
+cards.'Serial MIDI' 'cards.SerialMIDI'
+cards.'Prodif Plus' 'cards.ProdifPlus'
+cards.ESM1 'cards.ES1968'
+cards.ES1978 'cards.ES1968'
+cards.Allegro 'cards.Maestro3'
+cards.Canyon3D-2 'cards.Maestro3'
+cards.Azalia 'cards.HDA-Intel'
+cards.aaci-pl041 'cards.AACI'
+cards.AV66 'cards.CMI8788'
+cards.AV100 'cards.CMI8788'
+cards.AV200 'cards.CMI8788'
+cards.CMI8786 'cards.CMI8788'
+cards.CMI8787 'cards.CMI8788'
+cards.pistachio 'cards.pistachio-card'
+cards.VC4-HDMI 'cards.vc4-hdmi'
+cards.ctl.default {
+	@args.0 CARD
+	@args.CARD {
+		type string
+		default {
+			@func getenv
+			vars [
+				ALSA_PCM_CARD
+				ALSA_CARD
+			]
+			default {
+				@func refer
+				name 'defaults.ctl.card'
+			}
 		}
 	}
-	control.2 {
-		iface MIXER
-		name 'IEC958 Playback Con Mask'
-		value '0fff000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'
-		comment {
-			access read
-			type IEC958
-			count 1
+	type empty
+	child {
+		@func refer
+		name {
+			@func concat
+			strings [
+				'cards.'
+				{
+					@func card_inum
+					card $CARD
+				}
+				'.ctl.default:CARD='
+				$CARD
+			]
+		}
+		default {
+			type hw
+			card $CARD
 		}
 	}
-	control.3 {
-		iface MIXER
-		name 'IEC958 Playback Pro Mask'
-		value '0f00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'
-		comment {
-			access read
-			type IEC958
-			count 1
+	hint.description 'Default Control Device'
+}
+cards.pcm.default {
+	@args.0 CARD
+	@args.CARD {
+		type string
+		default {
+			@func getenv
+			vars [
+				ALSA_PCM_CARD
+				ALSA_CARD
+			]
+			default {
+				@func refer
+				name 'defaults.pcm.card'
+			}
 		}
 	}
-	control.4 {
-		iface MIXER
-		name 'IEC958 Playback Default'
-		value '0400000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'
-		comment {
-			access 'read write'
-			type IEC958
-			count 1
+	type empty
+	slave.pcm {
+		@func refer
+		name {
+			@func concat
+			strings [
+				'cards.'
+				{
+					@func card_inum
+					card $CARD
+				}
+				'.pcm.default:CARD='
+				$CARD
+			]
+		}
+		default {
+			type plug
+			slave.pcm {
+				type hw
+				card $CARD
+			}
+			hint.device 0
 		}
 	}
-	control.5 {
-		iface MIXER
-		name 'IEC958 Playback Switch'
-		value true
-		comment {
-			access 'read write'
-			type BOOLEAN
-			count 1
+	hint {
+		description 'Default Audio Device'
+		device_output {
+			@func refer
+			name 'defaults.pcm.dmix.device'
 		}
-	}
-	control.6 {
-		iface PCM
-		device 3
-		name ELD
-		value ''
-		comment {
-			access 'read volatile'
-			type BYTES
-			count 0
-		}
-	}
-	control.7 {
-		iface CARD
-		name 'HDMI/DP,pcm=7 Jack'
-		value false
-		comment {
-			access read
-			type BOOLEAN
-			count 1
-		}
-	}
-	control.8 {
-		iface MIXER
-		name 'IEC958 Playback Con Mask'
-		index 1
-		value '0fff000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'
-		comment {
-			access read
-			type IEC958
-			count 1
-		}
-	}
-	control.9 {
-		iface MIXER
-		name 'IEC958 Playback Pro Mask'
-		index 1
-		value '0f00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'
-		comment {
-			access read
-			type IEC958
-			count 1
-		}
-	}
-	control.10 {
-		iface MIXER
-		name 'IEC958 Playback Default'
-		index 1
-		value '0400000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'
-		comment {
-			access 'read write'
-			type IEC958
-			count 1
-		}
-	}
-	control.11 {
-		iface MIXER
-		name 'IEC958 Playback Switch'
-		index 1
-		value true
-		comment {
-			access 'read write'
-			type BOOLEAN
-			count 1
-		}
-	}
-	control.12 {
-		iface PCM
-		device 7
-		name ELD
-		value ''
-		comment {
-			access 'read volatile'
-			type BYTES
-			count 0
-		}
-	}
-	control.13 {
-		iface CARD
-		name 'HDMI/DP,pcm=8 Jack'
-		value false
-		comment {
-			access read
-			type BOOLEAN
-			count 1
-		}
-	}
-	control.14 {
-		iface MIXER
-		name 'IEC958 Playback Con Mask'
-		index 2
-		value '0fff000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'
-		comment {
-			access read
-			type IEC958
-			count 1
-		}
-	}
-	control.15 {
-		iface MIXER
-		name 'IEC958 Playback Pro Mask'
-		index 2
-		value '0f00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'
-		comment {
-			access read
-			type IEC958
-			count 1
-		}
-	}
-	control.16 {
-		iface MIXER
-		name 'IEC958 Playback Default'
-		index 2
-		value '0400000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'
-		comment {
-			access 'read write'
-			type IEC958
-			count 1
-		}
-	}
-	control.17 {
-		iface MIXER
-		name 'IEC958 Playback Switch'
-		index 2
-		value true
-		comment {
-			access 'read write'
-			type BOOLEAN
-			count 1
-		}
-	}
-	control.18 {
-		iface PCM
-		device 8
-		name ELD
-		value ''
-		comment {
-			access 'read volatile'
-			type BYTES
-			count 0
-		}
-	}
-	control.19 {
-		iface CARD
-		name 'HDMI/DP,pcm=9 Jack'
-		value false
-		comment {
-			access read
-			type BOOLEAN
-			count 1
-		}
-	}
-	control.20 {
-		iface MIXER
-		name 'IEC958 Playback Con Mask'
-		index 3
-		value '0fff000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'
-		comment {
-			access read
-			type IEC958
-			count 1
-		}
-	}
-	control.21 {
-		iface MIXER
-		name 'IEC958 Playback Pro Mask'
-		index 3
-		value '0f00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'
-		comment {
-			access read
-			type IEC958
-			count 1
-		}
-	}
-	control.22 {
-		iface MIXER
-		name 'IEC958 Playback Default'
-		index 3
-		value '0400000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'
-		comment {
-			access 'read write'
-			type IEC958
-			count 1
-		}
-	}
-	control.23 {
-		iface MIXER
-		name 'IEC958 Playback Switch'
-		index 3
-		value true
-		comment {
-			access 'read write'
-			type BOOLEAN
-			count 1
-		}
-	}
-	control.24 {
-		iface PCM
-		device 9
-		name ELD
-		value ''
-		comment {
-			access 'read volatile'
-			type BYTES
-			count 0
-		}
-	}
-	control.25 {
-		iface CARD
-		name 'HDMI/DP,pcm=10 Jack'
-		value false
-		comment {
-			access read
-			type BOOLEAN
-			count 1
-		}
-	}
-	control.26 {
-		iface MIXER
-		name 'IEC958 Playback Con Mask'
-		index 4
-		value '0fff000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'
-		comment {
-			access read
-			type IEC958
-			count 1
-		}
-	}
-	control.27 {
-		iface MIXER
-		name 'IEC958 Playback Pro Mask'
-		index 4
-		value '0f00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'
-		comment {
-			access read
-			type IEC958
-			count 1
-		}
-	}
-	control.28 {
-		iface MIXER
-		name 'IEC958 Playback Default'
-		index 4
-		value '0400000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'
-		comment {
-			access 'read write'
-			type IEC958
-			count 1
-		}
-	}
-	control.29 {
-		iface MIXER
-		name 'IEC958 Playback Switch'
-		index 4
-		value true
-		comment {
-			access 'read write'
-			type BOOLEAN
-			count 1
-		}
-	}
-	control.30 {
-		iface PCM
-		device 10
-		name ELD
-		value ''
-		comment {
-			access 'read volatile'
-			type BYTES
-			count 0
-		}
-	}
-	control.31 {
-		iface PCM
-		device 3
-		name 'Playback Channel Map'
-		value.0 0
-		value.1 0
-		value.2 0
-		value.3 0
-		value.4 0
-		value.5 0
-		value.6 0
-		value.7 0
-		comment {
-			access 'read write'
-			type INTEGER
-			count 8
-			range '0 - 36'
-		}
-	}
-	control.32 {
-		iface PCM
-		device 7
-		name 'Playback Channel Map'
-		value.0 0
-		value.1 0
-		value.2 0
-		value.3 0
-		value.4 0
-		value.5 0
-		value.6 0
-		value.7 0
-		comment {
-			access 'read write'
-			type INTEGER
-			count 8
-			range '0 - 36'
-		}
-	}
-	control.33 {
-		iface PCM
-		device 8
-		name 'Playback Channel Map'
-		value.0 0
-		value.1 0
-		value.2 0
-		value.3 0
-		value.4 0
-		value.5 0
-		value.6 0
-		value.7 0
-		comment {
-			access 'read write'
-			type INTEGER
-			count 8
-			range '0 - 36'
-		}
-	}
-	control.34 {
-		iface PCM
-		device 9
-		name 'Playback Channel Map'
-		value.0 0
-		value.1 0
-		value.2 0
-		value.3 0
-		value.4 0
-		value.5 0
-		value.6 0
-		value.7 0
-		comment {
-			access 'read write'
-			type INTEGER
-			count 8
-			range '0 - 36'
-		}
-	}
-	control.35 {
-		iface PCM
-		device 10
-		name 'Playback Channel Map'
-		value.0 0
-		value.1 0
-		value.2 0
-		value.3 0
-		value.4 0
-		value.5 0
-		value.6 0
-		value.7 0
-		comment {
-			access 'read write'
-			type INTEGER
-			count 8
-			range '0 - 36'
+		device_input {
+			@func refer
+			name 'defaults.pcm.dsnoop.device'
 		}
 	}
 }
-state.PCH {
-	control.1 {
-		iface MIXER
-		name 'Headphone Playback Volume'
-		value.0 74
-		value.1 74
-		comment {
-			access 'read write'
-			type INTEGER
-			count 2
-			range '0 - 74'
-			dbmin -7400
-			dbmax 0
-			dbvalue.0 0
-			dbvalue.1 0
+cards.pcm.dmix {
+	@args.0 CARD
+	@args.1 DEV
+	@args.2 SUBDEV
+	@args.3 FORMAT
+	@args.4 RATE
+	@args.5 CHANNELS
+	@args.CARD {
+		type string
+		default {
+			@func refer
+			name 'defaults.pcm.dmix.card'
 		}
 	}
-	control.2 {
-		iface MIXER
-		name 'Headphone Playback Switch'
-		value.0 true
-		value.1 true
-		comment {
-			access 'read write'
-			type BOOLEAN
-			count 2
+	@args.DEV {
+		type integer
+		default {
+			@func refer
+			name 'defaults.pcm.dmix.device'
 		}
 	}
-	control.3 {
-		iface MIXER
-		name 'Speaker Playback Volume'
-		value.0 0
-		value.1 0
-		comment {
-			access 'read write'
-			type INTEGER
-			count 2
-			range '0 - 74'
-			dbmin -7400
-			dbmax 0
-			dbvalue.0 -7400
-			dbvalue.1 -7400
+	@args.SUBDEV {
+		type integer
+		default 0
+	}
+	@args.FORMAT {
+		type string
+		default {
+			@func refer
+			name 'defaults.pcm.dmix.format'
 		}
 	}
-	control.4 {
-		iface MIXER
-		name 'Speaker Playback Switch'
-		value.0 false
-		value.1 false
-		comment {
-			access 'read write'
-			type BOOLEAN
-			count 2
+	@args.RATE {
+		type integer
+		default {
+			@func refer
+			name 'defaults.pcm.dmix.rate'
 		}
 	}
-	control.5 {
-		iface MIXER
-		name 'Auto-Mute Mode'
-		value Disabled
-		comment {
-			access 'read write'
-			type ENUMERATED
-			count 1
-			item.0 Disabled
-			item.1 Enabled
+	@args.CHANNELS {
+		type integer
+		default {
+			@func refer
+			name 'defaults.pcm.dmix.channels'
 		}
 	}
-	control.6 {
-		iface MIXER
-		name 'Internal Mic Capture Volume'
-		value 0
-		comment {
-			access 'read write'
-			type INTEGER
-			count 1
-			range '0 - 80'
-			dbmin -7400
-			dbmax 600
-			dbvalue.0 -7400
+	type dmix
+	ipc_key {
+		@func refer
+		name 'defaults.pcm.ipc_key'
+	}
+	ipc_gid {
+		@func refer
+		name 'defaults.pcm.ipc_gid'
+	}
+	ipc_perm {
+		@func refer
+		name 'defaults.pcm.ipc_perm'
+	}
+	tstamp_type {
+		@func refer
+		name 'defaults.pcm.tstamp_type'
+	}
+	slave {
+		pcm {
+			type hw
+			card $CARD
+			device $DEV
+			subdevice $SUBDEV
+		}
+		format $FORMAT
+		rate $RATE
+		channels $CHANNELS
+		period_size {
+			@func refer
+			name {
+				@func concat
+				strings [
+					'defaults.dmix.'
+					{
+						@func card_id
+						card $CARD
+					}
+					'.period_size'
+				]
+			}
+			default 1024
+		}
+		period_time {
+			@func refer
+			name {
+				@func concat
+				strings [
+					'defaults.dmix.'
+					{
+						@func card_id
+						card $CARD
+					}
+					'.period_time'
+				]
+			}
+			default -1
+		}
+		periods {
+			@func refer
+			name {
+				@func concat
+				strings [
+					'defaults.dmix.'
+					{
+						@func card_id
+						card $CARD
+					}
+					'.periods'
+				]
+			}
+			default 16
 		}
 	}
-	control.7 {
-		iface MIXER
-		name 'Inverted Internal Mic Capture Volume'
-		value 0
-		comment {
-			access 'read write'
-			type INTEGER
-			count 1
-			range '0 - 80'
-			dbmin -7400
-			dbmax 600
-			dbvalue.0 -7400
+	hint {
+		show {
+			@func refer
+			name 'defaults.namehint.extended'
+		}
+		description 'Direct sample mixing device'
+		device_output $DEV
+	}
+}
+cards.pcm.dsnoop {
+	@args.0 CARD
+	@args.1 DEV
+	@args.2 SUBDEV
+	@args.3 FORMAT
+	@args.4 RATE
+	@args.CARD {
+		type string
+		default {
+			@func refer
+			name 'defaults.pcm.dsnoop.card'
 		}
 	}
-	control.8 {
-		iface MIXER
-		name 'Internal Mic Capture Switch'
-		value false
-		comment {
-			access 'read write'
-			type BOOLEAN
-			count 1
+	@args.DEV {
+		type integer
+		default {
+			@func refer
+			name 'defaults.pcm.dsnoop.device'
 		}
 	}
-	control.9 {
-		iface MIXER
-		name 'Inverted Internal Mic Capture Switch'
-		value false
-		comment {
-			access 'read write'
-			type BOOLEAN
-			count 1
+	@args.SUBDEV {
+		type integer
+		default 0
+	}
+	@args.FORMAT {
+		type string
+		default {
+			@func refer
+			name 'defaults.pcm.dmix.format'
 		}
 	}
-	control.10 {
-		iface MIXER
-		name 'Mic Capture Volume'
-		value.0 80
-		value.1 80
-		comment {
-			access 'read write'
-			type INTEGER
-			count 2
-			range '0 - 80'
-			dbmin -7400
-			dbmax 600
-			dbvalue.0 600
-			dbvalue.1 600
+	@args.RATE {
+		type integer
+		default {
+			@func refer
+			name 'defaults.pcm.dmix.rate'
 		}
 	}
-	control.11 {
-		iface MIXER
-		name 'Mic Capture Switch'
-		value.0 true
-		value.1 true
-		comment {
-			access 'read write'
-			type BOOLEAN
-			count 2
+	type dsnoop
+	ipc_key {
+		@func refer
+		name 'defaults.pcm.ipc_key'
+	}
+	ipc_gid {
+		@func refer
+		name 'defaults.pcm.ipc_gid'
+	}
+	ipc_perm {
+		@func refer
+		name 'defaults.pcm.ipc_perm'
+	}
+	tstamp_type {
+		@func refer
+		name 'defaults.pcm.tstamp_type'
+	}
+	slave {
+		pcm {
+			type hw
+			card $CARD
+			device $DEV
+			subdevice $SUBDEV
+		}
+		format $FORMAT
+		rate $RATE
+		period_size {
+			@func refer
+			name {
+				@func concat
+				strings [
+					'cards.'
+					{
+						@func card_id
+						card $CARD
+					}
+					'.pcm.dsnoop.period_size'
+				]
+			}
+			default 1024
+		}
+		period_time {
+			@func refer
+			name {
+				@func concat
+				strings [
+					'cards.'
+					{
+						@func card_id
+						card $CARD
+					}
+					'.pcm.dsnoop.period_time'
+				]
+			}
+			default -1
+		}
+		periods {
+			@func refer
+			name {
+				@func concat
+				strings [
+					'cards.'
+					{
+						@func card_id
+						card $CARD
+					}
+					'.pcm.dsnoop.periods'
+				]
+			}
+			default 16
 		}
 	}
-	control.12 {
-		iface MIXER
-		name 'Internal Mic Boost Volume'
-		value.0 0
-		value.1 0
-		comment {
-			access 'read write'
-			type INTEGER
-			count 2
-			range '0 - 3'
-			dbmin 0
-			dbmax 3600
-			dbvalue.0 0
-			dbvalue.1 0
+	hint {
+		show {
+			@func refer
+			name 'defaults.namehint.extended'
+		}
+		description 'Direct sample snooping device'
+		device_input $DEV
+	}
+}
+cards.pcm.front {
+	@args.0 CARD
+	@args.1 DEV
+	@args.CARD {
+		type string
+		default {
+			@func getenv
+			vars [
+				ALSA_FRONT_CARD
+				ALSA_PCM_CARD
+				ALSA_CARD
+			]
+			default {
+				@func refer
+				name 'defaults.pcm.front.card'
+			}
 		}
 	}
-	control.13 {
-		iface MIXER
-		name 'Mic Boost Volume'
-		value.0 0
-		value.1 0
-		comment {
-			access 'read write'
-			type INTEGER
-			count 2
-			range '0 - 3'
-			dbmin 0
-			dbmax 3600
-			dbvalue.0 0
-			dbvalue.1 0
+	@args.DEV {
+		type integer
+		default {
+			@func igetenv
+			vars [
+				ALSA_FRONT_DEVICE
+			]
+			default {
+				@func refer
+				name 'defaults.pcm.front.device'
+			}
 		}
 	}
-	control.14 {
-		iface MIXER
-		name 'Beep Playback Volume'
-		value 7
-		comment {
-			access 'read write'
-			type INTEGER
-			count 1
-			range '0 - 7'
-			dbmin -2800
-			dbmax 0
-			dbvalue.0 0
+	type empty
+	slave.pcm {
+		@func refer
+		name {
+			@func concat
+			strings [
+				'cards.'
+				{
+					@func card_inum
+					card $CARD
+				}
+				'.pcm.front.'
+				$DEV
+				':CARD='
+				$CARD
+			]
 		}
 	}
-	control.15 {
-		iface MIXER
-		name 'Beep Playback Switch'
-		value true
-		comment {
-			access 'read write'
-			type BOOLEAN
-			count 1
+	hint {
+		show {
+			@func refer
+			name 'defaults.namehint.basic'
+		}
+		description 'Front output / input'
+		device_output $DEV
+		device_input $DEV
+		omit_noargs true
+	}
+}
+cards.pcm.surround21 {
+	@args.0 CARD
+	@args.1 DEV
+	@args.CARD {
+		type string
+		default {
+			@func getenv
+			vars [
+				ALSA_SURROUND21_CARD
+				ALSA_PCM_CARD
+				ALSA_CARD
+			]
+			default {
+				@func refer
+				name 'defaults.pcm.surround21.card'
+			}
 		}
 	}
-	control.16 {
-		iface MIXER
-		name 'Master Playback Volume'
-		value 68
-		comment {
-			access 'read write'
-			type INTEGER
-			count 1
-			range '0 - 74'
-			dbmin -7400
-			dbmax 0
-			dbvalue.0 -600
+	@args.DEV {
+		type integer
+		default {
+			@func igetenv
+			vars [
+				ALSA_SURROUND21_DEVICE
+			]
+			default {
+				@func refer
+				name 'defaults.pcm.surround21.device'
+			}
 		}
 	}
-	control.17 {
-		iface MIXER
-		name 'Master Playback Switch'
-		value true
-		comment {
-			access 'read write'
-			type BOOLEAN
-			count 1
+	type route
+	slave.pcm {
+		@func refer
+		name {
+			@func concat
+			strings [
+				'cards.'
+				{
+					@func card_inum
+					card $CARD
+				}
+				'.pcm.surround51.'
+				$DEV
+				':CARD='
+				$CARD
+			]
 		}
 	}
-	control.18 {
-		iface CARD
-		name 'Internal Mic Phantom Jack'
-		value true
-		comment {
-			access read
-			type BOOLEAN
-			count 1
+	ttable.0.FL 1
+	ttable.1.FR 1
+	ttable.2.LFE 1
+	hint {
+		description '2.1 Surround output to Front and Subwoofer speakers'
+		device_output $DEV
+		omit_noargs true
+	}
+}
+cards.pcm.surround40 {
+	@args.0 CARD
+	@args.1 DEV
+	@args.CARD {
+		type string
+		default {
+			@func getenv
+			vars [
+				ALSA_SURROUND40_CARD
+				ALSA_PCM_CARD
+				ALSA_CARD
+			]
+			default {
+				@func refer
+				name 'defaults.pcm.surround40.card'
+			}
 		}
 	}
-	control.19 {
-		iface CARD
-		name 'Mic Jack'
-		value true
-		comment {
-			access read
-			type BOOLEAN
-			count 1
+	@args.DEV {
+		type integer
+		default {
+			@func igetenv
+			vars [
+				ALSA_SURROUND40_DEVICE
+			]
+			default {
+				@func refer
+				name 'defaults.pcm.surround40.device'
+			}
 		}
 	}
-	control.20 {
-		iface CARD
-		name 'Headphone Jack'
-		value true
-		comment {
-			access read
-			type BOOLEAN
-			count 1
+	type empty
+	slave.pcm {
+		@func refer
+		name {
+			@func concat
+			strings [
+				'cards.'
+				{
+					@func card_inum
+					card $CARD
+				}
+				'.pcm.surround40.'
+				$DEV
+				':CARD='
+				$CARD
+			]
 		}
 	}
-	control.21 {
-		iface CARD
-		name 'Speaker Phantom Jack'
-		value true
-		comment {
-			access read
-			type BOOLEAN
-			count 1
+	hint {
+		description '4.0 Surround output to Front and Rear speakers'
+		device_output $DEV
+		omit_noargs true
+	}
+}
+cards.pcm.surround41 {
+	@args.0 CARD
+	@args.1 DEV
+	@args.CARD {
+		type string
+		default {
+			@func getenv
+			vars [
+				ALSA_SURROUND41_CARD
+				ALSA_PCM_CARD
+				ALSA_CARD
+			]
+			default {
+				@func refer
+				name 'defaults.pcm.surround41.card'
+			}
 		}
 	}
-	control.22 {
-		iface PCM
-		name 'Playback Channel Map'
-		value.0 0
-		value.1 0
-		comment {
-			access read
-			type INTEGER
-			count 2
-			range '0 - 36'
+	@args.DEV {
+		type integer
+		default {
+			@func igetenv
+			vars [
+				ALSA_SURROUND41_DEVICE
+			]
+			default {
+				@func refer
+				name 'defaults.pcm.surround41.device'
+			}
 		}
 	}
-	control.23 {
-		iface PCM
-		name 'Capture Channel Map'
-		value.0 0
-		value.1 0
-		comment {
-			access read
-			type INTEGER
-			count 2
-			range '0 - 36'
+	type route
+	slave.pcm {
+		@func refer
+		name {
+			@func concat
+			strings [
+				'cards.'
+				{
+					@func card_inum
+					card $CARD
+				}
+				'.pcm.surround51.'
+				$DEV
+				':CARD='
+				$CARD
+			]
 		}
 	}
-	control.24 {
-		iface MIXER
-		name 'PCM Playback Volume'
-		value.0 255
-		value.1 255
-		comment {
-			access 'read write user'
-			type INTEGER
-			count 2
-			range '0 - 255'
-			tlv '0000000100000008ffffec1400000014'
-			dbmin -5100
-			dbmax 0
-			dbvalue.0 0
-			dbvalue.1 0
+	ttable.0.FL 1
+	ttable.1.FR 1
+	ttable.2.RL 1
+	ttable.3.RR 1
+	ttable.4.LFE 1
+	hint {
+		description '4.1 Surround output to Front, Rear and Subwoofer speakers'
+		device_output $DEV
+		omit_noargs true
+	}
+}
+cards.pcm.surround50 {
+	@args.0 CARD
+	@args.1 DEV
+	@args.CARD {
+		type string
+		default {
+			@func getenv
+			vars [
+				ALSA_SURROUND50_CARD
+				ALSA_PCM_CARD
+				ALSA_CARD
+			]
+			default {
+				@func refer
+				name 'defaults.pcm.surround50.card'
+			}
 		}
+	}
+	@args.DEV {
+		type integer
+		default {
+			@func igetenv
+			vars [
+				ALSA_SURROUND50_DEVICE
+			]
+			default {
+				@func refer
+				name 'defaults.pcm.surround50.device'
+			}
+		}
+	}
+	type route
+	slave.pcm {
+		@func refer
+		name {
+			@func concat
+			strings [
+				'cards.'
+				{
+					@func card_inum
+					card $CARD
+				}
+				'.pcm.surround51.'
+				$DEV
+				':CARD='
+				$CARD
+			]
+		}
+	}
+	ttable.0.FL 1
+	ttable.1.FR 1
+	ttable.2.RL 1
+	ttable.3.RR 1
+	ttable.4.FC 1
+	hint {
+		description '5.0 Surround output to Front, Center and Rear speakers'
+		device_output $DEV
+		omit_noargs true
+	}
+}
+cards.pcm.surround51 {
+	@args.0 CARD
+	@args.1 DEV
+	@args.CARD {
+		type string
+		default {
+			@func getenv
+			vars [
+				ALSA_SURROUND51_CARD
+				ALSA_PCM_CARD
+				ALSA_CARD
+			]
+			default {
+				@func refer
+				name 'defaults.pcm.surround51.card'
+			}
+		}
+	}
+	@args.DEV {
+		type integer
+		default {
+			@func igetenv
+			vars [
+				ALSA_SURROUND51_DEVICE
+			]
+			default {
+				@func refer
+				name 'defaults.pcm.surround51.device'
+			}
+		}
+	}
+	type empty
+	slave.pcm {
+		@func refer
+		name {
+			@func concat
+			strings [
+				'cards.'
+				{
+					@func card_inum
+					card $CARD
+				}
+				'.pcm.surround51.'
+				$DEV
+				':CARD='
+				$CARD
+			]
+		}
+	}
+	hint {
+		description '5.1 Surround output to Front, Center, Rear and Subwoofer speakers'
+		device_output $DEV
+		omit_noargs true
+	}
+}
+cards.pcm.surround71 {
+	@args.0 CARD
+	@args.1 DEV
+	@args.CARD {
+		type string
+		default {
+			@func getenv
+			vars [
+				ALSA_SURROUND71_CARD
+				ALSA_PCM_CARD
+				ALSA_CARD
+			]
+			default {
+				@func refer
+				name 'defaults.pcm.surround71.card'
+			}
+		}
+	}
+	@args.DEV {
+		type integer
+		default {
+			@func igetenv
+			vars [
+				ALSA_SURROUND71_DEVICE
+			]
+			default {
+				@func refer
+				name 'defaults.pcm.surround71.device'
+			}
+		}
+	}
+	type empty
+	slave.pcm {
+		@func refer
+		name {
+			@func concat
+			strings [
+				'cards.'
+				{
+					@func card_inum
+					card $CARD
+				}
+				'.pcm.surround71.'
+				$DEV
+				':CARD='
+				$CARD
+			]
+		}
+	}
+	hint {
+		description '7.1 Surround output to Front, Center, Side, Rear and Woofer speakers'
+		device_output $DEV
+		omit_noargs true
+	}
+}
+cards.pcm.iec958 {
+	@args.0 CARD
+	@args.1 DEV
+	@args.2 AES0
+	@args.3 AES1
+	@args.4 AES2
+	@args.5 AES3
+	@args.CARD {
+		type string
+		default {
+			@func getenv
+			vars [
+				ALSA_IEC958_CARD
+				ALSA_PCM_CARD
+				ALSA_CARD
+			]
+			default {
+				@func refer
+				name 'defaults.pcm.iec958.card'
+			}
+		}
+	}
+	@args.DEV {
+		type integer
+		default {
+			@func igetenv
+			vars [
+				ALSA_IEC958_DEVICE
+			]
+			default {
+				@func refer
+				name 'defaults.pcm.iec958.device'
+			}
+		}
+	}
+	@args.AES0 {
+		type integer
+		default 4
+	}
+	@args.AES1 {
+		type integer
+		default 130
+	}
+	@args.AES2 {
+		type integer
+		default 0
+	}
+	@args.AES3 {
+		type integer
+		default 2
+	}
+	type empty
+	slave.pcm {
+		@func refer
+		name {
+			@func concat
+			strings [
+				'cards.'
+				{
+					@func card_inum
+					card $CARD
+				}
+				'.pcm.iec958.'
+				$DEV
+				:
+				'CARD='
+				$CARD
+				','
+				'AES0='
+				$AES0
+				','
+				'AES1='
+				$AES1
+				','
+				'AES2='
+				$AES2
+				','
+				'AES3='
+				$AES3
+			]
+		}
+	}
+	hint {
+		show {
+			@func refer
+			name 'defaults.namehint.basic'
+		}
+		description 'IEC958 (S/PDIF) Digital Audio Output'
+		device_output $DEV
+	}
+}
+cards.pcm.hdmi {
+	@args.0 CARD
+	@args.1 DEV
+	@args.2 AES0
+	@args.3 AES1
+	@args.4 AES2
+	@args.5 AES3
+	@args.CARD {
+		type string
+		default {
+			@func getenv
+			vars [
+				ALSA_IEC958_CARD
+				ALSA_PCM_CARD
+				ALSA_CARD
+			]
+			default {
+				@func refer
+				name 'defaults.pcm.iec958.card'
+			}
+		}
+	}
+	@args.DEV {
+		type integer
+		default {
+			@func igetenv
+			vars [
+				ALSA_IEC958_DEVICE
+			]
+			default {
+				@func refer
+				name 'defaults.pcm.iec958.device'
+			}
+		}
+	}
+	@args.AES0 {
+		type integer
+		default 4
+	}
+	@args.AES1 {
+		type integer
+		default 130
+	}
+	@args.AES2 {
+		type integer
+		default 0
+	}
+	@args.AES3 {
+		type integer
+		default 2
+	}
+	type empty
+	slave.pcm {
+		@func refer
+		name {
+			@func concat
+			strings [
+				'cards.'
+				{
+					@func card_inum
+					card $CARD
+				}
+				'.pcm.hdmi.'
+				$DEV
+				:
+				'CARD='
+				$CARD
+				','
+				'AES0='
+				$AES0
+				','
+				'AES1='
+				$AES1
+				','
+				'AES2='
+				$AES2
+				','
+				'AES3='
+				$AES3
+			]
+		}
+	}
+	hint {
+		show {
+			@func refer
+			name 'defaults.namehint.basic'
+		}
+		description 'HDMI Audio Output'
+		device $DEV
+	}
+}
+cards.pcm.phoneline {
+	@args.0 CARD
+	@args.1 DEV
+	@args.CARD {
+		type string
+		default {
+			@func getenv
+			vars [
+				ALSA_MODEM_CARD
+				ALSA_PCM_CARD
+				ALSA_CARD
+			]
+			default {
+				@func refer
+				name 'defaults.pcm.modem.card'
+			}
+		}
+	}
+	@args.DEV {
+		type integer
+		default {
+			@func igetenv
+			vars [
+				ALSA_MODEM_DEVICE
+			]
+			default {
+				@func refer
+				name 'defaults.pcm.modem.device'
+			}
+		}
+	}
+	@func refer
+	name {
+		@func concat
+		strings [
+			'cards.'
+			{
+				@func card_inum
+				card $CARD
+			}
+			'.pcm.modem.'
+			$DEV
+			':CARD='
+			$CARD
+		]
+	}
+	hint.show off
+}
+cards.pcm.modem {
+	@args.0 CARD
+	@args.1 DEV
+	@args.CARD {
+		type string
+		default {
+			@func getenv
+			vars [
+				ALSA_MODEM_CARD
+				ALSA_PCM_CARD
+				ALSA_CARD
+			]
+			default {
+				@func refer
+				name 'defaults.pcm.modem.card'
+			}
+		}
+	}
+	@args.DEV {
+		type integer
+		default {
+			@func igetenv
+			vars [
+				ALSA_MODEM_DEVICE
+			]
+			default {
+				@func refer
+				name 'defaults.pcm.modem.device'
+			}
+		}
+	}
+	type hooks
+	slave {
+		pcm {
+			@func concat
+			strings [
+				'cards.pcm.phoneline:CARD='
+				$CARD
+				',DEV='
+				$DEV
+			]
+		}
+	}
+	hooks.0 {
+		type ctl_elems
+		hook_args [
+			{
+				name 'Off-hook Switch'
+				preserve true
+				value on
+				lock false
+				optional true
+			}
+		]
+	}
+	hint.show off
+}
+cards.0 'cards.HDA-Intel'
+cards.HDA-Intel.pcm.front.0 {
+	@args.0 CARD
+	@args.CARD {
+		type string
+	}
+	type asym
+	playback.pcm {
+		type softvol
+		slave.pcm {
+			type hw
+			card $CARD
+			subdevice 0
+		}
+		control {
+			name 'PCM Playback Volume'
+			card $CARD
+		}
+	}
+	capture.pcm {
+		type hw
+		card $CARD
+	}
+}
+cards.HDA-Intel.pcm.default {
+	@args.0 CARD
+	@args.CARD {
+		type string
+	}
+	type asym
+	playback.pcm {
+		type plug
+		slave.pcm {
+			type softvol
+			slave.pcm {
+				@func concat
+				strings [
+					dmix:
+					$CARD
+				]
+			}
+			control {
+				name 'PCM Playback Volume'
+				card $CARD
+			}
+		}
+	}
+	capture.pcm {
+		type plug
+		slave.pcm {
+			type softvol
+			slave.pcm {
+				@func concat
+				strings [
+					dsnoop:
+					$CARD
+				]
+			}
+			control {
+				name 'Digital Capture Volume'
+				card $CARD
+			}
+			min_dB -30             
+			max_dB 30              
+			resolution 121
+		}
+		route_policy copy
+	}
+	hint.device 0
+}
+cards.HDA-Intel.pcm.surround40.0 'cards.HDA-Intel.pcm.front.0'
+cards.HDA-Intel.pcm.surround51.0 'cards.HDA-Intel.pcm.front.0'
+cards.HDA-Intel.pcm.surround71.0 'cards.HDA-Intel.pcm.front.0'
+cards.HDA-Intel.pcm.iec958.0 {
+	@args.0 CARD
+	@args.1 AES0
+	@args.2 AES1
+	@args.3 AES2
+	@args.4 AES3
+	@args.CARD {
+		type string
+	}
+	@args.AES0 {
+		type integer
+	}
+	@args.AES1 {
+		type integer
+	}
+	@args.AES2 {
+		type integer
+	}
+	@args.AES3 {
+		type integer
+	}
+	type asym
+	playback.pcm {
+		type hooks
+		slave.pcm {
+			type hw
+			card $CARD
+			device 1
+		}
+		hooks.0 {
+			type ctl_elems
+			hook_args [
+				{
+					name 'IEC958 Playback Default'
+					index 16
+					optional true
+					lock true
+					preserve true
+					value [
+						$AES0
+						$AES1
+						$AES2
+						$AES3
+					]
+				}
+				{
+					name 'IEC958 Playback Switch'
+					index 16
+					optional true
+					value true
+					skip_rest true
+				}
+				{
+					name 'IEC958 Playback Default'
+					lock true
+					preserve true
+					value [
+						$AES0
+						$AES1
+						$AES2
+						$AES3
+					]
+				}
+				{
+					name 'IEC958 Playback Switch'
+					value true
+				}
+			]
+		}
+	}
+	capture.pcm {
+		type hooks
+		slave.pcm {
+			type hw
+			card $CARD
+			device 1
+		}
+		hooks.0 {
+			type ctl_elems
+			hook_args [
+				{
+					name 'IEC958 Capture Switch'
+					lock true
+					preserve true
+					value true
+				}
+			]
+		}
+	}
+	hint.device 1
+}
+cards.HDA-Intel.pcm.hdmi.common {
+	@args.0 CARD
+	@args.1 DEVICE
+	@args.2 CTLINDEX
+	@args.3 AES0
+	@args.4 AES1
+	@args.5 AES2
+	@args.6 AES3
+	@args.CARD {
+		type string
+	}
+	@args.DEVICE {
+		type integer
+	}
+	@args.CTLINDEX {
+		type integer
+	}
+	@args.AES0 {
+		type integer
+	}
+	@args.AES1 {
+		type integer
+	}
+	@args.AES2 {
+		type integer
+	}
+	@args.AES3 {
+		type integer
+	}
+	type hooks
+	slave.pcm {
+		type hw
+		card $CARD
+		device $DEVICE
+	}
+	hooks.0 {
+		type ctl_elems
+		hook_args [
+			{
+				name 'IEC958 Playback Default'
+				index $CTLINDEX
+				lock true
+				preserve true
+				value [
+					$AES0
+					$AES1
+					$AES2
+					$AES3
+				]
+			}
+			{
+				name 'IEC958 Playback Switch'
+				index $CTLINDEX
+				value true
+			}
+		]
+	}
+	hint.device $DEVICE
+}
+cards.HDA-Intel.pcm.hdmi.0 {
+	@args.0 CARD
+	@args.1 AES0
+	@args.2 AES1
+	@args.3 AES2
+	@args.4 AES3
+	@args.CARD {
+		type string
+	}
+	@args.AES0 {
+		type integer
+	}
+	@args.AES1 {
+		type integer
+	}
+	@args.AES2 {
+		type integer
+	}
+	@args.AES3 {
+		type integer
+	}
+	@func refer
+	name {
+		@func concat
+		strings [
+			'cards.HDA-Intel.pcm.hdmi.common:'
+			'CARD='
+			$CARD
+			','
+			'DEVICE=3,'
+			'CTLINDEX=0,'
+			'AES0='
+			$AES0
+			','
+			'AES1='
+			$AES1
+			','
+			'AES2='
+			$AES2
+			','
+			'AES3='
+			$AES3
+		]
+	}
+}
+cards.HDA-Intel.pcm.hdmi.1 {
+	@args.0 CARD
+	@args.1 AES0
+	@args.2 AES1
+	@args.3 AES2
+	@args.4 AES3
+	@args.CARD {
+		type string
+	}
+	@args.AES0 {
+		type integer
+	}
+	@args.AES1 {
+		type integer
+	}
+	@args.AES2 {
+		type integer
+	}
+	@args.AES3 {
+		type integer
+	}
+	@func refer
+	name {
+		@func concat
+		strings [
+			'cards.HDA-Intel.pcm.hdmi.common:'
+			'CARD='
+			$CARD
+			','
+			'DEVICE=7,'
+			'CTLINDEX=1,'
+			'AES0='
+			$AES0
+			','
+			'AES1='
+			$AES1
+			','
+			'AES2='
+			$AES2
+			','
+			'AES3='
+			$AES3
+		]
+	}
+}
+cards.HDA-Intel.pcm.hdmi.2 {
+	@args.0 CARD
+	@args.1 AES0
+	@args.2 AES1
+	@args.3 AES2
+	@args.4 AES3
+	@args.CARD {
+		type string
+	}
+	@args.AES0 {
+		type integer
+	}
+	@args.AES1 {
+		type integer
+	}
+	@args.AES2 {
+		type integer
+	}
+	@args.AES3 {
+		type integer
+	}
+	@func refer
+	name {
+		@func concat
+		strings [
+			'cards.HDA-Intel.pcm.hdmi.common:'
+			'CARD='
+			$CARD
+			','
+			'DEVICE=8,'
+			'CTLINDEX=2,'
+			'AES0='
+			$AES0
+			','
+			'AES1='
+			$AES1
+			','
+			'AES2='
+			$AES2
+			','
+			'AES3='
+			$AES3
+		]
+	}
+}
+cards.HDA-Intel.pcm.hdmi.3 {
+	@args.0 CARD
+	@args.1 AES0
+	@args.2 AES1
+	@args.3 AES2
+	@args.4 AES3
+	@args.CARD {
+		type string
+	}
+	@args.AES0 {
+		type integer
+	}
+	@args.AES1 {
+		type integer
+	}
+	@args.AES2 {
+		type integer
+	}
+	@args.AES3 {
+		type integer
+	}
+	@func refer
+	name {
+		@func concat
+		strings [
+			'cards.HDA-Intel.pcm.hdmi.common:'
+			'CARD='
+			$CARD
+			','
+			'DEVICE=9,'
+			'CTLINDEX=3,'
+			'AES0='
+			$AES0
+			','
+			'AES1='
+			$AES1
+			','
+			'AES2='
+			$AES2
+			','
+			'AES3='
+			$AES3
+		]
+	}
+}
+cards.HDA-Intel.pcm.hdmi.4 {
+	@args.0 CARD
+	@args.1 AES0
+	@args.2 AES1
+	@args.3 AES2
+	@args.4 AES3
+	@args.CARD {
+		type string
+	}
+	@args.AES0 {
+		type integer
+	}
+	@args.AES1 {
+		type integer
+	}
+	@args.AES2 {
+		type integer
+	}
+	@args.AES3 {
+		type integer
+	}
+	@func refer
+	name {
+		@func concat
+		strings [
+			'cards.HDA-Intel.pcm.hdmi.common:'
+			'CARD='
+			$CARD
+			','
+			'DEVICE=10,'
+			'CTLINDEX=4,'
+			'AES0='
+			$AES0
+			','
+			'AES1='
+			$AES1
+			','
+			'AES2='
+			$AES2
+			','
+			'AES3='
+			$AES3
+		]
+	}
+}
+cards.HDA-Intel.pcm.hdmi.5 {
+	@args.0 CARD
+	@args.1 AES0
+	@args.2 AES1
+	@args.3 AES2
+	@args.4 AES3
+	@args.CARD {
+		type string
+	}
+	@args.AES0 {
+		type integer
+	}
+	@args.AES1 {
+		type integer
+	}
+	@args.AES2 {
+		type integer
+	}
+	@args.AES3 {
+		type integer
+	}
+	@func refer
+	name {
+		@func concat
+		strings [
+			'cards.HDA-Intel.pcm.hdmi.common:'
+			'CARD='
+			$CARD
+			','
+			'DEVICE=11,'
+			'CTLINDEX=5,'
+			'AES0='
+			$AES0
+			','
+			'AES1='
+			$AES1
+			','
+			'AES2='
+			$AES2
+			','
+			'AES3='
+			$AES3
+		]
+	}
+}
+cards.HDA-Intel.pcm.hdmi.6 {
+	@args.0 CARD
+	@args.1 AES0
+	@args.2 AES1
+	@args.3 AES2
+	@args.4 AES3
+	@args.CARD {
+		type string
+	}
+	@args.AES0 {
+		type integer
+	}
+	@args.AES1 {
+		type integer
+	}
+	@args.AES2 {
+		type integer
+	}
+	@args.AES3 {
+		type integer
+	}
+	@func refer
+	name {
+		@func concat
+		strings [
+			'cards.HDA-Intel.pcm.hdmi.common:'
+			'CARD='
+			$CARD
+			','
+			'DEVICE=12,'
+			'CTLINDEX=6,'
+			'AES0='
+			$AES0
+			','
+			'AES1='
+			$AES1
+			','
+			'AES2='
+			$AES2
+			','
+			'AES3='
+			$AES3
+		]
+	}
+}
+cards.HDA-Intel.pcm.hdmi.7 {
+	@args.0 CARD
+	@args.1 AES0
+	@args.2 AES1
+	@args.3 AES2
+	@args.4 AES3
+	@args.CARD {
+		type string
+	}
+	@args.AES0 {
+		type integer
+	}
+	@args.AES1 {
+		type integer
+	}
+	@args.AES2 {
+		type integer
+	}
+	@args.AES3 {
+		type integer
+	}
+	@func refer
+	name {
+		@func concat
+		strings [
+			'cards.HDA-Intel.pcm.hdmi.common:'
+			'CARD='
+			$CARD
+			','
+			'DEVICE=13,'
+			'CTLINDEX=7,'
+			'AES0='
+			$AES0
+			','
+			'AES1='
+			$AES1
+			','
+			'AES2='
+			$AES2
+			','
+			'AES3='
+			$AES3
+		]
+	}
+}
+cards.HDA-Intel.pcm.hdmi.8 {
+	@args.0 CARD
+	@args.1 AES0
+	@args.2 AES1
+	@args.3 AES2
+	@args.4 AES3
+	@args.CARD {
+		type string
+	}
+	@args.AES0 {
+		type integer
+	}
+	@args.AES1 {
+		type integer
+	}
+	@args.AES2 {
+		type integer
+	}
+	@args.AES3 {
+		type integer
+	}
+	@func refer
+	name {
+		@func concat
+		strings [
+			'cards.HDA-Intel.pcm.hdmi.common:'
+			'CARD='
+			$CARD
+			','
+			'DEVICE=14,'
+			'CTLINDEX=8,'
+			'AES0='
+			$AES0
+			','
+			'AES1='
+			$AES1
+			','
+			'AES2='
+			$AES2
+			','
+			'AES3='
+			$AES3
+		]
+	}
+}
+cards.HDA-Intel.pcm.hdmi.9 {
+	@args.0 CARD
+	@args.1 AES0
+	@args.2 AES1
+	@args.3 AES2
+	@args.4 AES3
+	@args.CARD {
+		type string
+	}
+	@args.AES0 {
+		type integer
+	}
+	@args.AES1 {
+		type integer
+	}
+	@args.AES2 {
+		type integer
+	}
+	@args.AES3 {
+		type integer
+	}
+	@func refer
+	name {
+		@func concat
+		strings [
+			'cards.HDA-Intel.pcm.hdmi.common:'
+			'CARD='
+			$CARD
+			','
+			'DEVICE=15,'
+			'CTLINDEX=9,'
+			'AES0='
+			$AES0
+			','
+			'AES1='
+			$AES1
+			','
+			'AES2='
+			$AES2
+			','
+			'AES3='
+			$AES3
+		]
+	}
+}
+cards.HDA-Intel.pcm.hdmi.10 {
+	@args.0 CARD
+	@args.1 AES0
+	@args.2 AES1
+	@args.3 AES2
+	@args.4 AES3
+	@args.CARD {
+		type string
+	}
+	@args.AES0 {
+		type integer
+	}
+	@args.AES1 {
+		type integer
+	}
+	@args.AES2 {
+		type integer
+	}
+	@args.AES3 {
+		type integer
+	}
+	@func refer
+	name {
+		@func concat
+		strings [
+			'cards.HDA-Intel.pcm.hdmi.common:'
+			'CARD='
+			$CARD
+			','
+			'DEVICE=16,'
+			'CTLINDEX=10,'
+			'AES0='
+			$AES0
+			','
+			'AES1='
+			$AES1
+			','
+			'AES2='
+			$AES2
+			','
+			'AES3='
+			$AES3
+		]
+	}
+}
+cards.HDA-Intel.pcm.modem.0 {
+	@args.0 CARD
+	@args.CARD {
+		type string
+	}
+	type hw
+	card $CARD
+	device 6
+	hint.show off
+}
+cards.1 'cards.HDA-Intel'
+defaults.namehint.showall off
+defaults.namehint.basic on
+defaults.namehint.extended off
+defaults.ctl.card 0
+defaults.pcm.card 0
+defaults.pcm.device 0
+defaults.pcm.subdevice -1
+defaults.pcm.nonblock 1
+defaults.pcm.compat 0
+defaults.pcm.minperiodtime 5000
+defaults.pcm.ipc_key 5678293
+defaults.pcm.ipc_gid audio
+defaults.pcm.ipc_perm 432
+defaults.pcm.tstamp_type default
+defaults.pcm.dmix.max_periods 0
+defaults.pcm.dmix.channels 2
+defaults.pcm.dmix.rate 48000
+defaults.pcm.dmix.format unchanged
+defaults.pcm.dmix.card 'defaults.pcm.card'
+defaults.pcm.dmix.device 'defaults.pcm.device'
+defaults.pcm.dsnoop.card 'defaults.pcm.card'
+defaults.pcm.dsnoop.device 'defaults.pcm.device'
+defaults.pcm.front.card 'defaults.pcm.card'
+defaults.pcm.front.device 'defaults.pcm.device'
+defaults.pcm.rear.card 'defaults.pcm.card'
+defaults.pcm.rear.device 'defaults.pcm.device'
+defaults.pcm.center_lfe.card 'defaults.pcm.card'
+defaults.pcm.center_lfe.device 'defaults.pcm.device'
+defaults.pcm.side.card 'defaults.pcm.card'
+defaults.pcm.side.device 'defaults.pcm.device'
+defaults.pcm.surround21.card 'defaults.pcm.card'
+defaults.pcm.surround21.device 'defaults.pcm.device'
+defaults.pcm.surround40.card 'defaults.pcm.card'
+defaults.pcm.surround40.device 'defaults.pcm.device'
+defaults.pcm.surround41.card 'defaults.pcm.card'
+defaults.pcm.surround41.device 'defaults.pcm.device'
+defaults.pcm.surround50.card 'defaults.pcm.card'
+defaults.pcm.surround50.device 'defaults.pcm.device'
+defaults.pcm.surround51.card 'defaults.pcm.card'
+defaults.pcm.surround51.device 'defaults.pcm.device'
+defaults.pcm.surround71.card 'defaults.pcm.card'
+defaults.pcm.surround71.device 'defaults.pcm.device'
+defaults.pcm.iec958.card 'defaults.pcm.card'
+defaults.pcm.iec958.device 'defaults.pcm.device'
+defaults.pcm.modem.card 'defaults.pcm.card'
+defaults.pcm.modem.device 'defaults.pcm.device'
+defaults.pcm.file_format raw
+defaults.pcm.file_truncate true
+defaults.rawmidi.card 0
+defaults.rawmidi.device 0
+defaults.rawmidi.subdevice -1
+defaults.hwdep.card 0
+defaults.hwdep.device 0
+defaults.timer.class 2
+defaults.timer.sclass 0
+defaults.timer.card 0
+defaults.timer.device 0
+defaults.timer.subdevice 0
+defaults.pipewire.server pipewire-0
+defaults.pipewire.node '-1'
+defaults.pipewire.exclusive false
+defaults.pipewire.role ''
+pcm.hw {
+	@args.0 CARD
+	@args.1 DEV
+	@args.2 SUBDEV
+	@args.CARD {
+		type string
+		default {
+			@func getenv
+			vars [
+				ALSA_PCM_CARD
+				ALSA_CARD
+			]
+			default {
+				@func refer
+				name 'defaults.pcm.card'
+			}
+		}
+	}
+	@args.DEV {
+		type integer
+		default {
+			@func igetenv
+			vars [
+				ALSA_PCM_DEVICE
+			]
+			default {
+				@func refer
+				name 'defaults.pcm.device'
+			}
+		}
+	}
+	@args.SUBDEV {
+		type integer
+		default {
+			@func refer
+			name 'defaults.pcm.subdevice'
+		}
+	}
+	type hw
+	card $CARD
+	device $DEV
+	subdevice $SUBDEV
+	hint {
+		show {
+			@func refer
+			name 'defaults.namehint.extended'
+		}
+		description 'Direct hardware device without any conversions'
+	}
+}
+pcm.plughw {
+	@args.0 CARD
+	@args.1 DEV
+	@args.2 SUBDEV
+	@args.CARD {
+		type string
+		default {
+			@func getenv
+			vars [
+				ALSA_PCM_CARD
+				ALSA_CARD
+			]
+			default {
+				@func refer
+				name 'defaults.pcm.card'
+			}
+		}
+	}
+	@args.DEV {
+		type integer
+		default {
+			@func igetenv
+			vars [
+				ALSA_PCM_DEVICE
+			]
+			default {
+				@func refer
+				name 'defaults.pcm.device'
+			}
+		}
+	}
+	@args.SUBDEV {
+		type integer
+		default {
+			@func refer
+			name 'defaults.pcm.subdevice'
+		}
+	}
+	type plug
+	slave.pcm {
+		type hw
+		card $CARD
+		device $DEV
+		subdevice $SUBDEV
+	}
+	hint {
+		show {
+			@func refer
+			name 'defaults.namehint.extended'
+		}
+		description 'Hardware device with all software conversions'
+	}
+}
+pcm.plug {
+	@args.0 SLAVE
+	@args.SLAVE {
+		type string
+	}
+	type plug
+	slave.pcm $SLAVE
+}
+pcm.shm {
+	@args.0 SOCKET
+	@args.1 PCM
+	@args.SOCKET {
+		type string
+	}
+	@args.PCM {
+		type string
+	}
+	type shm
+	server $SOCKET
+	pcm $PCM
+}
+pcm.tee {
+	@args.0 SLAVE
+	@args.1 FILE
+	@args.2 FORMAT
+	@args.SLAVE {
+		type string
+	}
+	@args.FILE {
+		type string
+	}
+	@args.FORMAT {
+		type string
+		default {
+			@func refer
+			name 'defaults.pcm.file_format'
+		}
+	}
+	type file
+	slave.pcm $SLAVE
+	file $FILE
+	format $FORMAT
+	truncate {
+		@func refer
+		name 'defaults.pcm.file_truncate'
+	}
+}
+pcm.file {
+	@args.0 FILE
+	@args.1 FORMAT
+	@args.FILE {
+		type string
+	}
+	@args.FORMAT {
+		type string
+		default {
+			@func refer
+			name 'defaults.pcm.file_format'
+		}
+	}
+	type file
+	slave.pcm null
+	file $FILE
+	format $FORMAT
+	truncate {
+		@func refer
+		name 'defaults.pcm.file_truncate'
+	}
+}
+pcm.null {
+	type null
+	hint {
+		show {
+			@func refer
+			name 'defaults.namehint.basic'
+		}
+		description 'Discard all samples (playback) or generate zero samples (capture)'
+	}
+}
+pcm.cards 'cards.pcm'
+pcm.sysdefault 'cards.pcm.default'
+pcm.front 'cards.pcm.front'
+pcm.rear 'cards.pcm.rear'
+pcm.center_lfe 'cards.pcm.center_lfe'
+pcm.side 'cards.pcm.side'
+pcm.surround21 'cards.pcm.surround21'
+pcm.surround40 'cards.pcm.surround40'
+pcm.surround41 'cards.pcm.surround41'
+pcm.surround50 'cards.pcm.surround50'
+pcm.surround51 'cards.pcm.surround51'
+pcm.surround71 'cards.pcm.surround71'
+pcm.iec958 'cards.pcm.iec958'
+pcm.spdif iec958
+pcm.hdmi 'cards.pcm.hdmi'
+pcm.dmix 'cards.pcm.dmix'
+pcm.dsnoop 'cards.pcm.dsnoop'
+pcm.modem 'cards.pcm.modem'
+pcm.phoneline 'cards.pcm.phoneline'
+pcm.samplerate {
+	@args.0 SLAVE
+	@args.1 RATE
+	@args.2 CONVERTER
+	@args.SLAVE {
+		type string
+		default plug:hw
+	}
+	@args.RATE {
+		type integer
+		default 48000
+	}
+	@args.CONVERTER {
+		type string
+		default samplerate
+	}
+	type rate
+	converter $CONVERTER
+	slave {
+		pcm $SLAVE
+		rate $RATE
+	}
+	hint {
+		show {
+			@func refer
+			name 'defaults.namehint.basic'
+		}
+		description 'Rate Converter Plugin Using Samplerate Library'
+	}
+}
+pcm.speexrate {
+	@args.0 SLAVE
+	@args.1 RATE
+	@args.2 CONVERTER
+	@args.SLAVE {
+		type string
+		default plug:hw
+	}
+	@args.RATE {
+		type integer
+		default 48000
+	}
+	@args.CONVERTER {
+		type string
+		default speexrate
+	}
+	type rate
+	converter $CONVERTER
+	slave {
+		pcm $SLAVE
+		rate $RATE
+	}
+	hint {
+		show {
+			@func refer
+			name 'defaults.namehint.basic'
+		}
+		description 'Rate Converter Plugin Using Speex Resampler'
+	}
+}
+pcm.jack {
+	type jack
+	playback_ports [
+		system:playback_1
+		system:playback_2
+	]
+	capture_ports [
+		system:capture_1
+		system:capture_2
+	]
+	hint {
+		show {
+			@func refer
+			name 'defaults.namehint.basic'
+		}
+		description 'JACK Audio Connection Kit'
+	}
+}
+pcm.oss {
+	@args.0 DEVICE
+	@args.DEVICE {
+		type string
+		default /dev/dsp
+	}
+	type oss
+	device $DEVICE
+	hint {
+		show {
+			@func refer
+			name 'defaults.namehint.basic'
+		}
+		description 'Open Sound System'
+	}
+}
+pcm.pipewire {
+	@args.0 SERVER
+	@args.1 NODE
+	@args.2 EXCLUSIVE
+	@args.3 ROLE
+	@args.SERVER {
+		type string
+		default {
+			@func refer
+			name 'defaults.pipewire.server'
+		}
+	}
+	@args.NODE {
+		type string
+		default {
+			@func refer
+			name 'defaults.pipewire.node'
+		}
+	}
+	@args.EXCLUSIVE {
+		type integer
+		default {
+			@func refer
+			name 'defaults.pipewire.exclusive'
+		}
+	}
+	@args.ROLE {
+		type string
+		default {
+			@func refer
+			name 'defaults.pipewire.role'
+		}
+	}
+	type pipewire
+	server $SERVER
+	playback_node $NODE
+	capture_node $NODE
+	exclusive $EXCLUSIVE
+	role $ROLE
+	hint {
+		show on
+		description 'PipeWire Sound Server'
+	}
+}
+pcm.pulse {
+	@args.0 DEVICE
+	@args.DEVICE {
+		type string
+		default ''
+	}
+	type pulse
+	device $DEVICE
+	hint {
+		show {
+			@func refer
+			name 'defaults.namehint.basic'
+		}
+		description 'PulseAudio Sound Server'
+	}
+}
+pcm.speex {
+	@args.0 SLAVE
+	@args.1 AGC
+	@args.2 AGC_LEVEL
+	@args.3 DENOISE
+	@args.4 ECHO
+	@args.5 DEREVERB
+	@args.6 DEREVERB_DECAY
+	@args.7 DEREVERB_LEVEL
+	@args.8 FRAMES
+	@args.9 FILTER_LENGTH
+	@args.SLAVE {
+		type string
+		default plug:hw
+	}
+	@args.AGC {
+		type string
+		default off
+	}
+	@args.AGC_LEVEL {
+		type integer
+		default 8000
+	}
+	@args.DENOISE {
+		type string
+		default on
+	}
+	@args.ECHO {
+		type string
+		default off
+	}
+	@args.DEREVERB {
+		type string
+		default off
+	}
+	@args.DEREVERB_DECAY {
+		type real
+		default 0
+	}
+	@args.DEREVERB_LEVEL {
+		type real
+		default 0
+	}
+	@args.FRAMES {
+		type integer
+		default 64
+	}
+	@args.FILTER_LENGTH {
+		type integer
+		default 256
+	}
+	type speex
+	agc $AGC
+	agc_level $AGC_LEVEL
+	denoise $DENOISE
+	echo $ECHO
+	dereverb $DEREVERB
+	dereverb_decay $DEREVERB_DECAY
+	dereverb_level $DEREVERB_LEVEL
+	frames $FRAMES
+	filter_length $FILTER_LENGTH
+	slave.pcm $SLAVE
+	hint {
+		show {
+			@func refer
+			name 'defaults.namehint.basic'
+		}
+		description 'Plugin using Speex DSP (resample, agc, denoise, echo, dereverb)'
+	}
+}
+pcm.upmix {
+	@args.0 SLAVE
+	@args.1 CHANNELS
+	@args.2 DELAY
+	@args.SLAVE {
+		type string
+		default plug:hw
+	}
+	@args.CHANNELS {
+		type integer
+		default 6
+	}
+	@args.DELAY {
+		type integer
+		default 0
+	}
+	type upmix
+	channels $CHANNELS
+	delay $DELAY
+	slave.pcm $SLAVE
+	hint {
+		show {
+			@func refer
+			name 'defaults.namehint.basic'
+		}
+		description 'Plugin for channel upmix (4,6,8)'
+	}
+}
+pcm.vdownmix {
+	@args.0 SLAVE
+	@args.1 CHANNELS
+	@args.2 DELAY
+	@args.SLAVE {
+		type string
+		default plug:hw
+	}
+	@args.CHANNELS {
+		type integer
+		default 6
+	}
+	@args.DELAY {
+		type integer
+		default 0
+	}
+	type vdownmix
+	slave.pcm $SLAVE
+	hint {
+		show {
+			@func refer
+			name 'defaults.namehint.basic'
+		}
+		description 'Plugin for channel downmix (stereo) with a simple spacialization'
+	}
+}
+pcm.usbstream {
+	@args.0 CARD
+	@args.1 RATE
+	@args.2 PERIOD_SIZE
+	@args.CARD {
+		type string
+		default {
+			func refer
+			name 'defaults.pcm.card'
+		}
+	}
+	@args.RATE {
+		type integer
+	}
+	@args.PERIOD_SIZE {
+		type integer
+	}
+	type usb_stream
+	card $CARD
+	rate $RATE
+	period_size $PERIOD_SIZE
+	hint {
+		show {
+			@func refer
+			name 'defaults.namehint.basic'
+		}
+		description 'USB Stream Output'
+	}
+}
+pcm.default {
+	type pulse
+	fallback sysdefault
+	hint {
+		show on
+		description 'Default ALSA Output (currently PulseAudio Sound Server)'
+	}
+}
+ctl.sysdefault 'cards.ctl.default'
+ctl.hw {
+	@args.0 CARD
+	@args.CARD {
+		type string
+		default {
+			@func getenv
+			vars [
+				ALSA_CTL_CARD
+				ALSA_CARD
+			]
+			default {
+				@func refer
+				name 'defaults.ctl.card'
+			}
+		}
+	}
+	type hw
+	card $CARD
+	hint.description 'Direct control device'
+}
+ctl.shm {
+	@args.0 SOCKET
+	@args.1 CTL
+	@args.SOCKET {
+		type string
+	}
+	@args.CTL {
+		type string
+	}
+	type shm
+	server $SOCKET
+	ctl $CTL
+}
+ctl.arcam_av {
+	@args.0 PORT
+	@args.PORT {
+		type string
+		default /dev/ttyUSB0
+	}
+	type arcam_av
+	port $PORT
+	hint {
+		show {
+			@func refer
+			name 'defaults.namehint.basic'
+		}
+		description 'Arcam-AV Amplifier'
+	}
+}
+ctl.oss {
+	@args.0 DEVICE
+	@args.DEVICE {
+		type string
+		default /dev/mixer
+	}
+	type oss
+	device $DEVICE
+}
+ctl.pipewire {
+	@args.SERVER {
+		type string
+		default {
+			@func refer
+			name 'defaults.pipewire.server'
+		}
+	}
+	type pipewire
+	server $SERVER
+}
+ctl.pulse {
+	@args.0 DEVICE
+	@args.DEVICE {
+		type string
+		default ''
+	}
+	type pulse
+	device $DEVICE
+}
+ctl.default {
+	type pulse
+	fallback sysdefault
+}
+rawmidi.default {
+	type hw
+	card {
+		@func getenv
+		vars [
+			ALSA_RAWMIDI_CARD
+			ALSA_CARD
+		]
+		default {
+			@func refer
+			name 'defaults.rawmidi.card'
+		}
+	}
+	device {
+		@func igetenv
+		vars [
+			ALSA_RAWMIDI_DEVICE
+		]
+		default {
+			@func refer
+			name 'defaults.rawmidi.device'
+		}
+	}
+	hint.description 'Default raw MIDI device'
+}
+rawmidi.hw {
+	@args.0 CARD
+	@args.1 DEV
+	@args.2 SUBDEV
+	@args.CARD {
+		type string
+		default {
+			@func getenv
+			vars [
+				ALSA_RAWMIDI_CARD
+				ALSA_CARD
+			]
+			default {
+				@func refer
+				name 'defaults.rawmidi.card'
+			}
+		}
+	}
+	@args.DEV {
+		type integer
+		default {
+			@func igetenv
+			vars [
+				ALSA_RAWMIDI_DEVICE
+			]
+			default {
+				@func refer
+				name 'defaults.rawmidi.device'
+			}
+		}
+	}
+	@args.SUBDEV {
+		type integer
+		default -1
+	}
+	type hw
+	card $CARD
+	device $DEV
+	subdevice $SUBDEV
+	hint {
+		description 'Direct rawmidi driver device'
+		device $DEV
+	}
+}
+rawmidi.virtual {
+	@args.0 MERGE
+	@args.MERGE {
+		type string
+		default 1
+	}
+	type virtual
+	merge $MERGE
+}
+seq.default {
+	type hw
+	hint.description 'Default sequencer device'
+}
+seq.hw {
+	type hw
+}
+hwdep.default {
+	type hw
+	card {
+		@func getenv
+		vars [
+			ALSA_HWDEP_CARD
+			ALSA_CARD
+		]
+		default {
+			@func refer
+			name 'defaults.hwdep.card'
+		}
+	}
+	device {
+		@func igetenv
+		vars [
+			ALSA_HWDEP_DEVICE
+		]
+		default {
+			@func refer
+			name 'defaults.hwdep.device'
+		}
+	}
+	hint.description 'Default hardware dependent device'
+}
+hwdep.hw {
+	@args.0 CARD
+	@args.1 DEV
+	@args.CARD {
+		type string
+		default {
+			@func getenv
+			vars [
+				ALSA_HWDEP_CARD
+				ALSA_CARD
+			]
+			default {
+				@func refer
+				name 'defaults.hwdep.card'
+			}
+		}
+	}
+	@args.DEV {
+		type integer
+		default {
+			@func igetenv
+			vars [
+				ALSA_HWDEP_DEVICE
+			]
+			default {
+				@func refer
+				name 'defaults.hwdep.device'
+			}
+		}
+	}
+	type hw
+	card $CARD
+	device $DEV
+	hint {
+		description 'Direct hardware dependent device'
+		device $DEV
+	}
+}
+timer_query.default {
+	type hw
+}
+timer_query.hw {
+	type hw
+}
+timer.default {
+	type hw
+	class {
+		@func refer
+		name 'defaults.timer.class'
+	}
+	sclass {
+		@func refer
+		name 'defaults.timer.sclass'
+	}
+	card {
+		@func refer
+		name 'defaults.timer.card'
+	}
+	device {
+		@func refer
+		name 'defaults.timer.device'
+	}
+	subdevice {
+		@func refer
+		name 'defaults.timer.subdevice'
+	}
+	hint.description 'Default timer device'
+}
+timer.hw {
+	@args.0 CLASS
+	@args.1 SCLASS
+	@args.2 CARD
+	@args.3 DEV
+	@args.4 SUBDEV
+	@args.CLASS {
+		type integer
+		default {
+			@func refer
+			name 'defaults.timer.class'
+		}
+	}
+	@args.SCLASS {
+		type integer
+		default {
+			@func refer
+			name 'defaults.timer.sclass'
+		}
+	}
+	@args.CARD {
+		type string
+		default {
+			@func refer
+			name 'defaults.timer.card'
+		}
+	}
+	@args.DEV {
+		type integer
+		default {
+			@func refer
+			name 'defaults.timer.device'
+		}
+	}
+	@args.SUBDEV {
+		type integer
+		default {
+			@func refer
+			name 'defaults.timer.subdevice'
+		}
+	}
+	type hw
+	class $CLASS
+	sclass $SCLASS
+	card $CARD
+	device $DEV
+	subdevice $SUBDEV
+	hint {
+		description 'Direct timer device'
+		device $DEV
 	}
 }
