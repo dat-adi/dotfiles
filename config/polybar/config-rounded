@@ -25,9 +25,9 @@ gray = #988BA2
 flamingo = #F2CDCD
 
 [bar/mybar]
-modules-right = l1 uptime r1 gap l1 backlight space pulseaudio space wlan memory battery date
+modules-right = gap l1 backlight space pulseaudio space battery date
 modules-center = 
-modules-left = l1 bspwm r1 gap l1 mpd
+modules-left = l1 mpd
 
 
 width = 100%
