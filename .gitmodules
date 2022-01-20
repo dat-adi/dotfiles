@@ -5,3 +5,6 @@
 [submodule "chemacs2"]
     path = chemacs2
     url = https://github.com/plexus/chemacs2
+[submodule "config/ranger/ranger_devicons"]
+	path = config/ranger/ranger_devicons
+	url = https://github.com/alexanderjeurissen/ranger_devicons.git
