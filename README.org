@@ -83,6 +83,7 @@ The required assets for the homepage are present in the =browser= directory, in 
 Along with that, I've also placed all the packages that I use in the =packages.txt=, still need to sort it out into Pacman specific and AUR specific packages.
 
 **Keep in mind that these commands are DANGEROUS**
+
 Setting up all the required dependencies for my Arch Linux configuration can now be done with a simple shell script, that takes care of the pacman packages.
 This record will be updated in the case that I manage to make a version for the =yay= packages as well.
 
@@ -142,8 +143,8 @@ Referencing saimoo's rice, I managed to fix a few issues that was really bugging
 - [[https://wiki.archlinux.org/title/Polybar][Polybar]] :: Took in Saimoo's rice, and got it to work! Considering that I don't play too much attention to the windows, I've removed them entirely though.
 
 A few forum answers that helped me out here a bit were,
-[[https://bbs.archlinux.org/viewtopic.php?id=120371][Failed to bind the =mpd= service]]
-[[https://bbs.archlinux.org/viewtopic.php?id=205408][Can't find any song in mpc]]
+- [[https://bbs.archlinux.org/viewtopic.php?id=120371][Failed to bind the =mpd= service]]
+- [[https://bbs.archlinux.org/viewtopic.php?id=205408][Can't find any song in mpc]]
 
 My LSP configuration in Neovim seems to have completed broken down, so, that's quite unfortunate, but, that's something to fix for another day perhaps.
 Figured that I might as well switch up my wallpaper as well, it's been a while.
@@ -151,3 +152,8 @@ Figured that I might as well switch up my wallpaper as well, it's been a while.
 #+CAPTION: BSPWM Rice
 #+ATTR_HTML: :alt Desktop Look :title BSPWM Rice :align center
 [[./assets/bspwm.png]]
+
+#+BEGIN_EXPORT html
+<br>
+<p align="right"><i>dat-adi</i></p>
+#+END_EXPORT
