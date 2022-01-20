@@ -26,3 +26,6 @@
                          "~/Documents/org/meetings.org"))
  org-deadline-warning-days 7
  org-directory "~/Documents/org/")
+
+(setq elfeed-feeds
+      '("https://news.ycombinator.com/rss"))

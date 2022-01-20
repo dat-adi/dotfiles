@@ -63,5 +63,5 @@ I need to set up an RSS reader for feeds that I wish to follow, so, here's some 
 
 #+begin_src emacs-lisp
 (setq elfeed-feeds
-      '("https://feeds.feedburner.com/TheHackersNews"))
+      '("https://news.ycombinator.com/rss"))
 #+end_src
