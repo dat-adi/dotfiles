@@ -20,6 +20,7 @@ bspc rule -a Emacs state=tiled
 bspc rule -a Zathura state=tiled
 bspc rule -a firefox desktop='^3'
 bspc rule -a discord desktop='^4'
+bspc rule -a element desktop='^4'
 bspc rule -a Pcmanfm state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
