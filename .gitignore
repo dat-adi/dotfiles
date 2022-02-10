@@ -97,3 +97,5 @@ config/tetrio-desktop/
 config/mpd/mpd.db
 config/mpd/mpd.log
 config/mpd/state
+config/gh/*
+

@@ -19,7 +19,7 @@ set XDG_CONFIG_HOME="$HOME/.config"
 set XDG_DATA_HOME="$HOME/.local/share"
 
 # files
-alias cat='bat'
+alias cat='bat -p'
 alias ls='exa'
 alias sl='exa -la'
 alias grep='rg'
