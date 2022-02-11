@@ -1,47 +1,43 @@
-vim.o.completeopt = "menuone,noselect"
-
-require'compe'.setup {
-    enabled = true,
-    autocomplete = true,
-    debug = false,
-    min_length = 1,
-    preselect = 'enable',
-    throttle_time = 80,
-    source_timeout = 200,
-    incomplete_delay = 400,
-    max_abbr_width = 100,
-    max_kind_width = 100,
-    max_menu_width = 100,
-    documentation = true,
-
-    source = {
-        path = {kind = "   (Path)"},
-        buffer = {kind = "   (Buffer)"},
-        calc = {kind = "   (Calc)"},
-        vsnip = {kind = "   (Snippet)"},
-        nvim_lsp = {kind = "   (LSP)"},
-        -- nvim_lua = {kind = "  "},
-		nvim_lua = false,
-        spell = {kind = "   (Spell)"},
-        tags = false,
-        vim_dadbod_completion = true,
-        -- snippets_nvim = {kind = "  "},
-        -- ultisnips = {kind = "  "},
-        treesitter = {kind = "  "},
-        emoji = {kind = " ﲃ  (Emoji)", filetypes={"markdown", "text"}}
-        -- for emoji press : (idk if that in compe tho)
-    }
-}
-
-local t = function(str)
-    return vim.api.nvim_replace_termcodes(str, true, true, true)
+local has_words_before = function()
+  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
 
-local check_back_space = function()
-    local col = vim.fn.col('.') - 1
-    if col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
-        return true
-    else
-        return false
-    end
-end
+local luasnip = require("luasnip")
+local cmp = require("cmp")
+
+cmp.setup({
+
+  -- ... Your other configuration ...
+
+  mapping = {
+
+    -- ... Your other mappings ...
+
+    ["<Tab>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      elseif luasnip.expand_or_jumpable() then
+        luasnip.expand_or_jump()
+      elseif has_words_before() then
+        cmp.complete()
+      else
+        fallback()
+      end
+    end, { "i", "s" }),
+
+    ["<S-Tab>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_prev_item()
+      elseif luasnip.jumpable(-1) then
+        luasnip.jump(-1)
+      else
+        fallback()
+      end
+    end, { "i", "s" }),
+
+    -- ... Your other mappings ...
+  },
+
+  -- ... Your other configuration ...
+})
