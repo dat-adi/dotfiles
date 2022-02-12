@@ -23,6 +23,8 @@ require("base.keybinds")
 -- Importing themes
 require("palenightfall").setup()
 
+-- LSP configuration
+require("lsp")
 require("completion")
 require("treesitter")
 require("statusbar")
