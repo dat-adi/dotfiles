@@ -13,11 +13,13 @@
   - [[#19052021][19/05/2021]]
   - [[#08102021][08/10/2021]]
   - [[#20012022][20/01/2022]]
+  - [[#12022022][12/02/2022]]
 
 * What is this repository for?
 A simple repository to contain the configuration files of my editors, and settings of the IDEs as well. Maybe a bit more.
 
 Kind of also used as a log of changes made over the years of Linux Distros and Window Manager hopping.
+Note: This README progressively gets longer and longer with my paragraphs of entries. I'll attempt to make a blog and perhaps migrate everything there, but for now, I recommend that you save yourself some time and scrolling, by using the index to access the entries.
 
 * Logs
 ** 27/06/2020
@@ -153,7 +155,22 @@ Figured that I might as well switch up my wallpaper as well, it's been a while.
 #+ATTR_HTML: :alt Desktop Look :title BSPWM Rice :align center
 [[./assets/bspwm.png]]
 
-#+BEGIN_EXPORT html
-<br>
-<p align="right"><i>dat-adi</i></p>
-#+END_EXPORT
+** 12/02/2022
+
+I recall that I mentioned "something to fix for another day" in order to fix my Neovim configuration. Well, apparently that day was today.
+However, even that is slightly inaccurate considering that I spent two days on it. Did I fix it? Well yes, but no.
+
+I've kinda fixed it, I still don't know how to optimally set up my configuration yet.
+You mention question as to why I say that, and most of the reason is because I decided, on a whim, that it was time for lua.
+
+I spent about two days converting my setup into lua.
+The first morning was all about messing up, with my configuration not making any sense to me, mind you this was still in vimscript at this stage, with the LSP additions at the bottom that made zero sense to day-1 me. The first afternoon was about converting parts of my configuration into lua, and trying to make sense of everything that was happening. Now, this was promising and the world seemed to finally make sense, it was time for a full conversion. Proceeding forward, the first evening was about despair and regret, for with the full conversion of my configuration, stuff that made sense to me in the start seemed to make no sense at all.
+
+Why weren't packages recognized? Why was lua starting to consume itself in self hatred with that hideous indentation? Why did the statue of equality have three entrances for the classes of society despite literally being about equality? Nothing made sense at this stage, and it was an indiction to give in to some rest, and so, that's what I did.
+
+The second morning was quite a bit better, with me finally figuring that you could divide up everything into smaller sections and just [[https://github.com/dat-adi/dotfiles/blob/master/config/nvim/init.lua][modularize the configuration]] instead of looking at a block of code in hatred.
+Stuff makes a lot more sense at this stage and I completely abstracted away the need to look at redundant pieces of configuration such as the plugins and keybinds by filing them into the =lua/base= directory. Debugging is where stuff got a slightly bit more interesting.
+
+As it turns out, lua doesn't play very nicely with plugins quite yet, even more so when you use =vim-plug=, however, I'm a bit too scarred to test out something new, and so I've tried to fix the problem within the parameters.
+So, by extracting the installed plugins' lua directory into the root lua directory, things started making sense since the configuration files could access the lua plugins directory now.
+I'm actually pretty sure that the issue lies with the plugin configuration setup and nothing else honestly, but, maybe that. Is for another day.
