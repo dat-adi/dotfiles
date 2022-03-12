@@ -30,6 +30,10 @@ super + y
 super + g
 	bspc node -s biggest.window
 
+# lockscreen
+super + shift + x
+  exec ~/dotfiles/scripts/lockscreen.sh
+
 #
 # state/flags
 #
