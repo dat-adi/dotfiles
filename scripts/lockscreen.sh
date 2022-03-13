@@ -1,5 +1,5 @@
 #!/bin/bash
 
-LOCKSCREEN="/home/dat-adi/Pictures/Wallpapers/hornet.png"
+LOCKSCREEN="/home/dat-adi/Pictures/BestMomentEver.png"
 
-i3lock --nofork -i $LOCKSCREEN
+i3lock --nofork -i $LOCKSCREEN -t
