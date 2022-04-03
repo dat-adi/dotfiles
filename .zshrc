@@ -88,4 +88,3 @@ fi
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 eval "$(starship init zsh)"
 eval "$(fasd --init auto)"
-source /usr/share/nvm/init-nvm.sh

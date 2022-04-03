@@ -8,7 +8,6 @@
     ~/.bashrc: bashrc
     ~/.config: config
     ~/.tmux.conf: tmux.conf
-    ~/.xinitrc: xinitrc
     ~/.Xresources: .Xresources
     ~/.xprofile: xprofile
     ~/.gitconfig: gitconfig
