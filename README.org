@@ -175,3 +175,20 @@ Stuff makes a lot more sense at this stage and I completely abstracted away the 
 As it turns out, lua doesn't play very nicely with plugins quite yet, even more so when you use =vim-plug=, however, I'm a bit too scarred to test out something new, and so I've tried to fix the problem within the parameters.
 So, by extracting the installed plugins' lua directory into the root lua directory, things started making sense since the configuration files could access the lua plugins directory now.
 I'm actually pretty sure that the issue lies with the plugin configuration setup and nothing else honestly, but, maybe that. Is for another day.
+
+** 04/04/2022
+
+I've got a new laptop!
+This also means that I will be required to port my Linux system over to another laptop.
+Initially, I was a bit uneasy considering that I've heard a lot of people mention that dual booting would be a pain with Windows 11, but so far I haven't faced any issues other than struggling with installing Arch and disk partition management.
+
+The only extra step that I need to take is to enable secure boot before I log on to Windows if I want to play valorant, because that's apparently a requirement now.
+
+Anyway, a friend of mine recommended Sway, Wayland, and I decided to give it a shot. Verdict? It is smooth as butter. I love the clean interface that it provides, and am still using the default waybar.
+
+Configuration for sway was surprisingly extremely easy, and most of the issues that I've faced are actually more due to applications not being able to support wayland. Ahem, emacs, ahem.
+
+Anyway, workarounds were [[https://www.fosskers.ca/en/blog/wayland][found]] and the system is very clean.
+While the new laptop definitely contributed towards some of the charm, Sway was a good decision to make.
+
+Not too much to report, but I will try to add in some screenshots of the rice.

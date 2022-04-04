@@ -214,7 +214,9 @@ exec emacs --daemon
 #
 
     # This command is to take a screenshot and copy to Clipboard
-    bindsym Print exec grim -g "$(slurp)" -t png - | wl-copy -t image/png
+    bindsym $mod+Shift+s exec grim -g "$(slurp)" -t png - | wl-copy -t image/png
+    # This command is used to take a system-wide screenshot and save it
+    bindsym Print exec grim
 
 #
 # Resizing containers:
