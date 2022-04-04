@@ -16,6 +16,7 @@ Note: This README progressively gets longer and longer with my paragraphs of ent
   - [[#08102021][08/10/2021]]
   - [[#20012022][20/01/2022]]
   - [[#12022022][12/02/2022]]
+  - [[#04042022][04/04/2022]]
 
 * What is this repository for?
 A simple repository to contain the configuration files of my editors, and settings of the IDEs as well. Maybe a bit more.
@@ -191,4 +192,5 @@ Configuration for sway was surprisingly extremely easy, and most of the issues t
 Anyway, workarounds were [[https://www.fosskers.ca/en/blog/wayland][found]] and the system is very clean.
 While the new laptop definitely contributed towards some of the charm, Sway was a good decision to make.
 
-Not too much to report, but I will try to add in some screenshots of the rice.
+Not too much to report, but here's a view of the rice.
+[[./assets/three_screens.png]]

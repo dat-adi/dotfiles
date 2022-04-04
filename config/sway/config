@@ -1,4 +1,4 @@
-#row Default config for sway
+# row Default config for sway
 #
 # Copy this to ~/.config/sway/config and edit it to your liking.
 #
@@ -28,8 +28,9 @@ exec wl-paste -t text --watch clipman store --no-persist
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/dat-adi/Wallpapers/ranni.jpg fill
+output * bg /home/dat-adi/Pictures/Wallpapers/ranni.jpg fill
 font pango:SourceCodePro Medium 11
+default_border pixel 2
 
 exec alsactl --file ~/.config/asound.state restore
 exec pulseaudio &
@@ -45,10 +46,10 @@ exec emacs --daemon
 #
 # Example configuration:
 #
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-#          before-sleep 'swaylock -f -c 000000'
+exec swayidle -w \
+         timeout 300 'swaylock -f -c 000000' \
+         timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+         before-sleep 'swaylock -f -c 000000'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -79,7 +80,7 @@ exec emacs --daemon
     bindsym $mod+w kill
 
     # Lock the computer
-    bindsym $mod+x exec swaylock
+    bindsym $mod+x exec swaylock -i /home/dat-adi/Pictures/Wallpapers/HornetFight1080p.jpg
 
     # Start your launcher
     bindsym $mod+r exec $menu
@@ -175,8 +176,8 @@ exec emacs --daemon
     # bindsym $mod+v splitv
 
     # Switch the current container between different layout styles
-    bindsym $mod+s layout stacking
-    # bindsym $mod+t layout tabbed
+    # bindsym $mod+t layout stacking
+    # bindsym $mod+s layout tabbed
     # bindsym $mod+e layout toggle split
 
     # Make the current focus fullscreen
@@ -249,6 +250,7 @@ bindsym $mod+Alt+r mode "resize"
 # Read `man 5 sway-bar` for more information about this section.
 bar {
     position bottom
+    mode hide
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.

@@ -18,6 +18,16 @@ I particularly like the default DOOM One theme that has been set up by =hlissner
 (setq doom-theme 'doom-one)
 #+end_src
 
+* Font
+Facing issues with a new laptop, I'm forced to specify the fontset that I wish to use for DOOM Emacs.
+
+#+begin_src emacs-lisp
+(setq doom-font (font-spec :family "Source Code Pro" :size 13 :weight 'normal)
+      doom-variable-pitch-font (font-spec :family "Source Code Pro") ; inherits `doom-font''s :size
+      doom-unicode-font (font-spec :family "Source Code Pro" :size 12)
+      doom-big-font (font-spec :family "Source Code Pro" :size 19))
+#+end_src
+
 * Org Mode
 A few settings to initialize and configure =org-mode= for Emacs.
 This mostly setting up the directory to look into, and the deadline warning days and the such.
