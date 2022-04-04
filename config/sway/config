@@ -20,13 +20,20 @@ set $term alacritty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu dmenu_path | dmenu | xargs swaymsg exec --
+set $menu wofi --show=drun --lines=5 --prompt=""
+
+# Clipboard
+exec wl-paste -t text --watch clipman store --no-persist
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 output * bg /home/dat-adi/Wallpapers/ranni.jpg fill
 font pango:SourceCodePro Medium 11
+
+exec alsactl --file ~/.config/asound.state restore
+exec pulseaudio &
+exec emacs --daemon
 #
 # Example configuration:
 #
@@ -70,6 +77,9 @@ font pango:SourceCodePro Medium 11
 
     # Kill focused window
     bindsym $mod+w kill
+
+    # Lock the computer
+    bindsym $mod+x exec swaylock
 
     # Start your launcher
     bindsym $mod+r exec $menu
@@ -127,6 +137,7 @@ font pango:SourceCodePro Medium 11
     bindsym $mod+8 workspace number 8
     bindsym $mod+9 workspace number 9
     bindsym $mod+0 workspace number 10
+
     # Move focused container to workspace
     bindsym $mod+Shift+1 move container to workspace number 1
     bindsym $mod+Shift+2 move container to workspace number 2
@@ -140,6 +151,18 @@ font pango:SourceCodePro Medium 11
     bindsym $mod+Shift+0 move container to workspace number 10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
+
+    # Special keys
+    bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+    bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+    bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+    bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+    bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+    bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
+    bindsym XF86AudioPlay exec playerctl play-pause
+    bindsym XF86AudioNext exec playerctl next
+    bindsym XF86AudioPrev exec playerctl previous
+    bindsym XF86Search exec bemenu-run
  
     # Assigning applications to workspaces
 #
@@ -186,6 +209,12 @@ font pango:SourceCodePro Medium 11
     # This are commands for starting up Emacs.
     bindsym $mod+e exec emacsclient -c -a 'emacs'
 
+#
+# Screen captures:
+#
+
+    # This command is to take a screenshot and copy to Clipboard
+    bindsym Print exec grim -g "$(slurp)" -t png - | wl-copy -t image/png
 
 #
 # Resizing containers:
@@ -222,7 +251,6 @@ bar {
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
     status_command while date +'%Y-%m-%d %I:%M %p'; do sleep 1; done
-    status_command i3blocks
 
     colors {
         statusline #ffffff
