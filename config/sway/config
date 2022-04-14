@@ -47,9 +47,9 @@ exec emacs --daemon
 # Example configuration:
 #
 exec swayidle -w \
-         timeout 300 'swaylock -f -c 000000' \
+         timeout 300 'swaylock -i /home/dat-adi/Pictures/Wallpapers/HornetFight1080p.jpg' \
          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-         before-sleep 'swaylock -f -c 000000'
+         before-sleep 'swaylock -i /home/dat-adi/Pictures/Wallpapers/HornetFight1080p.jpg'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -189,8 +189,9 @@ exec swayidle -w \
     # Swap focus between the tiling area and the floating area
     bindsym $mod+space focus mode_toggle
 
-    # Move focus to the parent container
-    bindsym $mod+a focus parent
+    # Move focus to last focused tiling container
+    bindsym $mod+grave workspace back_and_forth
+
 #
 # Scratchpad:
 #
@@ -254,7 +255,8 @@ bar {
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %I:%M %p'; do sleep 1; done
+    # status_command while date +'%Y-%m-%d %I:%M %p'; do sleep 1; done
+    status_command /home/dat-adi/dotfiles/config/sway/scripts/statusbar.sh
 
     colors {
         statusline #ffffff

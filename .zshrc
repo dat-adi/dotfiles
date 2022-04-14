@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH="$HOME/bin:/home/dat-adi/.local/bin:$PATH"
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/dat-adi/.oh-my-zsh"
@@ -27,6 +27,7 @@ alias rm='trash-put'
 
 # editors
 alias vi='nvim'
+alias :w='clear'
 
 # AUR helper
 alias p="paru"
