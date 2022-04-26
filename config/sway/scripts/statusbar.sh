@@ -21,7 +21,11 @@ msg() {
 
 
 battery() {
-	# time_left=$(acpi -i | head -n 1 |  cut -d "%" -f 2 | tr ',' ' ')
+  bat_percent=$(acpi -i | head -n 1 | cut -d "," -f 2 | cut -d "%" -f 1)
+  if [[ bat_percent -lt 20 ]]; then
+    notify-send "Charge your laptop!"
+  fi
+
 	battery_status=$(acpi -i | head -n 1 | cut -d ":" -f 2 | cut -d "%" -f 1 | tr ',' ' ')
 	echo "🔋$battery_status%"
 }
@@ -32,21 +36,7 @@ now() {
 
 loadfactor() {
 	load=$(uptime | cut -d ':' -f 5 | cut -d ',' -f 1 )
-	# | bc)
 	echo $load
-##	 echo "raw load: $load"
-#	if [ $(echo "$load < 1" | bc) -ne 0 ]
-#	then
-#		msg "${GREEN}0$load"
-#	elif [ $(echo "$load < 2" | bc) -ne 0 ]
-#	then
-#		msg "${YELLOW}$load"
-#	elif [ $(echo "$load < 3" | bc) -ne 0 ]
-#	then
-#		msg "${ORANGE}$load"
-#	else
-#		msg "${RED}$load"
-#	fi
 }
 
 main() {

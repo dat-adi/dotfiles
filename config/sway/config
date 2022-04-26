@@ -68,6 +68,9 @@ exec swayidle -w \
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
+input type:touchpad {
+  tap enabled
+}
 
 ### Key bindings
 #
@@ -127,6 +130,8 @@ exec swayidle -w \
 #
 # Workspaces:
 #
+    # Workspace opts
+    workspace_auto_back_and_forth yes
     # Switch to workspace
     bindsym $mod+1 workspace number 1
     bindsym $mod+2 workspace number 2
@@ -166,6 +171,9 @@ exec swayidle -w \
     bindsym XF86Search exec bemenu-run
  
     # Assigning applications to workspaces
+    assign [class="firefox"] 3
+    assign [class="element"] 8
+    assign [class="Element"] 8
 #
 # Layout stuff:
 #
@@ -184,7 +192,7 @@ exec swayidle -w \
     bindsym $mod+f fullscreen
 
     # Toggle the current focus between tiling and floating mode
-    bindsym $mod+Shift+space floating toggle
+    bindsym $mod+tab floating toggle
 
     # Swap focus between the tiling area and the floating area
     bindsym $mod+space focus mode_toggle
@@ -204,6 +212,11 @@ exec swayidle -w \
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
     bindsym $mod+minus scratchpad show
+
+#
+# Breaks:
+#
+    bindsym $mod+i exec sleep 60 && notify-send "Go back to work again"
 
 #
 # Emacs:
@@ -266,3 +279,11 @@ bar {
 }
 
 include /etc/sway/config.d/*
+
+# Auto-start Applications
+exec element-desktop --enable-features=UseOzonePlatform --ozone-platform=wayland
+
+# Notification Manager
+exec --no-startup-id swaync
+
+bindsym $mod+n exec swaync-client --toggle-panel

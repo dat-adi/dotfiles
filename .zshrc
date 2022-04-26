@@ -36,8 +36,9 @@ alias p="paru"
 alias zshconf="nvim ~/dotfiles/.zshrc"
 alias fishconf="nvim ~/.config/fish/config.fish"
 alias qtileconf="nvim ~/.config/qtile/"
+alias swayconf="nvim ~/.config/sway/config"
 alias roficonf="nvim ~/.config/rofi/config.rasi"
-alias nvimconf="nvim ~/.config/nvim/init.vim"
+alias nvimconf="nvim ~/.config/nvim/"
 alias reload="source ~/dotfiles/.zshrc"
 
 # Setting up SSH for git?
