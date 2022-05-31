@@ -35,6 +35,11 @@ default_border pixel 2
 exec alsactl --file ~/.config/asound.state restore
 exec pulseaudio &
 exec emacs --daemon
+exec --no-startup-id swaync
+
+# Auto-start Applications
+exec element-desktop --enable-features=UseOzonePlatform --ozone-platform=wayland
+
 #
 # Example configuration:
 #
@@ -90,6 +95,9 @@ input type:touchpad {
 
     # Open up the browser
     bindsym $mod+b exec $browser
+
+    # Notification Control
+    bindsym $mod+n exec swaync-client --toggle-panel
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -280,10 +288,3 @@ bar {
 
 include /etc/sway/config.d/*
 
-# Auto-start Applications
-exec element-desktop --enable-features=UseOzonePlatform --ozone-platform=wayland
-
-# Notification Manager
-exec --no-startup-id swaync
-
-bindsym $mod+n exec swaync-client --toggle-panel
