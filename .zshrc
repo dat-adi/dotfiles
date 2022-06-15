@@ -5,7 +5,7 @@ export PATH="$HOME/bin:/home/dat-adi/.local/bin:$PATH"
 export ZSH="/home/dat-adi/.oh-my-zsh"
 
 # Plugins for zsh
-plugins=(git fzf zsh-autosuggestions fasd)
+plugins=(zoxide git fzf zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -24,6 +24,7 @@ alias ls='exa'
 alias sl='exa -la'
 alias grep='rg'
 alias rm='trash-put'
+alias cd='z'
 
 # editors
 alias vi='nvim'
@@ -40,6 +41,11 @@ alias swayconf="nvim ~/.config/sway/config"
 alias roficonf="nvim ~/.config/rofi/config.rasi"
 alias nvimconf="nvim ~/.config/nvim/"
 alias reload="source ~/dotfiles/.zshrc"
+
+# system performance changers
+alias cpu-max='tuned-adm profile latency-performance'
+alias cpu-balanced='tuned-adm profile balanced'
+alias cpu-min='tuned-adm profile laptop-battery-powersave'
 
 # Setting up SSH for git?
 export SSH_ENV="$HOME/.ssh/environment"
@@ -89,7 +95,6 @@ fi
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 eval "$(starship init zsh)"
-eval "$(fasd --init auto)"
 
 if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
   exec sway

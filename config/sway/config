@@ -51,10 +51,10 @@ exec element-desktop --enable-features=UseOzonePlatform --ozone-platform=wayland
 #
 # Example configuration:
 #
-exec swayidle -w \
-         timeout 300 'swaylock -i /home/dat-adi/Pictures/Wallpapers/HornetFight1080p.jpg' \
-         timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-         before-sleep 'swaylock -i /home/dat-adi/Pictures/Wallpapers/HornetFight1080p.jpg'
+# exec swayidle -w \
+#          timeout 300 'swaylock -i /home/dat-adi/Pictures/Wallpapers/HornetFight1080p.jpg' \
+#          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+#          before-sleep 'swaylock -i /home/dat-adi/Pictures/Wallpapers/HornetFight1080p.jpg'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -110,7 +110,7 @@ input type:touchpad {
     bindsym $mod+Shift+r reload
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+    bindsym $mod+Shift+e exec swaynag -t warning -m 'Onee-chan, you trying to exit sway?' -B 'Yes, exit sway' 'swaymsg exit'
 #
 # Moving around:
 #
@@ -138,8 +138,6 @@ input type:touchpad {
 #
 # Workspaces:
 #
-    # Workspace opts
-    workspace_auto_back_and_forth yes
     # Switch to workspace
     bindsym $mod+1 workspace number 1
     bindsym $mod+2 workspace number 2
@@ -182,14 +180,15 @@ input type:touchpad {
     assign [class="firefox"] 3
     assign [class="element"] 8
     assign [class="Element"] 8
+    assign [class="element-desktop"] 8
 #
 # Layout stuff:
 #
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits
     # respectively.
-    # bindsym $mod+b splith
-    # bindsym $mod+v splitv
+    bindsym $mod+ctrl+v splith
+    bindsym $mod+ctrl+h splitv
 
     # Switch the current container between different layout styles
     # bindsym $mod+t layout stacking
