@@ -28,6 +28,7 @@ alias cd='z'
 
 # editors
 alias vi='nvim'
+alias hx='helix'
 alias :w='clear'
 
 # AUR helper

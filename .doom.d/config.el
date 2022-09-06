@@ -10,6 +10,7 @@
       doom-big-font (font-spec :family "Source Code Pro" :size 19))
 
 (setq org-agenda-files (quote("~/Documents/org/tasks.org"
+                              "~/Documents/org/timetable.org"
                               "~/Documents/org/meetings.org"))
       org-deadline-warning-days 7
       org-directory "~/Documents/org/")

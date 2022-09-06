@@ -34,10 +34,13 @@ This mostly setting up the directory to look into, and the deadline warning days
 
 #+begin_src emacs-lisp
 (setq org-agenda-files (quote("~/Documents/org/tasks.org"
+                              "~/Documents/org/timetable.org"
                               "~/Documents/org/meetings.org"))
       org-deadline-warning-days 7
       org-directory "~/Documents/org/")
 #+end_src
+
+#+RESULTS:
 
 * Elfeed
 I need to set up an RSS reader for feeds that I wish to follow, so, here's some configuration that I need to go through in order to do so.
