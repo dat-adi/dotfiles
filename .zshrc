@@ -17,9 +17,9 @@ export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
 
 # editor preference for local and remote session
 if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='nvim'
-else
   export EDITOR='vim'
+else
+  export EDITOR='nvim'
 fi
 
 # syntax highlighting

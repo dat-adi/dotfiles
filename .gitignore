@@ -66,3 +66,14 @@ config/mpd/state
 config/gh/*
 config/nvim/lua/**/*.lua
 **/*.log
+browser/firefox/
+config/blender/
+config/calibre/
+config/helix/
+config/jgit/
+config/libvirt/
+config/menus/
+config/nvim/lua/nvim-lsp-installer/
+config/syncplay.ini
+config/termshark/
+config/torbrowser/
