@@ -9,7 +9,6 @@
     ~/.config: config
     ~/.tmux.conf: tmux.conf
     ~/.Xresources: .Xresources
-    ~/.xprofile: xprofile
     ~/.gitconfig: gitconfig
     ~/.bash_profile: bash_profile
     ~/.aliases: .bash_aliases
@@ -23,6 +22,8 @@
     ~/.vimrc: .vimrc
     ~/.mbsyncrc: config/mu4e/mbsyncrc
     ~/.zshrc: .zshrc
+    ~/.zshenv: .zshenv
+    ~/.zshaliases: .zshaliases
     ~/.scripts: .scripts
 
 - shell:

@@ -1,0 +1,34 @@
+# files
+alias cat='bat -p'
+alias ls='exa'
+alias sl='exa -la'
+alias grep='rg'
+alias rm='trash-put'
+alias cd='z'
+
+# editors
+alias vi='nvim'
+alias hx='helix'
+alias :w='clear'
+
+# AUR helper
+alias p="paru"
+
+# configuration shortcuts
+alias zshconf="nvim ~/dotfiles/.zshrc"
+alias fishconf="nvim ~/.config/fish/config.fish"
+alias qtileconf="nvim ~/.config/qtile/"
+alias swayconf="nvim ~/.config/sway/config"
+alias roficonf="nvim ~/.config/rofi/config.rasi"
+alias nvimconf="nvim ~/.config/nvim/"
+alias reload="source ~/dotfiles/.zshrc"
+alias gh="firefox https://github.com/dat-adi"
+alias cdt="cd /tmp/"
+
+# listening to the network
+alias listen='tshark -i wlp4s0 -w /tmp/testing.pcapng'
+
+# system performance changers
+alias cpu-max='tuned-adm profile latency-performance'
+alias cpu-balanced='tuned-adm profile balanced'
+alias cpu-min='tuned-adm profile laptop-battery-powersave'
