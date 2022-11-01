@@ -39,6 +39,7 @@ exec --no-startup-id swaync
 
 # Auto-start Applications
 exec element-desktop --enable-features=UseOzonePlatform --ozone-platform=wayland
+exec thunderbird
 
 #
 # Example configuration:
@@ -178,9 +179,8 @@ input type:touchpad {
  
     # Assigning applications to workspaces
     assign [class="firefox"] 3
-    assign [class="element"] 8
+    assign [class="thunderbird"] 9
     assign [class="Element"] 8
-    assign [class="element-desktop"] 8
 #
 # Layout stuff:
 #

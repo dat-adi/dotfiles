@@ -3,7 +3,7 @@
 #+DESCRIPTION: A journey of dotfile modification and updates
 #+OPTIONS: \n:t
 
-Note: This README progressively gets longer and longer with my paragraphs of entries. I'll attempt to make a blog and perhaps migrate everything there, but for now, I recommend that you save yourself some time and scrolling, by using the index to access the entries.
+Note: I've managed to successfully migrate these files into my [[https://datadi.murgi.org][website]] and recommend that you instead go through this README over there. I'll be maintaining that a lot more and it's relatively a lot more readable and cleaner, props to Hugo & Congo.
 
 * Table of Contents :toc:
 - [[#what-is-this-repository-for][What is this repository for?]]
