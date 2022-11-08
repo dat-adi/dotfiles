@@ -31,3 +31,5 @@ eval "$(starship init zsh)"
 if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
   exec sway
 fi
+
+add-zsh-hook -Uz chpwd(){ source <(tea -Eds) }  #tea
