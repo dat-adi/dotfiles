@@ -24,7 +24,6 @@ require("base.keybinds")
 require("palenightfall").setup()
 
 -- LSP configuration
-require("lsp")
-require("completion")
 require("treesitter")
 require("statusbar")
+require("lsp")

@@ -4,9 +4,6 @@ vim.call('plug#begin', '~/.config/nvim/plugged')
 
 Plug 'ap/vim-css-color'
 Plug 'neovim/nvim-lspconfig'
-Plug 'williamboman/nvim-lsp-installer'
-Plug 'glepnir/lspsaga.nvim'
-Plug 'L3MON4D3/LuaSnip'
 
 Plug 'JoosepAlviste/palenightfall.nvim'
 Plug 'ryanoasis/vim-devicons'
