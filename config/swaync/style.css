@@ -2,11 +2,11 @@
  * vim: ft=less
  */
 
-@define-color cc-bg rgba(0, 0, 0, 0.7);
+@define-color cc-bg rgba(42, 42, 42, 0.8);
 
 @define-color noti-border-color rgba(255, 255, 255, 0.15);
-@define-color noti-bg rgb(48, 48, 48);
-@define-color noti-bg-hover rgb(56, 56, 56);
+@define-color noti-bg rgba(55, 55, 55, 0.8);
+@define-color noti-bg-hover rgba(65, 65, 65, 0.8);
 @define-color noti-bg-focus rgba(68, 68, 68, 0.6);
 @define-color noti-close-bg rgba(255, 255, 255, 0.1);
 @define-color noti-close-bg-hover rgba(255, 255, 255, 0.15);
@@ -14,19 +14,37 @@
 @define-color bg-selected rgb(0, 128, 255);
 
 .notification-row {
+  transition: all 200ms ease;
   outline: none;
+  margin-bottom: 4px;
+  border-radius: 12px;
 }
 
-.notification-row:focus,
-.notification-row:hover {
-  background: @noti-bg-focus;
+.control-center .notification-row:focus,
+.control-center .notification-row:hover {
+  opacity: 1;
+  background: transparent;
+}
+
+.notification-row:focus .notification,
+.notification-row:hover .notification {
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 0px 0px 3px @bg-selected;
+}
+
+.control-center .notification {
+  box-shadow: none;
+}
+
+.control-center .notification-row {
+  opacity: 0.5;
 }
 
 .notification {
+  transition: all 200ms ease;
   border-radius: 12px;
-  margin: 6px 12px;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 3px 1px rgba(0, 0, 0, 0.7),
-    0 2px 6px 2px rgba(0, 0, 0, 0.3);
+  margin: 6px 6px;
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.5);
   padding: 0;
 }
 
@@ -36,13 +54,11 @@
   padding: 6px;
   border-radius: 12px;
 }
-
 .normal {
   background: green;
   padding: 6px;
   border-radius: 12px;
 }
-
 .critical {
   background: red;
   padding: 6px;
@@ -63,7 +79,7 @@
   padding: 0;
   border-radius: 100%;
   margin-top: 10px;
-  margin-right: 16px;
+  margin-right: 10px;
   box-shadow: none;
   border: none;
   min-width: 24px;
@@ -129,17 +145,25 @@
 }
 
 .summary {
+  font-size: 16px;
+  font-weight: bold;
+  background: transparent;
   color: white;
   text-shadow: none;
 }
 
 .time {
+  font-size: 16px;
+  font-weight: bold;
+  background: transparent;
   color: white;
   text-shadow: none;
   margin-right: 18px;
 }
 
 .body {
+  font-size: 15px;
+  font-weight: normal;
   background: transparent;
   color: white;
   text-shadow: none;
@@ -180,15 +204,13 @@
   border-radius: 12px;
 }
 
-/* The .control-center Window.
- * Can't apply padding and margin so may be easier to use "> box" instead
- */
 .control-center {
   background: @cc-bg;
-}
-
-/* The first control-center child. May be easier to style this than .control-center */
-.control-center > box {
+  border-radius: 12px;
+  background-clip: border-box;
+  padding: 4px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 3px 1px rgba(0, 0, 0, 0.7),
+    0 2px 6px 2px rgba(0, 0, 0, 0.3);
 }
 
 .control-center-list {
@@ -201,5 +223,71 @@
 
 /* Window behind control center and on all other monitors */
 .blank-window {
-  background: alpha(black, 0.25);
+  background: transparent;
+}
+
+/*** Widgets ***/
+
+/* Title widget */
+.widget-title {
+  margin: 8px;
+  font-size: 1.5rem;
+}
+.widget-title > button {
+  font-size: initial;
+  color: white;
+  text-shadow: none;
+  background: @noti-bg;
+  border: 1px solid @noti-border-color;
+  box-shadow: none;
+  border-radius: 12px;
+}
+.widget-title > button:hover {
+  background: @noti-bg-hover;
+}
+
+/* DND widget */
+.widget-dnd {
+  margin: 8px;
+  font-size: 1.1rem;
+}
+.widget-dnd > switch {
+  font-size: initial;
+  border-radius: 12px;
+  background: @noti-bg;
+  border: 1px solid @noti-border-color;
+  box-shadow: none;
+}
+.widget-dnd > switch:checked {
+  background: @bg-selected;
+}
+.widget-dnd > switch slider {
+  background: @noti-bg-hover;
+  border-radius: 12px;
+}
+
+/* Label widget */
+.widget-label {
+  margin: 8px;
+}
+.widget-label > label {
+  font-size: 1.1rem;
+}
+
+/* Mpris widget */
+.widget-mpris {
+  /* The parent to all players */
+}
+.widget-mpris-player {
+  padding: 8px;
+  margin: 8px;
+  background-color: @noti-bg;
+  border-radius: 12px;
+}
+.widget-mpris-title {
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+.widget-mpris-subtitle {
+  font-size: 1.1rem;
 }
