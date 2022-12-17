@@ -14,7 +14,7 @@
 -------------------------------------------
 
 -- Greeting message
-print("~yamete onee-sama~")
+print("Matteyo Onee-sama")
 
 -- Importing base configurations
 require("base.plugins")
