@@ -12,7 +12,7 @@ alias hx='helix'
 alias :w='clear'
 
 # AUR helper
-alias p="paru"
+alias p="yay"
 
 # configuration shortcuts
 alias zshconf="nvim ~/dotfiles/.zshrc"
