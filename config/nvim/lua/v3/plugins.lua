@@ -22,7 +22,6 @@ local plugins = {
 	  'rose-pine/neovim',
       lazy = false, -- make sure to load during startup
       priority = 1000,
-	  as = 'rose-pine',
 	  config = function()
           -- loading the color scheme here
 		  vim.cmd('colorscheme rose-pine')
@@ -43,13 +42,20 @@ local plugins = {
   'theprimeagen/harpoon',
   'mbbill/undotree',
 
+  -- Tmux
+  'preservim/vimux',
+
   -- LSP Support
   'neovim/nvim-lspconfig',
   'williamboman/mason.nvim',
   'williamboman/mason-lspconfig.nvim',
 
   -- Autocompletion
+  'hrsh7th/nvim-cmp',
   'hrsh7th/cmp-nvim-lsp',
+
+  -- Snippets
+  'L3MON4D3/LuaSnip'
 }
 
 local opts = {}

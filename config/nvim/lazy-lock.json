@@ -1,14 +1,17 @@
 {
+  "LuaSnip": { "branch": "master", "commit": "8d6c0a93dec34900577ba725e91c44b8d3ca1f45" },
   "cmp-nvim-lsp": { "branch": "main", "commit": "0e6b2ed705ddcff9738ec4ea838141654f12eeef" },
   "harpoon": { "branch": "master", "commit": "f7040fd0c44e7a4010369136547de5604b9c22a1" },
   "lazy.nvim": { "branch": "main", "commit": "5c89dc52f42e5058a46b0912d7d9042f564e44e0" },
   "mason-lspconfig.nvim": { "branch": "main", "commit": "7034065099c1665143091c7282b3b1b8f0b23783" },
   "mason.nvim": { "branch": "main", "commit": "b20a4bd32247411d39d8dd5c94e2e5c87d98556d" },
   "neovim": { "branch": "main", "commit": "667851c05f87874826084474b5f04829940b6451" },
+  "nvim-cmp": { "branch": "main", "commit": "777450fd0ae289463a14481673e26246b5e38bf2" },
   "nvim-lspconfig": { "branch": "master", "commit": "eddaef928c1e1dd79a96f5db45f2fd7f2efe7ea0" },
   "nvim-treesitter": { "branch": "master", "commit": "481d1eda24eed1f5184c38f16960fd99c2bb9a37" },
   "plenary.nvim": { "branch": "master", "commit": "9ac3e9541bbabd9d73663d757e4fe48a675bb054" },
   "telescope.nvim": { "branch": "master", "commit": "b79cd6c88b3d96b0f49cb7d240807cd59b610cd8" },
   "undotree": { "branch": "master", "commit": "485f01efde4e22cb1ce547b9e8c9238f36566f21" },
-  "vim-fugitive": { "branch": "master", "commit": "e6651a79facf5cc2b7c554fdc19eb8a9fe89602c" }
+  "vim-fugitive": { "branch": "master", "commit": "e6651a79facf5cc2b7c554fdc19eb8a9fe89602c" },
+  "vimux": { "branch": "master", "commit": "616fcb4799674a7a809b14ca2dc155bb6ba25788" }
 }
