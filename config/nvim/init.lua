@@ -4,7 +4,7 @@
 --
 
 -- Importing new configuration
-require("v2")
+require("v3")
 
 -- Greeting message
 print("Matteyo Onee-sama")
