@@ -76,3 +76,12 @@ config/nvim/lua/nvim-lsp-installer/
 config/syncplay.ini
 config/termshark/
 config/torbrowser/
+config/GIMP/
+config/SuperCollider/
+config/aseprite/
+config/balena-etcher-electron/
+config/emacs/
+config/gtk-2.0/
+config/spotify-tui/
+config/yelp/
+
