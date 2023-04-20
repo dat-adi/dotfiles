@@ -64,7 +64,6 @@ config/mpd/mpd.db
 config/mpd/mpd.log
 config/mpd/state
 config/gh/*
-config/nvim/lua/**/*.lua
 **/*.log
 browser/firefox/
 config/blender/
