@@ -28,14 +28,12 @@ local plugins = {
 	  end,
   },
 
-
   -- Git and version control
   'tpope/vim-fugitive',
 
   -- File navigation and changes
   {
 	  'nvim-telescope/telescope.nvim',
-      tag = '0.1.0',
 	  dependencies = { {'nvim-lua/plenary.nvim'} }
   },
   'nvim-treesitter/nvim-treesitter',
@@ -55,7 +53,22 @@ local plugins = {
   'hrsh7th/cmp-nvim-lsp',
 
   -- Snippets
-  'L3MON4D3/LuaSnip'
+  'L3MON4D3/LuaSnip',
+
+  -- Go Assistance
+  {
+      "ray-x/go.nvim",
+      dependencies = {
+          "ray-x/guihua.lua",
+          "neovim/nvim-lspconfig",
+          "nvim-treesitter/nvim-treesitter",
+      },
+      config = function()
+          require("go").setup()
+      end,
+      event = {"CmdlineEnter"},
+      ft = {"go", "gomod"},
+  }
 }
 
 local opts = {}
