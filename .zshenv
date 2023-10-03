@@ -4,6 +4,9 @@
 # PATH change
 export PATH="$HOME/bin:/home/dat-adi/.local/bin:$PATH"
 
+# Go path
+export PATH="$PATH:$(go env GOBIN):$(go env GOPATH)/bin"
+
 # oh-my-zsh installation path
 export ZSH="/home/dat-adi/.oh-my-zsh"
 

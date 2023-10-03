@@ -33,3 +33,10 @@ if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
 fi
 
 add-zsh-hook -Uz chpwd(){ source <(tea -Eds) }  #tea
+
+# bun completions
+[ -s "/home/dat-adi/.bun/_bun" ] && source "/home/dat-adi/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

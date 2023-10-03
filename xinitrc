@@ -8,7 +8,15 @@ sysmodmap=/etc/X11/xinit/.Xmodmap
 # merge in defaults and keymaps
 
 if [ -f $sysresources ]; then
+
+
+
+
+
+
+
     xrdb -merge $sysresources
+
 fi
 
 if [ -f $sysmodmap ]; then
@@ -16,19 +24,22 @@ if [ -f $sysmodmap ]; then
 fi
 
 if [ -f "$userresources" ]; then
+
+
+
+
+
+
+
     xrdb -merge "$userresources"
+
 fi
 
 if [ -f "$usermodmap" ]; then
     xmodmap "$usermodmap"
 fi
 
-# Fonts
-xset +fp /usr/share/fonts/TTF/
-xset +fp /usr/share/fonts/OTF/
-
-
-# start some programs
+# start some nice programs
 
 if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  for f in /etc/X11/xinit/xinitrc.d/?*.sh ; do
@@ -37,14 +48,8 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
-export SSH_AUTH_SOCK
-
-xrandr --output eDP-1 --primary --mode 1920x1080 --rate 60.00 --output HDMI-1 --mode 3440x1440 --rate 60.00 --right-of eDP-1
-setroot --restore &
-
-picom --config ~/.config/picom/picom.conf --experimental-backends -b &
-alsactl --file ~/.config/asound.state restore
-pulseaudio &
-flameshot &
-exec qtile start
+twm &
+xclock -geometry 50x50-1+1 &
+xterm -geometry 80x50+494+51 &
+xterm -geometry 80x20+494-0 &
+exec xterm -geometry 80x66+0+0 -name login
