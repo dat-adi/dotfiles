@@ -28,7 +28,7 @@ exec wl-paste -t text --watch clipman store --no-persist
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/dat-adi/Pictures/Wallpapers/soulframe.jpg fill
+output * bg /home/dat-adi/Pictures/Wallpapers/white-mountains.jpg fill
 font pango:SourceCodePro Medium 11
 default_border pixel 2
 
@@ -38,7 +38,6 @@ exec emacs --daemon
 exec --no-startup-id swaync
 
 # Auto-start Applications
-exec element-desktop --enable-features=UseOzonePlatform --ozone-platform=wayland
 exec thunderbird
 
 # You can get the names of your inputs by running: swaymsg -t get_inputs
