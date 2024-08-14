@@ -32,11 +32,11 @@ if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
   exec sway
 fi
 
-add-zsh-hook -Uz chpwd(){ source <(tea -Eds) }  #tea
-
 # bun completions
 [ -s "/home/dat-adi/.bun/_bun" ] && source "/home/dat-adi/.bun/_bun"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+source /home/dat-adi/.config/broot/launcher/bash/br

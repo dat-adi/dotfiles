@@ -37,8 +37,16 @@ local plugins = {
 	  dependencies = { {'nvim-lua/plenary.nvim'} }
   },
   'nvim-treesitter/nvim-treesitter',
-  'theprimeagen/harpoon',
   'mbbill/undotree',
+  {
+     "folke/trouble.nvim",
+     dependencies = { "nvim-tree/nvim-web-devicons" },
+     opts = {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+     },
+  },
 
   -- Tmux
   'preservim/vimux',
@@ -57,17 +65,17 @@ local plugins = {
 
   -- Go Assistance
   {
-      "ray-x/go.nvim",
-      dependencies = {
-          "ray-x/guihua.lua",
-          "neovim/nvim-lspconfig",
-          "nvim-treesitter/nvim-treesitter",
-      },
-      config = function()
-          require("go").setup()
-      end,
-      event = {"CmdlineEnter"},
-      ft = {"go", "gomod"},
+	  "ray-x/go.nvim",
+	  dependencies = {
+		  "ray-x/guihua.lua",
+		  "neovim/nvim-lspconfig",
+		  "nvim-treesitter/nvim-treesitter",
+	  },
+	  config = function()
+		  require("go").setup()
+	  end,
+	  event = {"CmdlineEnter"},
+	  ft = {"go", "gomod"},
   }
 }
 

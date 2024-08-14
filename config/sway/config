@@ -20,7 +20,7 @@ set $term alacritty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu wofi --show=drun --lines=5 --prompt=""
+set $menu kickoff
 
 # Clipboard
 exec wl-paste -t text --watch clipman store --no-persist

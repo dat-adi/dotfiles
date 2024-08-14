@@ -32,3 +32,6 @@ alias listen='tshark -i wlp4s0 -w /tmp/testing.pcapng'
 alias cpu-max='tuned-adm profile latency-performance'
 alias cpu-balanced='tuned-adm profile balanced'
 alias cpu-min='tuned-adm profile laptop-battery-powersave'
+
+# directory helper
+alias dir='ranger'

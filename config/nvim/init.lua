@@ -1,6 +1,6 @@
 -- 
 -- github: @dat-adi
--- website: datadi.murgi.org
+-- website: heltale.com
 --
 
 -- Importing new configuration
