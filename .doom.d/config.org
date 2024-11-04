@@ -6,7 +6,7 @@
 Identification can be done by setting some global variables to identify the person.
 
 #+begin_src emacs-lisp
-(setq user-full-name "G V Datta Adithya"
+(setq user-full-name "Venkata Datta Adithya Gadhamsetty"
       user-mail-address "dat.adithya@gmail.com")
 (setq display-line-numbers-type t)
 #+end_src
@@ -33,9 +33,7 @@ A few settings to initialize and configure =org-mode= for Emacs.
 This mostly setting up the directory to look into, and the deadline warning days and the such.
 
 #+begin_src emacs-lisp
-(setq org-agenda-files (quote("~/Documents/org/tasks.org"
-                              "~/Documents/org/timetable.org"
-                              "~/Documents/org/meetings.org"))
+(setq org-agenda-files (quote("~/Documents/org/tasks.org"))
       org-deadline-warning-days 7
       org-directory "~/Documents/org/")
 #+end_src

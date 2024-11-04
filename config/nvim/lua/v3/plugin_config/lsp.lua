@@ -2,7 +2,8 @@ require('mason-lspconfig').setup({
     ensure_installed = {
         'rust_analyzer',
         'eslint',
-        'lua_ls'
+        'lua_ls',
+        'tinymist'
     }
 })
 

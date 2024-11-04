@@ -1,4 +1,4 @@
-(setq user-full-name "G V Datta Adithya"
+(setq user-full-name "Venkata Datta Adithya Gadhamsetty"
       user-mail-address "dat.adithya@gmail.com")
 (setq display-line-numbers-type t)
 
@@ -9,9 +9,7 @@
       doom-unicode-font (font-spec :family "Source Code Pro" :size 12)
       doom-big-font (font-spec :family "Source Code Pro" :size 19))
 
-(setq org-agenda-files (quote("~/Documents/org/tasks.org"
-                              "~/Documents/org/timetable.org"
-                              "~/Documents/org/meetings.org"))
+(setq org-agenda-files (quote("~/Documents/org/tasks.org"))
       org-deadline-warning-days 7
       org-directory "~/Documents/org/")
 
