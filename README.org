@@ -3,7 +3,7 @@
 #+DESCRIPTION: A journey of dotfile modification and updates
 #+OPTIONS: \n:t
 
-Note: I've managed to successfully migrate these files into my [[https://datadi.murgi.org][website]] and recommend that you instead go through this README over there. I'll be maintaining that a lot more and it's relatively a lot more readable and cleaner, props to Hugo & Congo.
+Note: I've managed to successfully migrate these files into my [[https://heltale.com/posts/dotfiles/][website]] and recommend that you instead go through this README over there. I'll be maintaining that a lot more and it's relatively a lot more readable and cleaner, props to Hugo & Congo.
 
 * Table of Contents :toc:
 - [[#what-is-this-repository-for][What is this repository for?]]
